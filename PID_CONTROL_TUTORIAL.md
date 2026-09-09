@@ -528,10 +528,14 @@ self.previous_time = 0
 - **heading_integral_error**: Accumulates for I term (reset each drive, not each call)
 - **previous_time**: Tracks time between measurements for accurate dt calculation
 
-**Critical design choice**: These are instance variables, not local variables in `drive_straight()`:
-- **Advantage**: Persists across loop iterations
-- **Disadvantage**: Could cause issues if methods called out of order
-- **Better practice**: Reset these at start of `drive_straight()` (which it does on line 117)
+**Design pattern**: These are instance variables, stored between loop iterations:
+- **Advantage**: Persists across loop iterations without parameter passing
+- **Potential issue**: Could cause state carryover if methods called out of order
+- **Solution implemented**: Dedicated `reset()` method clears all state variables at start of each drive sequence
+  - Called in `__init__` during construction
+  - Called at start of `drive_straight()` to ensure clean state
+  - Can be called explicitly by user if needed between operations
+- **Result**: ✓ Best practice achieved - no state carryover issues, clean encapsulation
 
 ---
 
