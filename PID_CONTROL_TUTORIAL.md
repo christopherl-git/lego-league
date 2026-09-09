@@ -1262,34 +1262,90 @@ Result: Perfect match despite motor differences ✓
 - Handles edge cases (short distance, dt=0, angle wrap)
 - Follows Python conventions
 - Good separation of concerns (init, drive, rotate methods)
+- Imports properly sorted and organized
+- Specific exception handling with informative messages
+- Docstring examples for quick reference
+- Dedicated `reset()` method for clean state management
 
-### Areas for Improvement ⚠
-- Unused `kp_speed` variable (line 60)
-- Generic exception handling (line 311) - could be more specific
-- Imports not sorted (line 3-7)
-- `drive_straight` doesn't reset log data initialization clearly
-- Could benefit from docstring examples
+### Implemented Improvements ✅
 
-### Suggested Refactoring
+**1. Import Organization**
 ```python
-# Reset method for reusability
-def reset(self):
-    """Reset controller state for new drive."""
-    self.left_motor.reset_angle()
-    self.right_motor.reset_angle()
-    self.hub.imu.reset_heading(0)
-    self.previous_heading_error = 0
-    self.heading_integral_error = 0
-    self.log_data = []
+# Before: Mixed order
+from pybricks.hubs import PrimeHub
+from pybricks.motors import Motor
+from pybricks.parameters import Port, Direction, Stop
+from pybricks.tools import wait, StopWatch
+import math
 
-# More specific exception handling
-try:
-    drive_straight(500, 200)
+# After: Sorted by category and alphabetically
+import math
+
+from pybricks.hubs import PrimeHub
+from pybricks.motors import Motor
+from pybricks.parameters import Direction, Port, Stop
+from pybricks.tools import StopWatch, wait
+```
+
+**2. Removed Unused Variable**
+- Deleted `self.kp_speed = 1.2` (was defined but never used)
+- Reduces confusion and future maintenance burden
+
+**3. Enhanced Docstrings with Examples**
+```python
+def __init__(self, hub, left_motor, right_motor, wheel_diameter=WHEEL_DIAMETER_LARGE):
+    """
+    Initialize the PID controller.
+    
+    Example:
+        hub = PrimeHub()
+        left = Motor(Port.A, Direction.COUNTERCLOCKWISE)
+        right = Motor(Port.B, Direction.CLOCKWISE)
+        drive = StraightDrivePID(hub, left, right)
+        drive.drive_straight(distance_mm=500, target_speed_mmps=200)
+    """
+
+def drive_straight(self, distance_mm, target_speed_mmps, stop_type=Stop.HOLD):
+    """
+    Drive the robot in a straight line with acceleration and deceleration.
+    
+    Example:
+        drive.drive_straight(distance_mm=500, target_speed_mmps=200)
+        drive.drive_straight(distance_mm=1000, target_speed_mmps=150, stop_type=Stop.COAST)
+    """
+```
+
+**4. Specific Exception Handling**
+```python
+# Before: Generic catch-all
+except Exception as e:
+    print(f"Error: {e}")
+
+# After: Specific handlers with context
 except ZeroDivisionError as e:
     print(f"Timing error: {e}")
+except RuntimeError as e:
+    print(f"Motor or sensor error: {e}")
 except Exception as e:
     print(f"Unexpected error: {e}")
 ```
+
+**5. Clear State Reset**
+- Dedicated `reset()` method centralizes all initialization logic
+- Called in `__init__` and at start of `drive_straight()`
+- `log_data` reset is explicit and clear
+
+### Why These Improvements Matter
+
+| Improvement | Benefit | Learning |
+|------------|---------|----------|
+| **Sorted imports** | PEP 8 compliance, professional practice | Code standards |
+| **No unused variables** | Reduced confusion, clear intent | Code discipline |
+| **Docstring examples** | Students learn faster, less guessing | Documentation value |
+| **Specific exceptions** | Better debugging, informative messages | Error handling best practices |
+| **Clear reset method** | Reusable, maintainable code | Design patterns |
+
+These improvements transform the code from "working" to "professional grade" – the kind of code you'd see in industry robotics projects.
 
 ---
 
