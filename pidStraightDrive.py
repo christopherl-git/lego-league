@@ -145,8 +145,8 @@ class StraightDrivePID:
 
             # Determine current phase and calculate desired speed
             if current_distance < distance_accel:
-                # Acceleration phase
-                desired_speed = self.max_acceleration * (current_distance / distance_accel) * (current_time / 1000)
+                # Acceleration phase: v = a * t (constant acceleration from rest)
+                desired_speed = self.max_acceleration * (current_time / 1000)
                 desired_speed = min(desired_speed, target_speed_mmps)
             elif current_distance < distance_accel + distance_constant:
                 # Constant speed phase

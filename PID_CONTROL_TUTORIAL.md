@@ -670,27 +670,33 @@ current_distance = (left_distance + right_distance) / 2
 
 ```python
 if current_distance < distance_accel:
-    # Acceleration phase
-    desired_speed = self.max_acceleration * (current_distance / distance_accel) * (current_time / 1000)
+    # Acceleration phase: v = a * t (constant acceleration from rest)
+    desired_speed = self.max_acceleration * (current_time / 1000)
     desired_speed = min(desired_speed, target_speed_mmps)
 ```
 
 **Review - Acceleration Phase**:
 
-**Formula analysis**:
-```python
-desired_speed = accel × (current_distance / distance_accel) × (current_time / 1000)
+**Physics formula used** (Kinematic equation):
 ```
+v = a × t
+```
+Where:
+- v = velocity (mm/s)
+- a = acceleration (mm/s²)
+- t = time (seconds)
 
-This calculates speed at current point in acceleration phase:
-```
-speed = acceleration × time (for constant acceleration from rest)
-```
+**Why this is correct**:
+- For constant acceleration from rest (v₀ = 0), speed grows linearly with time
+- Example: accel = 100 mm/s², time = 2 seconds → speed = 100 × 2 = 200 mm/s
+- The `min(desired_speed, target_speed_mmps)` ensures we don't exceed target
 
-**Critical issue** ⚠️:
-- Line 137 has a confusing formula with two terms
-- Better would be: `desired_speed = self.max_acceleration * current_time / 1000`
-- The `(current_distance / distance_accel)` factor seems intended as safeguard but isn't necessary
+**Code improvement** ✓:
+- Previous version: `desired_speed = accel × (current_distance / distance_accel) × (current_time / 1000)`
+- Problem: Confusing with two terms mixing distance and time
+- Fixed version: `desired_speed = accel × (current_time / 1000)`
+- Why the distance factor was unnecessary: We already check `if current_distance < distance_accel` to know we're in acceleration phase. Distance doesn't affect the calculation.
+- Clearer: Time-based formula is simpler and matches the physics directly
 
 ```python
 elif current_distance < distance_accel + distance_constant:
