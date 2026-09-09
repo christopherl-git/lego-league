@@ -452,21 +452,53 @@ def __init__(self, hub, left_motor, right_motor, wheel_diameter=WHEEL_DIAMETER_L
   - **Why**: Saves computation every 10ms (runs 100+ times per drive)
   - **Cost**: 1 multiplication vs. 100+ multiplications
 
-**Sensor Reset (Lines 46-49)**:
+**Reset Method (Lines 46-60 & 95-105)**:
 
 ```python
-self.left_motor.reset_angle()
-self.right_motor.reset_angle()
-self.hub.imu.reset_heading(0)
+def reset(self):
+    """Reset controller state for a new drive sequence."""
+    # Reset motor positions and gyro
+    self.left_motor.reset_angle()
+    self.right_motor.reset_angle()
+    self.hub.imu.reset_heading(0)
+    
+    # Reset PID state variables
+    self.previous_heading_error = 0
+    self.heading_integral_error = 0
+    self.previous_time = 0
+    self.log_data = []
 ```
 
-**Review**:
+**Review - Design Improvement**:
 - **Necessary**: Motors accumulate absolute angle since startup. Must reset to track *relative* distance.
-- **Timing**: Done in `__init__`, not in `drive_straight()`. Why?
-  - If reset in `drive_straight()`, multiple drives work sequentially
-  - If reset in `__init__` only, user must create new controller for each robot (overkill)
+- **Reusable pattern**: Dedicated `reset()` method can be called multiple times
+  - `__init__` calls `reset()` once (clean initialization)
+  - `drive_straight()` calls `reset()` at start (ensures clean state each drive)
+  - User can call `reset()` manually between drives if needed
   
-**Decision trade-off**: Current design assumes one drive per controller instance. Could be improved.
+**Why this is better**:
+- ✓ Single controller instance can run multiple drives
+- ✓ Cleaner separation of concerns (one method handles all reset logic)
+- ✓ User has explicit control: can call `reset()` before each drive or between drives
+- ✓ Debugging easier: can see exactly when state is cleared
+
+**Example usage**:
+```python
+drive = StraightDrivePID(hub, left_motor, right_motor)
+
+# First drive (reset called in __init__)
+drive.drive_straight(500, 200)
+
+# Second drive (reset called at start of drive_straight)
+drive.drive_straight(300, 150)
+
+# Or explicit reset if doing something else between drives
+drive.rotate_to_heading(90)
+drive.reset()  # Optional: explicitly clear state
+drive.drive_straight(400, 200)
+```
+
+**This solves the earlier trade-off** - now you can reuse one controller instance instead of creating a new one for each robot.
 
 **PID Parameters (Lines 54-60)**:
 

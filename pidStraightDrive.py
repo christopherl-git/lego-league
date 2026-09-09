@@ -43,11 +43,6 @@ class StraightDrivePID:
         self.wheel_diameter = wheel_diameter
         self.wheel_circumference = math.pi * wheel_diameter
 
-        # Reset motor positions and gyro
-        self.left_motor.reset_angle()
-        self.right_motor.reset_angle()
-        self.hub.imu.reset_heading(0)
-
         # ====================================================================
         # PID PARAMETERS - TUNE THESE FOR YOUR ROBOT
         # ====================================================================
@@ -66,16 +61,32 @@ class StraightDrivePID:
         self.max_deceleration = 150  # mm/s² - maximum deceleration
 
         # ====================================================================
+        # DEBUGGING/MONITORING
+        # ====================================================================
+        self.debug_mode = False
+        self.log_data = []
+
+        # Reset controller state
+        self.reset()
+
+    def reset(self):
+        """
+        Reset controller state for a new drive sequence.
+
+        Resets motor encoders, gyro heading, and PID state variables.
+        Call this before each drive() sequence to ensure clean state.
+        """
+        # Reset motor positions and gyro
+        self.left_motor.reset_angle()
+        self.right_motor.reset_angle()
+        self.hub.imu.reset_heading(0)
+
+        # ====================================================================
         # PID STATE VARIABLES
         # ====================================================================
         self.previous_heading_error = 0
         self.heading_integral_error = 0
         self.previous_time = 0
-
-        # ====================================================================
-        # DEBUGGING/MONITORING
-        # ====================================================================
-        self.debug_mode = False
         self.log_data = []
 
     def drive_straight(self, distance_mm, target_speed_mmps, stop_type=Stop.HOLD):
@@ -87,11 +98,13 @@ class StraightDrivePID:
             target_speed_mmps: Target speed in mm/s
             stop_type: How to stop (Stop.HOLD, Stop.COAST, Stop.BRAKE)
         """
+        # Reset state for this drive sequence
+        self.reset()
+
         # Initialize timers and tracking
         timer = StopWatch()
         start_left_angle = self.left_motor.angle()
         start_right_angle = self.right_motor.angle()
-        self.hub.imu.reset_heading(0)
 
         # Calculate total time needed based on acceleration profile
         distance_accel = (target_speed_mmps ** 2) / (2 * self.max_acceleration)
@@ -114,7 +127,6 @@ class StraightDrivePID:
             print(f"Accel: {distance_accel:.1f}mm, Constant: {distance_constant:.1f}mm, Decel: {distance_decel:.1f}mm")
             print(f"Total Time: {total_time:.1f}s")
 
-        self.log_data = []
         self.previous_time = timer.time()
 
         while True:
