@@ -1,10 +1,11 @@
 #!/usr/bin/env pybricks-micropython
 
+import math
+
 from pybricks.hubs import PrimeHub
 from pybricks.motors import Motor
-from pybricks.parameters import Port, Direction, Stop
-from pybricks.tools import wait, StopWatch
-import math
+from pybricks.parameters import Direction, Port, Stop
+from pybricks.tools import StopWatch, wait
 
 # ============================================================================
 # SPIKE PRIME WHEEL CONFIGURATION
@@ -36,6 +37,14 @@ class StraightDrivePID:
             left_motor: Left motor (Motor object)
             right_motor: Right motor (Motor object)
             wheel_diameter: Wheel diameter in mm
+
+        Example:
+            hub = PrimeHub()
+            left = Motor(Port.A, Direction.COUNTERCLOCKWISE)
+            right = Motor(Port.B, Direction.CLOCKWISE)
+            drive = StraightDrivePID(hub, left, right, wheel_diameter=WHEEL_DIAMETER_LARGE)
+            drive.calibrate_gyro()
+            drive.drive_straight(distance_mm=500, target_speed_mmps=200)
         """
         self.hub = hub
         self.left_motor = left_motor
@@ -50,9 +59,6 @@ class StraightDrivePID:
         self.kp_heading = 2.0      # Proportional gain for heading
         self.ki_heading = 0.1      # Integral gain for heading
         self.kd_heading = 0.5      # Derivative gain for heading
-
-        # Speed matching between motors (if one motor is faster)
-        self.kp_speed = 1.2        # Proportional gain for speed matching
 
         # ====================================================================
         # ACCELERATION/DECELERATION PARAMETERS
@@ -93,10 +99,19 @@ class StraightDrivePID:
         """
         Drive the robot in a straight line with acceleration and deceleration.
 
+        Uses gyro feedback to maintain heading (direction) throughout the drive.
+        Automatically handles acceleration, constant speed, and deceleration phases.
+
         Args:
             distance_mm: Distance to drive in millimeters
             target_speed_mmps: Target speed in mm/s
             stop_type: How to stop (Stop.HOLD, Stop.COAST, Stop.BRAKE)
+
+        Example:
+            drive = StraightDrivePID(hub, left_motor, right_motor)
+            drive.calibrate_gyro()
+            drive.drive_straight(distance_mm=500, target_speed_mmps=200)
+            drive.drive_straight(distance_mm=1000, target_speed_mmps=150, stop_type=Stop.COAST)
         """
         # Reset state for this drive sequence
         self.reset()
@@ -320,7 +335,15 @@ if __name__ == "__main__":
         print("\n=== All Tests Complete ===")
         hub.speaker.beep(1000, 100)
 
+    except ZeroDivisionError as e:
+        print(f"Timing error: {e}")
+        left_motor.stop()
+        right_motor.stop()
+    except RuntimeError as e:
+        print(f"Motor or sensor error: {e}")
+        left_motor.stop()
+        right_motor.stop()
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Unexpected error: {e}")
         left_motor.stop()
         right_motor.stop()
