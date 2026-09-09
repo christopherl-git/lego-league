@@ -289,7 +289,7 @@ The error is already improving fast!"
 
 ---
 
-### Problem**: Amplifies noise from sensors. Solution: Filter or average measurements.
+**Problem**: Amplifies noise from sensors. Solution: Filter or average measurements.
 
 ### Putting It Together
 
