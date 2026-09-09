@@ -175,61 +175,6 @@ If error is DECREASING QUICKLY: Large derivative → Strong damping (brake hard)
 
 ---
 
-### Understanding Derivative: The Pendulum Analogy
-
-Think about a swing at the playground:
-
-```
-Scenario 1: Swing is at the highest point
-- Not moving (speed = 0)
-- Gravity pulls gently
-- Slow correction
-
-Scenario 2: Swing is at the bottom (fastest point)
-- Moving very fast
-- Gravity pulls hard to correct
-- Fast, strong correction
-```
-
-**Why this matters**: When the system is moving fast, you need a stronger correction to prevent overshooting.
-
-In our robot:
-```
-Time 0ms:  Robot is straight (heading = 0°, error = 0°)
-Time 10ms: Robot drifted RIGHT (heading = 5°, error = -5°)
-           BUT it's STILL moving right (changing fast)
-           Derivative says: "Stop this rotation!" (brake hard)
-           
-Time 20ms: Robot drifted more RIGHT (heading = 8°, error = -8°)
-           BUT it's SLOWING DOWN (not changing as fast)
-           Derivative says: "You're slowing down" (ease off brakes)
-```
-
----
-
-### Understanding Derivative: The Hockey Puck Analogy
-
-Imagine you're trying to aim a hockey puck at a target:
-
-```
-Scenario 1: Puck is perfectly aimed (error = 0)
-No correction needed → D_term = 0 ✓
-
-Scenario 2: You realize puck is slightly off-target (error growing)
-You make small correction
-But the puck is STILL moving wrong direction (error still growing)
-You need STRONGER correction to counteract its momentum
-
-Scenario 3: Your correction works! (error shrinking)
-Puck is now moving back toward target
-BUT if you keep correcting, it'll overshoot!
-You ease off correction (negative D_term)
-```
-
-**The derivative prevents overshoot** by resisting changes.
-
----
-
 ### Understanding Derivative: Catching a Ball
 
 Imagine catching a baseball:
@@ -261,29 +206,29 @@ If error is changing FAST:
 
 ### How Derivative Stops Oscillation
 
-**Without Derivative (P and I only)**:
+**Without Derivative (P and I only)** - Like catching a fast ball with a stiff arm:
 
 ```
 Target: Straight ahead (0°)
 Robot drifts right (error = -5°)
-P-term corrects: Turn left!
-Robot turns left, overshoots to error = +5°
-P-term corrects: Turn right!
-Robot turns right, overshoots to error = -5°
-RESULT: Oscillates back and forth like crazy
+P-term corrects: Turn left! (Full strength)
+Robot overshoots to error = +5°
+P-term corrects: Turn right! (Full strength)
+Robot overshoots to error = -5°
+RESULT: Oscillates back and forth (your wrist hurts!)
 ```
 
-**With Derivative**:
+**With Derivative** - Like catching a fast ball with a flexible arm:
 
 ```
 Target: Straight ahead (0°)
-Robot drifts right (error = -5°, derror/dt = negative)
+Robot drifts right (error = -5°, but changing fast)
 P-term says: Turn left!
-D-term says: You're changing fast! Don't overshoot!
-Combined: Turn left, but not TOO much
-Robot turns left smoothly
-Reaches error = 0° without overshooting
-RESULT: Smooth correction ✓
+D-term says: "Whoa, you're moving fast! Absorb that energy!"
+Combined: Turn left, but smoothly (bend the arm)
+Robot turns left without overshooting
+Reaches error = 0° smoothly and stays there
+RESULT: Perfect correction ✓
 ```
 
 ---
