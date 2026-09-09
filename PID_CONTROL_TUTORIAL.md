@@ -498,8 +498,6 @@ drive.reset()  # Optional: explicitly clear state
 drive.drive_straight(400, 200)
 ```
 
-**This solves the earlier trade-off** - now you can reuse one controller instance instead of creating a new one for each robot.
-
 **PID Parameters (Lines 54-60)**:
 
 ```python
