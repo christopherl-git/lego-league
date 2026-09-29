@@ -9,3 +9,4 @@ Meeting resources, organized by date (YYYY-MM-DD folders), plus running referenc
 - [2026-09-15/](2026-09-15/) — Bot-fluencer presentations and the team name vote (winner: "Look it's a Giraffe!")
 - [2026-09-17/](2026-09-17/) — More bot-fluencer presentations, workstream assignments (starter bot + three Mission 1 attachments), and starter bot research
 - [2026-09-22/](2026-09-22/) — Robot design review and scoring (scoring deck + workbook), the decision to build HummerOne first, and two new bot-fluencers
+- [2026-09-29/](2026-09-29/) — Bayview Glen kickoff conference debrief (robot, programming, PID, rules, judging and inclusion takeaways), innovation project brainstorm kickoff, and the venue parking map

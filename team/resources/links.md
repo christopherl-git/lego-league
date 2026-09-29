@@ -4,6 +4,11 @@ Other resources worth keeping handy (not bot-fluencer channels — see [bot-flue
 
 ## Official
 - FIRST LEGO League: https://www.firstinspires.org/
+- FIRST Robotics Canada — FLL Challenge kickoff (runs the Bayview Glen kickoff): https://firstroboticscanada.org/fll/challenge/kickoff/
+- Always check for robot game rule updates — they can be released as late as ~5 days before an event (Jeff, head referee, Bayview Glen kickoff 2026-09-27)
+
+## Outreach / inspiration
+- FIRST Like a Girl — outreach program by FRC Team 1902 Exploding Bacon (Orlando, FL), empowering girls and women in STEM: https://explodingbacon.com/ — heard about at the Bayview Glen kickoff (2026-09-27); still to research
 
 ## PyBricks (robot programming)
 - Documentation: https://pybricks.com/

@@ -77,3 +77,9 @@ Running list of FLL YouTube/robotics creators the team follows, with what we've 
   - (Word Blocks versions of all four exist too and are his most-watched videos)
 - First to implement: TBD — the Python drive-straight video is the obvious first one for Sylvie, Brynn and Jack
 - Status: not chosen as our base robot (2026-09-22) — scored 20.5/30 in the team's design scoring, second of four. His SPIKE Prime Python videos stay on the list regardless of which robot we build
+
+## ConnecTech
+- YouTube: TBD (need link) — they also have a website, Instagram and Facebook
+- Found: FIRST Like a Girl session at the Bayview Glen kickoff (2026-09-27) — Brynn, Amelia
+- An FLL team; their members have presented workshops at past Bayview Glen kickoffs (robot building, SPIKE Prime programming)
+- First to implement: TBD — research what they post and what we can learn
