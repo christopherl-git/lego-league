@@ -4,7 +4,10 @@ Materials for the FLL Innovation Project — the judged category where the team 
 
 ## Contents
 
-Currently empty. Expect to add:
+- [topic-vote-2026-10-06.md](topic-vote-2026-10-06.md) — topic presentations, observations, and voting method
+- [topic-vote-tracker.xlsx](topic-vote-tracker.xlsx) — top-3 vote entry for 9 students with automatic tally and winner
+
+Still to add:
 - Problem definition and research notes
 - Solution design and prototypes
 - Identify-Design-Share documentation
