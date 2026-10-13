@@ -7,15 +7,19 @@ Tracks task status across workstreams. Update dates and assignments as work move
 ### Robot
 - [ ] Find the lines in front of mission models we can square up on (2026-09-29)
 - [ ] Build a proportional (Kp) line follower and tune Kp, using `robot_design/` PID material (2026-09-29)
-- [ ] Add and test the mini ball caster (it sits below the body, not on the sides) — postponed from 2026-10-01 because Ira and Fedor were out; do it next meeting
 - [ ] Document how Jordan tuned Kp and Ki — answer the questions in `robot_design/mission2/kp-ki-tuning.md` — Jordan (2026-10-06)
 - [ ] Write up the Mission 2 test runs: what worked, what failed, what to change — Jordan, Fedor (2026-10-06)
-- [ ] Test PID drive and turns on HummerOne and record accuracy (2026-10-06)
-- [ ] Squaring check after the mini ball caster is on: ruler flat against the back and each side, body should touch before a wheel does. Watch the front-left drive wheel (2026-09-22)
+- [ ] Test PID drive and turns on HummerOne with the ball joint and record accuracy: same distance 10 times, ten 90 degree turns (2026-10-06, updated 2026-10-13)
+- [ ] Save the updated Mission 2 and Mission 11 code to `robot_design/` — Jordan (2026-10-13)
+- [ ] Record the new Kp and Ki after the ball joint switch, and the wobble before retuning, in `robot_design/mission2/kp-ki-tuning.md` — Jordan (2026-10-13)
+- [ ] Record how `Gyro Move` converts cm to motor degrees (wheel size, degrees per cm) — Jordan (2026-10-13)
+- [ ] Convert distances in existing mission code from motor degrees to cm and re-test (2026-10-13)
+- [ ] Squaring check now the Technic ball joint is on: ruler flat against the back and each side, body should touch before a wheel does. Watch the front-left drive wheel (2026-09-22, updated 2026-10-13)
 
 ### Attachments
 - [ ] Test all three attachments on HummerOne and rate pros/cons (2026-09-17)
 - [ ] Pick one attachment for final refinement (2026-09-17)
+- [ ] Stop the seed going over the top of the Mission 11 basket and re-test — Jordan, Brynn, Jack (2026-10-13)
 
 ### Robot game / rules
 - [ ] Read this season's rules and confirm: table swaps, which models the ref can adjust before the match, inspection bonus, the bugs rule change (2026-09-29)
@@ -30,6 +34,7 @@ Tracks task status across workstreams. Update dates and assignments as work move
 - [ ] Find a credible source (ideally Canadian, e.g. government or university) proving invasive species harm native species and biodiversity — Jack (2026-10-06)
 - [ ] Narrow invasive species to one specific problem we could design a solution for (2026-10-06)
 - [ ] List experts to contact (conservation authority, researchers, local invasive species groups) (2026-10-06)
+- [ ] List the credible sources found, with a link and one line on what each proves — Fedor, Alexis, Sylvie (2026-10-13)
 
 ### Resources
 - [ ] Research ConnecTech and FIRST Like a Girl: links and what we can learn (2026-09-29)
@@ -38,13 +43,18 @@ Tracks task status across workstreams. Update dates and assignments as work move
 
 ## In progress
 
-- [ ] Mission 2 code and test runs — Jordan, Fedor (started 2026-10-06)
-- [ ] Finish adapting the forklift to HummerOne's mounting bar — Jack, Ira (continued 2026-10-06)
-- [ ] Innovation research on invasive species, in two groups: Ella, Amelia, Alexis; and Sylvie, Brynn (started 2026-10-06)
+- [ ] Mission 2 code and test runs — Jordan, Fedor (started 2026-10-06; Jordan continued 2026-10-13)
+- [ ] Mission 11 code — Jordan (started 2026-10-13)
+- [ ] Mission 11 seed-catching basket attachment — Jordan, Brynn, Jack (started 2026-10-13)
+- [ ] Finish adapting the forklift to HummerOne's mounting bar — Jack, Ira (continued 2026-10-06); Ella, Amelia (continued 2026-10-13)
+- [ ] Innovation research on invasive species, in two groups: Ella, Amelia, Alexis; and Sylvie, Brynn (started 2026-10-06). Credible source search: Fedor, Alexis, Sylvie (2026-10-13)
 - [ ] Build three Mission 1 attachment options (inspired by Platinum Pizzeria, Giraffes #3388, Team TurtleBots) — Sylvie, Ella, Alexis, Amelia, Brynn (started 2026-09-17, regrouped 2026-09-22)
 
 ## Done
 
+- [x] `Gyro Move` My Block now takes distance in cm instead of motor degrees — Jordan (2026-10-13)
+- [x] Retuned Kp and Ki after the ball joint introduced wobble — Jordan (2026-10-13)
+- [x] Replaced the mine cart wheels with a Technic ball joint: better for turns and stays under the robot — Jordan (2026-10-13)
 - [x] Yaw (gyro) turns and an acceleration ramp are in the `Gyro Turn` and `Gyro Move` My Blocks; accuracy testing still to do (2026-10-06)
 - [x] Saved Jordan and Fedor's Mission 2 code and PID My Blocks to `robot_design/mission2/` (2026-10-06)
 - [x] Jordan shared working PID drive and turn My Blocks (2026-10-06)

@@ -10,6 +10,10 @@ Judges ask how a team chose its numbers, so this page records the tuning. It has
 - **Starting point in the repo:** our [PID_TUNING_GUIDE.md](../PID_TUNING_GUIDE.md) suggests Kp 2.0, Ki 0.1, Kd 0.5 for the Python version. Jordan's Kp 2.1 is close to that, but Ki 2 is 20 times larger. The two are in different code and units (the block version multiplies by the 0.1 s loop time), so they are not directly comparable. **(confirm whether Jordan used the guide)**
 - **Other values tuned alongside:** ramp Accel 5, Decel 8, slowdown at 70% of the distance, start power 15, end power 20. For turns: min power 25, max 90, stop 3 degrees early.
 
+## Retuned on 2026-10-13 (ball joint)
+
+Jordan replaced the mine cart wheels with a Technic ball joint over the weekend before 2026-10-13. The switch introduced some wobble when driving straight, so he adjusted Kp and Ki again until the robot drove straight. The values above (Kp 2.1, Ki 2) are from the 2026-10-06 file, before the switch. **(confirm)** the new values and add them as rows in the table below. Jordan also changed `Gyro Move` to take the distance in cm instead of motor degrees on the same weekend.
+
 ## What to record (ask Jordan)
 
 Fill in a row for each change. The actual numbers and results are what a judge wants to see.

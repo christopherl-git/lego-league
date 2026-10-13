@@ -24,6 +24,9 @@ Items marked **(confirm)** are still guesses or missing details. Have the team m
 | 6 | 2026-10-01 | Adapted two attachments to the HummerOne mounting bar | Lifting arm gained a seed bucket, and 2-axis gained a hook |
 | 7 | 2026-10-01 | Tried axle pins for attachments, went back to quick pins | The lifting arm kept coming off with axle pins; quick pins hold more securely |
 | 8 | 2026-10-06 | Gyro-based PID driving and turning My Blocks (Jordan), used in Mission 2 code (Jordan, Fedor) | Gyro heading correction keeps the robot straight and turns accurate, so runs repeat |
+| 9 | 2026-10-13 | Replaced the mine cart wheels with a Technic ball joint, and retuned Kp and Ki | Better for turns and stays under the robot; the switch added wobble, fixed by retuning |
+| 10 | 2026-10-13 | `Gyro Move` takes distance in cm instead of motor degrees | Easier to communicate and test missions |
+| 11 | 2026-10-13 | Started a basket attachment to catch the seed on Mission 11 | Catches the seed, but it sometimes goes over the top (in progress) |
 
 ---
 
@@ -82,7 +85,7 @@ Items marked **(confirm)** are still guesses or missing details. Have the team m
   - The conference session "How to Build a Functional Robot" (09-27, presented to us by Ira and Fedor) gave the guidance we followed: **smaller wheels wobble less and are more accurate, and accuracy matters more than speed.**
   - **Why mine cart wheels in particular:** they are lower profile and create less friction when turning than the originals.
   - **What didn't work:** they still were not flush with the sides of the robot, so a wheel can touch a wall before the body does. That hurts squaring against a wall, which is one of the things we scored HummerOne on.
-- **Result / follow-up:** Better than the originals but not good enough for squaring. We are replacing them with a ball caster (entry 5).
+- **Result / follow-up:** Better than the originals but not good enough for squaring. In use on 2026-10-13 they also showed resistance when turning, though they were very good in a straight line. Replaced with a Technic ball joint on 2026-10-13 (entry 9).
 
 ## 4. Second colour sensor
 
@@ -105,7 +108,7 @@ Items marked **(confirm)** are still guesses or missing details. Have the team m
   - **It sits below the body instead of on the sides.** The mine cart wheels stuck out past the sides and spoiled squaring. A caster underneath leaves the sides clear, so the flat body faces can touch a wall first.
   - We chose the **mini** size because **(confirm)** it keeps the front low and the footprint small.
   - Known risk from our review: a caster can drift on hard acceleration and when reversing. We are also adding an acceleration ramp, which should help.
-- **Result / follow-up:** Test with the PID straight drive and yaw turns, and note any drift. If it drifts, record that here and the fix. **Square check to follow** once it is fitted: ruler flat against the back and each side, and the body should touch before any wheel (watch the front-left drive wheel). Record the result here.
+- **Result / follow-up:** **Done on 2026-10-13 with a Technic ball joint** (entry 9). Test with the PID straight drive and yaw turns, and note any drift. If it drifts, record that here and the fix. **Square check to follow** once it is fitted: ruler flat against the back and each side, and the body should touch before any wheel (watch the front-left drive wheel). Record the result here.
 
 ## 6. Attachments (Mission 1) adapted to HummerOne's mounting bar
 
@@ -136,6 +139,31 @@ Items marked **(confirm)** are still guesses or missing details. Have the team m
   - **`Gyro Turn`** turns to an angle at a speed that falls as the robot nears the target (between 25 and 90 power), and stops 3 degrees early so it doesn't overshoot.
   - Both are reusable My Blocks, so every mission program can call them with a distance, a speed or an angle.
 - **Result / follow-up:** Working code, and used in a Mission 2 test run. **(confirm)** the test results. Still to do: record how Jordan tuned Kp and Ki ([mission2/kp-ki-tuning.md](mission2/kp-ki-tuning.md) has the questions to ask him) and measure accuracy (drive the same distance 10 times, and 10 turns of 90 degrees). Switching turns to yaw is now done in this code. The Kp line follower is still to do.
+
+## 9. Technic ball joint instead of mine cart wheels, and Kp/Ki retuned
+
+- **Date / who:** Over the weekend before 2026-10-13, by **Jordan**. Shown to the team on 2026-10-13.
+- **What changed:** The mine cart wheels at the front (entry 3) were replaced with a **Technic ball joint**. This carries out the ball caster plan from entry 5. **(confirm)** which Technic ball joint part was used.
+- **Options considered:** Keep the mine cart wheels, or switch to a ball joint.
+- **Why:**
+  - **The mine cart wheels were very good in a straight line, but had resistance when turning,** and they **stuck out past the sides** of the robot.
+  - **The ball joint is better for turns and stays under the robot,** so the flat sides are clear for squaring against a wall.
+- **Side effect:** The switch introduced some **wobble** when driving straight. Jordan **adjusted Kp and Ki** in `Gyro Move` until the robot went straight again. **(confirm)** the new values (they were Kp 2.1, Ki 2 on 2026-10-06) and what changed, in [mission2/kp-ki-tuning.md](mission2/kp-ki-tuning.md).
+- **Result / follow-up:** Drives straight again after retuning. Still to do: the ruler squaring check, and the accuracy tests (same distance 10 times, ten 90 degree turns) with the ball joint fitted. Watch for the caster drift on hard acceleration and reversing that our review warned about.
+
+## 10. `Gyro Move` takes distance in centimetres
+
+- **Date / who:** Over the weekend before 2026-10-13, by **Jordan**.
+- **What changed:** The `Gyro Move` My Block (entry 8) now takes the distance in **cm** instead of motor degrees.
+- **Why:** It is **easier to communicate and test missions.** The team can measure a distance on the table with a ruler and type it straight in, and talk about a run in real units.
+- **Result / follow-up:** **(confirm)** how the conversion works: wheel diameter and the motor degrees per cm number used. Existing mission code written in motor degrees (Mission 2 used 140 and 625) needs converting to cm and re-testing. Save the updated My Block to the repo.
+
+## 11. Mission 11 seed-catching basket (in progress)
+
+- **Date / who:** 2026-10-13, **Jordan, Brynn and Jack**. Jordan is also writing the Mission 11 code.
+- **What we built:** A **basket** attachment to catch the seed on Mission 11.
+- **What happened:** It catches the seed, but **sometimes the seed goes over the top** of the basket.
+- **Follow-up:** Try ideas to stop the overshoot (for example, higher walls, a lip or a lid, or a slower catch) and record which one works and how many catches out of 10. **(confirm)** how this relates to the seed bucket on the lifting arm (entry 6).
 
 ---
 

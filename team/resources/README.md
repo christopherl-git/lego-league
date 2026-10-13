@@ -11,3 +11,4 @@ Meeting resources, organized by date (YYYY-MM-DD folders), plus running referenc
 - [2026-09-22/](2026-09-22/) — Robot design review and scoring (scoring deck + workbook), the decision to build HummerOne first, and two new bot-fluencers
 - [2026-09-29/](2026-09-29/) — Bayview Glen kickoff conference debrief (robot, programming, PID, rules, judging and inclusion takeaways), innovation project brainstorm kickoff, and the venue parking map
 - [2026-10-06/](2026-10-06/) — Innovation topic presentations and vote (winner: invasive species), Jordan's working PID drive and turn My Blocks, and breakout work on the forklift and innovation research
+- [2026-10-13/](2026-10-13/) — Jordan's weekend work (Mission 2 and 11 code, Technic ball joint replacing the mine cart wheels, Kp/Ki retuning, `Gyro Move` in cm), the Mission 11 seed basket, forklift build, and innovation source research
