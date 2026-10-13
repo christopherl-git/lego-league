@@ -36,3 +36,6 @@ wheels/
 # PyBricks
 .pybricks/
 *.mpy
+
+# Private: team contact details (repo is public)
+team/Team Contacts.pdf
