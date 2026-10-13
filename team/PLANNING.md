@@ -33,6 +33,8 @@ Tracks task status across workstreams. Update dates and assignments as work move
 - [ ] Narrow invasive species to one specific problem we could design a solution for (2026-10-06)
 - [ ] List experts to contact (conservation authority, researchers, local invasive species groups) (2026-10-06)
 - [ ] List the credible sources found, with a link and one line on what each proves — Fedor, Alexis, Sylvie (2026-10-13)
+- [ ] Homework: everyone researches one specific invasive species problem (what works, what hasn't, remaining challenges), done at home and shared Thursday (2026-10-13)
+- [ ] Share research and start an innovation project plan — Thursday 2026-10-15 (2026-10-13)
 
 ### Resources
 - [ ] Research ConnecTech and FIRST Like a Girl: links and what we can learn (2026-09-29)

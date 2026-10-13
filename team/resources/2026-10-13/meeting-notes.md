@@ -38,6 +38,21 @@ The Mission 2 distances, which were in motor degrees (140 and 625), have been co
 - **Ella and Amelia:** worked on the forklift build.
 - **Fedor, Alexis and Sylvie:** looked for credible sources for the innovation project (invasive species).
 
+## Homework (everyone)
+
+Keep researching invasive species using credible sources, done independently at home so meeting time can go to discussing solutions. Try to find one specific problem, and note:
+
+- what's already being done that works
+- what hasn't worked
+- what challenges still remain
+
+## Plan for Thursday (2026-10-15)
+
+- Accuracy testing of the PID drive with the ball joint
+- Improve the Mission 11 seed basket
+- Finish the forklift
+- Share innovation project research and work on a project plan
+
 ## Action items
 
 - [ ] Save the updated Mission 2 and Mission 11 code to the repo (`robot_design/`) — Jordan
@@ -47,5 +62,7 @@ The Mission 2 distances, which were in motor degrees (140 and 625), have been co
 - [ ] Test the PID drive on HummerOne with the ball joint: drive the same distance 10 times and measure the spread
 - [ ] Squaring check with the ball joint fitted: ruler flat against the back and each side, the body should touch before a wheel (watch the front-left drive wheel)
 - [ ] Stop the seed going over the top of the Mission 11 basket (for example, higher walls, a lip or a lid, or slow down the catch) and re-test — Jordan, Brynn, Jack
-- [ ] Continue the forklift build — Ella, Amelia
+- [ ] Finish the forklift build (target: Thursday 2026-10-15) — Ella, Amelia
 - [ ] List the credible sources found for invasive species, with a link and one line on what each proves — Fedor, Alexis, Sylvie
+- [ ] Homework: each team member researches one specific invasive species problem (what works, what hasn't, remaining challenges) and shares it on Thursday — everyone
+- [ ] Start an innovation project plan (Thursday 2026-10-15)
