@@ -156,7 +156,9 @@ Items marked **(confirm)** are still guesses or missing details. Have the team m
 - **Date / who:** Over the weekend before 2026-10-13, by **Jordan**.
 - **What changed:** The `Gyro Move` My Block (entry 8) now takes the distance in **cm** instead of motor degrees.
 - **Why:** It is **easier to communicate and test missions.** The team can measure a distance on the table with a ruler and type it straight in, and talk about a run in real units.
-- **Result / follow-up:** **(confirm)** how the conversion works: wheel diameter and the motor degrees per cm number used. The Mission 2 distances, which were in motor degrees (140 and 625), have been converted to cm. **(confirm)** the new cm values. Save the updated My Block to the repo.
+- **How the conversion was measured:** The robot drove a measured **100 cm, checked with a 1 m measuring stick, and that took 2070 motor degrees.** So `Gyro Move` uses **20.7 motor degrees per cm**.
+  - **Cross-check with the wheel size:** 2070 degrees is 5.75 wheel turns, so each turn covers about 17.4 cm. That works out to a wheel about 5.5 cm across, close to the 56 mm SPIKE Prime wheel. Measuring on the table is better than calculating from the wheel size, because it includes tyre squash and slip.
+- **Result / follow-up:** The Mission 2 distances, which were in motor degrees (140 and 625), have been converted to cm. At 20.7 degrees per cm that is about 6.8 cm and 30.2 cm. **(confirm)** the values used in the code. Still to do: repeat the 1 m drive several times to show the conversion holds (this can be part of the 10-run accuracy test), and save the updated My Block to the repo.
 
 ## 11. Mission 11 seed-catching basket (in progress)
 

@@ -75,7 +75,7 @@ How it works:
 
 ## Mission 2 main program
 
-This is the 2026-10-06 version, with distances in motor degrees. Since then `Gyro Move` takes cm and these distances have been converted to cm (2026-10-13); the updated code isn't saved here yet.
+This is the 2026-10-06 version, with distances in motor degrees. Since then `Gyro Move` takes cm (2070 motor degrees = 100 cm, so 20.7 degrees per cm, measured with a 1 m stick) and these distances have been converted to cm, about 6.8 cm and 30.2 cm (2026-10-13). The updated code isn't saved here yet.
 
 ```text
 when program starts

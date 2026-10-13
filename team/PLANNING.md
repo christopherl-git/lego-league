@@ -12,7 +12,6 @@ Tracks task status across workstreams. Update dates and assignments as work move
 - [ ] Test PID drive and turns on HummerOne with the ball joint and record accuracy: same distance 10 times, ten 90 degree turns (2026-10-06, updated 2026-10-13)
 - [ ] Save the updated Mission 2 and Mission 11 code to `robot_design/` — Jordan (2026-10-13)
 - [ ] Record the new Kp and Ki after the ball joint switch, and the wobble before retuning, in `robot_design/mission2/kp-ki-tuning.md` — Jordan (2026-10-13)
-- [ ] Record how `Gyro Move` converts cm to motor degrees (wheel size, degrees per cm) — Jordan (2026-10-13)
 - [ ] Squaring check now the Technic ball joint is on: ruler flat against the back and each side, body should touch before a wheel does. Watch the front-left drive wheel (2026-09-22, updated 2026-10-13)
 
 ### Attachments
@@ -51,6 +50,7 @@ Tracks task status across workstreams. Update dates and assignments as work move
 
 ## Done
 
+- [x] Measured the `Gyro Move` cm conversion: 2070 motor degrees = 100 cm (20.7 degrees per cm), tested with a 1 m measuring stick (2026-10-13)
 - [x] Converted the Mission 2 distances from motor degrees to cm (2026-10-13)
 - [x] `Gyro Move` My Block now takes distance in cm instead of motor degrees — Jordan (2026-10-13)
 - [x] Retuned Kp and Ki after the ball joint introduced wobble — Jordan (2026-10-13)
