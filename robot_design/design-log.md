@@ -156,7 +156,7 @@ Items marked **(confirm)** are still guesses or missing details. Have the team m
 - **Date / who:** Over the weekend before 2026-10-13, by **Jordan**.
 - **What changed:** The `Gyro Move` My Block (entry 8) now takes the distance in **cm** instead of motor degrees.
 - **Why:** It is **easier to communicate and test missions.** The team can measure a distance on the table with a ruler and type it straight in, and talk about a run in real units.
-- **Result / follow-up:** **(confirm)** how the conversion works: wheel diameter and the motor degrees per cm number used. Existing mission code written in motor degrees (Mission 2 used 140 and 625) needs converting to cm and re-testing. Save the updated My Block to the repo.
+- **Result / follow-up:** **(confirm)** how the conversion works: wheel diameter and the motor degrees per cm number used. The Mission 2 distances, which were in motor degrees (140 and 625), have been converted to cm. **(confirm)** the new cm values. Save the updated My Block to the repo.
 
 ## 11. Mission 11 seed-catching basket (in progress)
 

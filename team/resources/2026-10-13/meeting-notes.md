@@ -28,7 +28,7 @@ The ball joint introduced some **wobble** when driving straight, so Jordan had t
 
 Jordan changed the `Gyro Move` My Block so the distance is given in **cm** instead of motor degrees. This makes it easier to talk about a mission ("drive 30 cm") and to test it with a ruler on the table.
 
-Existing mission programs that call `Gyro Move` with motor degrees (Mission 2 used 140 and 625) need their distances converted to cm.
+The Mission 2 distances, which were in motor degrees (140 and 625), have been converted to cm.
 
 ## Breakout groups
 
@@ -41,7 +41,7 @@ Existing mission programs that call `Gyro Move` with motor degrees (Mission 2 us
 - [ ] Save the updated Mission 2 and Mission 11 code to the repo (`robot_design/`) — Jordan
 - [ ] Record the new Kp and Ki values after the ball joint switch, and what the wobble looked like before retuning (add to [kp-ki-tuning.md](../../../robot_design/mission2/kp-ki-tuning.md)) — Jordan
 - [ ] Record how the cm conversion works in `Gyro Move` (wheel size and the degrees-per-cm number) — Jordan
-- [ ] Convert distances in existing mission code from motor degrees to cm, and re-test
+- [x] Convert the Mission 2 distances from motor degrees to cm
 - [ ] Test the PID drive on HummerOne with the ball joint: drive the same distance 10 times and measure the spread
 - [ ] Squaring check with the ball joint fitted: ruler flat against the back and each side, the body should touch before a wheel (watch the front-left drive wheel)
 - [ ] Stop the seed going over the top of the Mission 11 basket (for example, higher walls, a lip or a lid, or slow down the catch) and re-test — Jordan, Brynn, Jack

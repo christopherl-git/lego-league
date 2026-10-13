@@ -13,7 +13,6 @@ Tracks task status across workstreams. Update dates and assignments as work move
 - [ ] Save the updated Mission 2 and Mission 11 code to `robot_design/` — Jordan (2026-10-13)
 - [ ] Record the new Kp and Ki after the ball joint switch, and the wobble before retuning, in `robot_design/mission2/kp-ki-tuning.md` — Jordan (2026-10-13)
 - [ ] Record how `Gyro Move` converts cm to motor degrees (wheel size, degrees per cm) — Jordan (2026-10-13)
-- [ ] Convert distances in existing mission code from motor degrees to cm and re-test (2026-10-13)
 - [ ] Squaring check now the Technic ball joint is on: ruler flat against the back and each side, body should touch before a wheel does. Watch the front-left drive wheel (2026-09-22, updated 2026-10-13)
 
 ### Attachments
@@ -52,6 +51,7 @@ Tracks task status across workstreams. Update dates and assignments as work move
 
 ## Done
 
+- [x] Converted the Mission 2 distances from motor degrees to cm (2026-10-13)
 - [x] `Gyro Move` My Block now takes distance in cm instead of motor degrees — Jordan (2026-10-13)
 - [x] Retuned Kp and Ki after the ball joint introduced wobble — Jordan (2026-10-13)
 - [x] Replaced the mine cart wheels with a Technic ball joint: better for turns and stays under the robot — Jordan (2026-10-13)

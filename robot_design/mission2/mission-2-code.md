@@ -75,6 +75,8 @@ How it works:
 
 ## Mission 2 main program
 
+This is the 2026-10-06 version, with distances in motor degrees. Since then `Gyro Move` takes cm and these distances have been converted to cm (2026-10-13); the updated code isn't saved here yet.
+
 ```text
 when program starts
   set motor A speed 50
