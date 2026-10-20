@@ -30,11 +30,12 @@ Tracks task status across workstreams. Update dates and assignments as work move
 
 ### Innovation project
 - [ ] Find a credible source (ideally Canadian, e.g. government or university) proving invasive species harm native species and biodiversity — Jack (2026-10-06)
-- [ ] Narrow invasive species to one specific problem we could design a solution for (2026-10-06)
+- [ ] Narrow invasive species to one specific problem we could design a solution for. Candidates so far are in `innovation_project/invasive-species-research.md` (2026-10-06, updated 2026-10-20)
 - [ ] List experts to contact (conservation authority, researchers, local invasive species groups) (2026-10-06)
 - [ ] List the credible sources found, with a link and one line on what each proves — Fedor, Alexis, Sylvie (2026-10-13)
-- [ ] Homework: everyone researches one specific invasive species problem (what works, what hasn't, remaining challenges), done at home and shared Thursday (2026-10-13)
 - [ ] Share research and start an innovation project plan — Thursday 2026-10-15 (2026-10-13)
+- [ ] Homework: research Guinea grass and Miconia problems and existing solutions; could technology make a better solution? — Alexis, Fedor, Ira, Jack, Jordan (2026-10-20)
+- [ ] Add full links for the 2026-10-20 sources to `innovation_project/invasive-species-research.md` — innovation group (2026-10-20)
 
 ### Resources
 - [ ] Research ConnecTech and FIRST Like a Girl: links and what we can learn (2026-09-29)
@@ -47,11 +48,13 @@ Tracks task status across workstreams. Update dates and assignments as work move
 - [ ] Mission 11 code — Jordan (started 2026-10-13)
 - [ ] Mission 11 seed-catching basket attachment — Jordan, Brynn, Jack (started 2026-10-13)
 - [ ] Finish adapting the forklift to HummerOne's mounting bar — Jack, Ira (continued 2026-10-06); Ella, Amelia (continued 2026-10-13)
-- [ ] Innovation research on invasive species, in two groups: Ella, Amelia, Alexis; and Sylvie, Brynn (started 2026-10-06). Credible source search: Fedor, Alexis, Sylvie (2026-10-13)
-- [ ] Build three Mission 1 attachment options (inspired by Platinum Pizzeria, Giraffes #3388, Team TurtleBots) — Sylvie, Ella, Alexis, Amelia, Brynn (started 2026-09-17, regrouped 2026-09-22)
+- [ ] Innovation research on invasive species, in two groups: Ella, Amelia, Alexis; and Sylvie, Brynn (started 2026-10-06). Credible source search: Fedor, Alexis, Sylvie (2026-10-13). Research group: Alexis, Fedor, Ira, Jack, Jordan (2026-10-20)
+- [ ] Build three Mission 1 attachment options (inspired by Platinum Pizzeria, Giraffes #3388, Team TurtleBots) — Sylvie, Ella, Alexis, Amelia, Brynn (started 2026-09-17, regrouped 2026-09-22); Sylvie, Amelia (continued 2026-10-20)
+- [ ] Team logo — Brynn, Ella (started 2026-10-20)
 
 ## Done
 
+- [x] Shared invasive species research: brown tree snake (Alexis), dog-strangling vine (Ira), Guinea grass (Jack), Miconia (Fedor). Snake traps with one-way doors already exist, and DSV isn't a rainforest problem (2026-10-20)
 - [x] Measured the `Gyro Move` cm conversion: 2070 motor degrees = 100 cm (20.7 degrees per cm), tested with a 1 m measuring stick (2026-10-13)
 - [x] Converted the Mission 2 distances from motor degrees to cm (2026-10-13)
 - [x] `Gyro Move` My Block now takes distance in cm instead of motor degrees — Jordan (2026-10-13)
