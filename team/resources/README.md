@@ -1,4 +1,4 @@
-﻿# Resources
+# Resources
 
 Meeting resources, organized by date (YYYY-MM-DD folders), plus running reference files that get added to throughout the season so we don't have to dig through old meeting notes.
 

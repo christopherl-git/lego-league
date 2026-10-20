@@ -1,4 +1,4 @@
-﻿# 2026-10-20 Meeting
+# 2026-10-20 Meeting
 
 ## Contents
 
