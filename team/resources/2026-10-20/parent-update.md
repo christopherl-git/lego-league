@@ -2,13 +2,15 @@
 
 Hi everyone,
 
-**Homework (_Alexis, Fedor, Ira, Jack and Jordan_):** Research two invasive species that are taking over rainforests: **Guinea grass** and **Miconia** trees. For each one, find:
+**Homework (_everyone_):** Everyone should help with both of these.
 
-- what problem it causes, and where
-- what solutions already exist, and which work or haven't worked
-- whether we could use technology to create a better solution
+1. **Team logo, due next Tuesday (October 27):** we need a logo by then if we want team t-shirts this year. Please draw or design logo ideas and bring them.
+2. **Innovation project research:** research two invasive species that are taking over rainforests: **Guinea grass** and **Miconia** trees. For each one, find:
+   - what problem it causes, and where
+   - what solutions already exist, and which work or haven't worked
+   - whether we could use technology to create a better solution
 
-Please use credible sources (government, university or conservation groups) and save the link to each one.
+   Please use credible sources (government, university or conservation groups) and save the link to each one.
 
 Today we worked in three groups:
 

@@ -71,7 +71,15 @@ Miconia trees are invading rainforests. Miconia is listed among the 100 worst in
 
 Neither the brown tree snake nor DSV gave us a clear new solution: snake traps with one-way doors already exist, and DSV isn't a rainforest problem. Guinea grass and Miconia are rainforest invaders, so they are the next ones to research. We need more research before we pick our problem.
 
-## Homework (innovation group: Alexis, Fedor, Ira, Jack, Jordan)
+## Homework (everyone)
+
+Everyone helps with both the logo and the research.
+
+### Team logo: due next Tuesday (2026-10-27)
+
+We need a logo by Tuesday 2026-10-27 if we want team t-shirts this year. Everyone brings logo ideas.
+
+### Innovation project research
 
 Research **Guinea grass** and **Miconia**:
 
@@ -83,8 +91,9 @@ Bring credible sources (government, university or conservation groups), each wit
 
 ## Action items
 
-- [ ] Homework: research Guinea grass and Miconia problems and existing solutions, and ask whether technology could make a better solution — Alexis, Fedor, Ira, Jack, Jordan
+- [ ] Homework: logo ideas, needed by Tuesday 2026-10-27 for t-shirts this year — everyone (Brynn and Ella leading)
+- [ ] Homework: research Guinea grass and Miconia problems and existing solutions, and ask whether technology could make a better solution — everyone
 - [ ] Add full links for today's sources to [invasive-species-research.md](../../../innovation_project/invasive-species-research.md), with one line on what each proves — innovation group
 - [ ] Pick one invasive species problem for the innovation project once the research is in
 - [ ] Record Mission 1 progress — Sylvie, Amelia
-- [ ] Share the team logo drafts — Brynn, Ella
+- [ ] Pick the final team logo by Tuesday 2026-10-27 so we can order t-shirts

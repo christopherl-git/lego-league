@@ -34,7 +34,7 @@ Tracks task status across workstreams. Update dates and assignments as work move
 - [ ] List experts to contact (conservation authority, researchers, local invasive species groups) (2026-10-06)
 - [ ] List the credible sources found, with a link and one line on what each proves — Fedor, Alexis, Sylvie (2026-10-13)
 - [ ] Share research and start an innovation project plan — Thursday 2026-10-15 (2026-10-13)
-- [ ] Homework: research Guinea grass and Miconia problems and existing solutions; could technology make a better solution? — Alexis, Fedor, Ira, Jack, Jordan (2026-10-20)
+- [ ] Homework: research Guinea grass and Miconia problems and existing solutions; could technology make a better solution? — everyone (2026-10-20)
 - [ ] Add full links for the 2026-10-20 sources to `innovation_project/invasive-species-research.md` — innovation group (2026-10-20)
 
 ### Resources
@@ -50,7 +50,7 @@ Tracks task status across workstreams. Update dates and assignments as work move
 - [ ] Finish adapting the forklift to HummerOne's mounting bar — Jack, Ira (continued 2026-10-06); Ella, Amelia (continued 2026-10-13)
 - [ ] Innovation research on invasive species, in two groups: Ella, Amelia, Alexis; and Sylvie, Brynn (started 2026-10-06). Credible source search: Fedor, Alexis, Sylvie (2026-10-13). Research group: Alexis, Fedor, Ira, Jack, Jordan (2026-10-20)
 - [ ] Build three Mission 1 attachment options (inspired by Platinum Pizzeria, Giraffes #3388, Team TurtleBots) — Sylvie, Ella, Alexis, Amelia, Brynn (started 2026-09-17, regrouped 2026-09-22); Sylvie, Amelia (continued 2026-10-20)
-- [ ] Team logo — Brynn, Ella (started 2026-10-20)
+- [ ] Team logo: needed by Tuesday 2026-10-27 to get t-shirts this year. Everyone brings ideas as homework — Brynn, Ella leading (started 2026-10-20)
 
 ## Done
 
