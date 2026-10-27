@@ -31,12 +31,22 @@ Tracks task status across workstreams. Update dates and assignments as work move
 ### Innovation project
 - [ ] Find a credible source (ideally Canadian, e.g. government or university) proving invasive species harm native species and biodiversity — Jack (2026-10-06)
 - [ ] Write the problem statement for rainforest fires caused by invasive grass, and name the grass. Chosen by vote 5 to 4 over Miconia (2026-10-27)
+- [ ] Homework for 2026-11-03: research types of grass — Sylvie, Amelia (2026-10-27)
+- [ ] Homework for 2026-11-03: list experts we would want to talk to — Ira, Ella (2026-10-27)
+- [ ] Homework for 2026-11-03: research solutions that already exist, what works and what doesn't — Fedor, Alexis, Brynn (2026-10-27)
+- [ ] Homework for 2026-11-03: research how to kill the grass — Jack (2026-10-27)
+- [ ] Homework for 2026-11-03: research field trips we could take related to the project — Jordan (2026-10-27)
 - [ ] Find credible written sources for the grass–fire cycle and fire-fighting drones — Jordan, Sylvie (2026-10-27)
 - [ ] Add Alexis's Miconia sources to `innovation_project/invasive-species-research.md` — Alexis (2026-10-27)
 - [ ] List experts to contact (conservation authority, researchers, local invasive species groups) (2026-10-06)
 - [ ] List the credible sources found, with a link and one line on what each proves — Fedor, Alexis, Sylvie (2026-10-13)
 - [ ] Share research and start an innovation project plan — Thursday 2026-10-15 (2026-10-13)
 - [ ] Add full links for the 2026-10-20 sources to `innovation_project/invasive-species-research.md` — innovation group (2026-10-20)
+
+### Tournament (Saturday 2026-11-28, Western Technical Commercial School, Toronto)
+- [ ] Tell Tournament Director John Wang if our team name differs from the registered one: the organizers' email lists us as "Look It's a Giraffe" (2026-10-27)
+- [ ] Watch for John Wang's email about what to expect and how to prepare, due the week of 2026-10-26 (2026-10-27)
+- [ ] Follow the week-by-week plan in `innovation_project/project-plan.md`: problem statement by 11-03, solution picked 11-10, prototype and first feedback 11-17, script and rehearsal 11-24 (2026-10-27)
 
 ### Resources
 - [ ] Research ConnecTech and FIRST Like a Girl: links and what we can learn (2026-09-29)
