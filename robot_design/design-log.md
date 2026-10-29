@@ -27,6 +27,10 @@ Items marked **(confirm)** are still guesses or missing details. Have the team m
 | 9 | 2026-10-13 | Replaced the mine cart wheels with a Technic ball joint, and retuned Kp and Ki | Better for turns and stays under the robot; the switch added wobble, fixed by retuning |
 | 10 | 2026-10-13 | `Gyro Move` takes distance in cm instead of motor degrees | Easier to communicate and test missions |
 | 11 | 2026-10-13 | Started a basket attachment to catch the seed on Mission 11 | Catches the seed, but it sometimes goes over the top (in progress) |
+| 12 | 2026-10-06 to 10-15 | Forklift adapted from the original build to HummerOne's mounting bar | Lifts a platform; needs a tipping test because it is the tallest attachment |
+| 13 | 2026-10-01 | Lifting arm modified with a seed bucket | Carries seeds in the order the seed mission needs |
+| 14 | To confirm | Mission 1 attachment adapted from its original build | One of three options; the team picks one for final refinement |
+| 15 | 2026-10-01 | 2-axis movement attachment modified with a hook | One input gives vertical and horizontal motion, and the hook adds a second job |
 
 ---
 
@@ -166,6 +170,65 @@ Items marked **(confirm)** are still guesses or missing details. Have the team m
 - **What we built:** A **basket** attachment to catch the seed on Mission 11.
 - **What happened:** It catches the seed, but **sometimes the seed goes over the top** of the basket.
 - **Follow-up:** Try ideas to stop the overshoot (for example, higher walls, a lip or a lid, or a slower catch) and record which one works and how many catches out of 10. **(confirm)** how this relates to the seed bucket on the lifting arm (entry 6).
+
+## Attachments: what we changed from the original builds
+
+Entries 12 to 15 record each attachment against the original build it came from. The original build files are in `team/resources/build instructions/`. Step counts and warnings come from the pre-meeting review (`Claude outputs/robot-design-review.md`), not from a built robot. Kp and Ki testing for each attachment is recorded in a separate document ([kp-ki-test-protocol.md](kp-ki-test-protocol.md)), not here.
+
+Fill in the **(confirm)** rows with the team members who built each attachment. A printable version with sketch boxes is in [design-log-worksheet/](design-log-worksheet/).
+
+## 12. Forklift
+
+- **Date / who:** Jack and Ira 2026-10-06; Ella and Amelia 2026-10-13. Finish target 2026-10-15. **(confirm)** the date it was finished.
+- **Original build:** `Forklift1-zoptyk.pdf`, 73 pages in 3 phases, rack-and-pinion vertical lift for platform missions. It came from Ella's first-to-implement task from Robot Man ("raise the platform").
+- **What we changed from the original:**
+
+  | Part or area | Original | Our change | Why |
+  |---|---|---|---|
+  | Mounting | **(confirm)** | Adapted to HummerOne's mounting bar | Attachments need to glide on and off the full-width bar |
+  | **(confirm)** | | | |
+
+- **Risk to check:** the review said the forklift is the tallest when extended and the biggest centre of gravity risk, so test it for tipping.
+- **Result / follow-up:** **(confirm)** whether it is finished, how high it lifts, and whether the robot tips when it is raised. Check it stays on with quick pins (entry 7).
+
+## 13. Seed bucket (lifting arm)
+
+- **Date / who:** 2026-10-01. Attachments group: Sylvie, Ella, Alexis, Amelia, Brynn. **(confirm)** who built this one.
+- **Original build:** `Lifting-Arm-Attachment.pdf`, 15 pages, a geared hinge arm for scoop and hook missions. The review warned about a forward centre of gravity shift.
+- **What we changed from the original:**
+
+  | Part or area | Original | Our change | Why |
+  |---|---|---|---|
+  | End of arm | Plain geared hinge arm | Added a seed bucket | The seed mission needs seeds carried, in a specific order |
+  | Pins | **(confirm)** | Quick pins instead of axle pins | The arm kept coming off with axle pins (entry 7) |
+  | **(confirm)** | | | |
+
+- **Result / follow-up:** **(confirm)** the seed order (Ira is writing it down), how the seeds come out of the bucket, and how this relates to the Mission 11 basket (entry 11).
+
+## 14. Mission 1 attachment
+
+- **Date / who:** Three options were built from 2026-09-17: Giraffes #3388 (Amelia, Ella), Platinum Pizzeria (Fedor, Ira) and Team TurtleBots (Jordan, Alexis). Sylvie and Amelia continued on 2026-10-20. **(confirm)** which one is the Mission 1 attachment in this entry.
+- **Original build:** **(confirm)** which file. The review named `Multipurpose-Single-Attachment.pdf` (9 pages, a paddle or flipper) as the fastest route to a working Mission 1 tool, but it is not confirmed that this is the one we built.
+- **What we changed from the original:**
+
+  | Part or area | Original | Our change | Why |
+  |---|---|---|---|
+  | **(confirm)** | | | |
+
+- **Result / follow-up:** **(confirm)** whether it does Mission 1 every time. At the end, the team rates the three options and picks one for final refinement, and that choice and its reasons go in the next entry.
+
+## 15. 2-axis movement attachment (with hook)
+
+- **Date / who:** Status as of 2026-10-01. **(confirm)** who built it.
+- **Original build:** `2-Axis-Movement-Attachment.pdf`, 13 pages. Bevel gears give vertical and horizontal motion from one input, so one attachment can do two mission actions without a swap. The review warned that gear backlash reduces precision.
+- **What we changed from the original:**
+
+  | Part or area | Original | Our change | Why |
+  |---|---|---|---|
+  | End of arm | No hook | Added a hook | **(confirm)** which mission the hook does |
+  | **(confirm)** | | | |
+
+- **Result / follow-up:** **(confirm)** whether the gears slip or have play, and check it stays on with quick pins (entry 7).
 
 ---
 

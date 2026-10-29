@@ -5,6 +5,7 @@ Materials for the FLL Robot Design judged category — the physical robot's mech
 ## Contents
 
 - [design-log.md](design-log.md) — robot design decision log: base robot selection, scoring, wheel and sensor changes, attachments
+- [design-log-worksheet/](design-log-worksheet/) — printable, team-branded worksheet (15 pages, PDF plus HTML source) for the kids to review the design log and fill in the missing reasoning, test results and forgotten decisions
 - [PID_CONTROL_TUTORIAL.md](PID_CONTROL_TUTORIAL.md) — tutorial explaining the PID control implementation
 - [PID_TUNING_GUIDE.md](PID_TUNING_GUIDE.md) — guide for tuning PID constants
 - [mission2/](mission2/) — Jordan and Fedor's Mission 2 SPIKE project (2026-10-06): the PID `Gyro Move` and `Gyro Turn` My Blocks, a readable copy of the code, and the Kp/Ki tuning record

@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Robot Design Log Worksheet - Team 69255, Look it's a Giraffe!</title>
+<style>
+  @page { size: 8.5in 11in; margin: 0; }
+  :root {
+    --giraffe: #E8A317;
+    --brown: #5A3A1A;
+    --leaf: #2F7D4F;
+    --cream: #FFF6DC;
+    --ink: #222;
+    --rule: #9a8a70;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- page frame ---------- */
+  .page {
+    position: relative;
+    width: 8.5in;
+    height: 11in;
+    padding: 0.82in 0.55in 0.6in;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .band {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    background-color: var(--giraffe);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='42' viewBox='0 0 150 42'><g fill='%235A3A1A' fill-opacity='0.55' stroke='%235A3A1A' stroke-opacity='0.55' stroke-width='3' stroke-linejoin='round'><polygon points='6,8 22,3 33,12 28,27 12,30 4,20'/><polygon points='58,22 70,14 86,18 90,33 76,40 60,36'/><polygon points='108,4 124,2 134,13 128,26 112,28 104,15'/></g></svg>");
+    background-size: 150px 42px;
+    border-bottom: 3px solid var(--brown);
+  }
+  .band-inner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 0.55in;
+  }
+  .band-inner .name {
+    background: var(--cream);
+    border: 2px solid var(--brown);
+    border-radius: 999px;
+    padding: 3px 14px;
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-weight: 800; font-size: 13pt; color: var(--brown);
+  }
+  .band-inner .tag {
+    background: var(--cream);
+    border: 2px solid var(--brown);
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-weight: 700; font-size: 9.5pt; color: var(--brown);
+  }
+  .foot {
+    position: absolute; left: 0.55in; right: 0.55in; bottom: 0.22in;
+    display: flex; justify-content: space-between;
+    font-size: 8pt; color: #6b5a40;
+    border-top: 1px solid var(--rule); padding-top: 4px;
+  }
+
+  /* ---------- text ---------- */
+  h1 {
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-size: 25pt; line-height: 1.1; margin: 0 0 4px; color: var(--brown);
+  }
+  h2 {
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-size: 15pt; margin: 0 0 6px; color: var(--brown);
+  }
+  p { margin: 0 0 6px; }
+  .sub { font-size: 12pt; color: var(--leaf); font-weight: 700; margin-bottom: 14px; }
+
+  .namebar { display: flex; gap: 20px; margin: 10px 0 14px; }
+  .namebar .f { flex: 1; font-weight: 700; display: flex; align-items: flex-end; gap: 6px; }
+  .namebar .f .ln { flex: 1; border-bottom: 1.5px solid var(--ink); height: 20px; }
+
+  .steps { list-style: none; counter-reset: s; margin: 0 0 12px; padding: 0; }
+  .steps li {
+    counter-increment: s; position: relative; padding: 4px 0 4px 38px; margin-bottom: 5px; font-size: 10.5pt;
+  }
+  .steps li::before {
+    content: counter(s);
+    position: absolute; left: 0; top: 2px; width: 27px; height: 27px; border-radius: 50%;
+    background: var(--leaf); color: #fff; font-weight: 800; font-size: 12pt;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .tips {
+    border: 2px solid var(--leaf); border-radius: 10px; padding: 8px 12px; background: #F1F8F3;
+    margin-bottom: 10px;
+  }
+  .tips h3 { margin: 0 0 3px; font-size: 11pt; color: var(--leaf); }
+  .tips ul { margin: 0; padding-left: 18px; }
+  .tips li { margin-bottom: 2px; }
+
+  .why-box {
+    border: 2px dashed var(--brown); border-radius: 10px; padding: 7px 12px; background: var(--cream);
+  }
+  .why-box h3 { margin: 0 0 2px; font-size: 11pt; color: var(--brown); }
+
+  /* ---------- checklist table ---------- */
+  table.check { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 9.5pt; }
+  table.check th {
+    background: var(--brown); color: #fff; text-align: left; padding: 5px 7px; font-size: 9pt;
+  }
+  table.check td { border-bottom: 1px solid var(--rule); padding: 5px 7px; vertical-align: top; }
+  table.check td.n { font-weight: 800; color: var(--brown); width: 24px; }
+  table.check td.pg { width: 42px; text-align: center; color: #6b5a40; }
+  table.check td.box { width: 42px; text-align: center; }
+  .cb { display: inline-block; width: 15px; height: 15px; border: 2px solid var(--brown); border-radius: 3px; vertical-align: middle; }
+  table.check tr:nth-child(even) td { background: #FBF4E2; }
+
+  /* ---------- entry cards ---------- */
+  .entry { margin-bottom: 0.12in; }
+  .entry-head {
+    display: flex; align-items: center; gap: 9px;
+    background: var(--brown); color: #fff; border-radius: 9px 9px 0 0; padding: 4px 10px;
+  }
+  .entry-head .num {
+    background: var(--giraffe); color: var(--brown); font-weight: 900; font-size: 12pt;
+    width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none;
+  }
+  .entry-head .t { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 11.5pt; flex: 1; }
+  .entry-head .d { font-size: 8.5pt; opacity: 0.9; }
+  .entry-body { border: 2px solid var(--brown); border-top: none; border-radius: 0 0 9px 9px; padding: 6px 10px 5px; }
+
+  .known {
+    background: var(--cream); border-left: 5px solid var(--giraffe); padding: 4px 9px; margin-bottom: 5px;
+    font-size: 9.5pt; line-height: 1.32;
+  }
+  .known b.k { color: var(--brown); text-transform: uppercase; font-size: 7.5pt; letter-spacing: 0.4px; display: block; }
+  .q { font-weight: 700; font-size: 9.5pt; margin-top: 4px; }
+  .q .pen { color: var(--leaf); font-size: 10.5pt; margin-right: 2px; }
+  .q .hint { font-weight: 400; color: #6b5a40; }
+
+  .lines {
+    --lh: 0.31in;
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--lh) - 1px), var(--rule) calc(var(--lh) - 1px), var(--rule) var(--lh));
+  }
+  .l1 { height: calc(var(--lh) * 1); } .l2 { height: calc(var(--lh) * 2); } .l3 { height: calc(var(--lh) * 3); } .l4 { height: calc(var(--lh) * 4); } .l5 { height: calc(var(--lh) * 5); } .l6 { height: calc(var(--lh) * 6); }
+
+  .inline { display: flex; align-items: flex-end; gap: 6px; margin-top: 3px; font-weight: 700; font-size: 9pt; }
+  .inline .ln { flex: 1; border-bottom: 1px solid var(--rule); height: 0.22in; }
+  .inline .ln.short { flex: none; width: 0.9in; }
+  .inline span.u { font-weight: 400; color: #6b5a40; }
+
+  table.grid { width: 100%; border-collapse: collapse; margin-top: 3px; font-size: 8.5pt; }
+  table.grid th { background: #EBDDB9; border: 1px solid var(--rule); padding: 2px 5px; text-align: left; font-size: 8pt; color: var(--brown); }
+  table.grid td { border: 1px solid var(--rule); height: 0.31in; padding: 0 5px; }
+  table.grid td.lab { font-weight: 700; background: #FBF4E2; white-space: nowrap; }
+
+  .big-table th, .big-table td { text-align: center; }
+  .note { font-size: 8.5pt; color: #6b5a40; }
+  .twocol { display: flex; gap: 0.2in; }
+  .twocol > div { flex: 1; }
+
+  /* ---------- attachment pages ---------- */
+  .sketches { margin: 2px 0 4px; }
+  .sketch { height: 1.1in; border: 1.5px dashed var(--rule); border-radius: 8px; background: #fff; }
+  .chg-block { border-bottom: 1.5px dashed var(--rule); padding: 2px 0 4px; }
+  .chg-block:last-of-type { border-bottom: none; }
+  .chg-block .inline { margin-top: 2px; }
+  .chg-block .inline .ln { height: 0.27in; font-weight: 400; font-size: 9.5pt; display: flex; align-items: flex-end; padding-left: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ======================= PAGE 1: COVER ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Team 69255</span></div>
+
+  <h1>Robot Design Log</h1>
+  <div class="sub">Check it. Fix it. Fill in the missing parts.</div>
+
+  <div class="namebar">
+    <div class="f">Name: <span class="ln"></span></div>
+    <div class="f" style="flex:0 0 2.3in;">Date: <span class="ln"></span></div>
+  </div>
+
+  <p>This is our team's record of how we built and changed our robot. At judging, the judges will ask us <b>why</b> we made each choice and <b>what we changed</b>. Some of the answers are written down. Some are missing, and only the people who did the work know them. <b>That is where you come in.</b></p>
+
+  <h2 style="margin-top:12px;">What to do</h2>
+  <ol class="steps">
+    <li><b>Read</b> each decision on pages 3 to 12. The gold box shows what we already have written down.</li>
+    <li><b>Fix it</b> if something is wrong. Cross it out and write the right answer beside it.</li>
+    <li><b>Fill in</b> every <span style="color:var(--leaf);font-weight:800;">&#9998;</span> question you know the answer to. Put your name next to the ones you worked on.</li>
+    <li><b>Add</b> anything we forgot on pages 14 and 15. Write the test numbers on page 13.</li>
+    <li><b>Hand it back</b> to Chris when you are done. Page 2 is a checklist to tick off.</li>
+  </ol>
+
+  <div class="tips">
+    <h3>What makes a good answer?</h3>
+    <ul>
+      <li><b>Say why.</b> "We changed it because ..." beats "We changed it."</li>
+      <li><b>Use numbers.</b> "It drove 100 cm and ended 1 cm off" is better than "it was pretty good."</li>
+      <li><b>Say what did not work.</b> Judges like honest mistakes. It shows we kept improving.</li>
+      <li><b>Not sure?</b> Write what you remember and put a "?" next to it. A guess we can check is better than a blank.</li>
+    </ul>
+  </div>
+
+  <div class="why-box">
+    <h3>The robot design process we follow</h3>
+    <p style="margin:0;">Identify the problem &rarr; Design a fix &rarr; Create it &rarr; Iterate (test and improve) &rarr; Communicate what we learned. This log is the proof of that.</p>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 1 of 15</span></div>
+</section>
+
+<!-- ======================= PAGE 2: CHECKLIST ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <h2>Your checklist: what is still missing?</h2>
+  <p>Every decision below is already in our log, but each is missing something. Tick the box when you have filled it in.</p>
+
+  <table class="check">
+    <tr><th>#</th><th>Decision</th><th>What we still need from you</th><th>Page</th><th>Done</th></tr>
+    <tr><td class="n">1</td><td><b>HummerOne</b> as our base robot</td><td>Why, in your own words. Result of the ruler squaring check.</td><td class="pg">3</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">2</td><td><b>Scoring</b> the four designs</td><td>Which score mattered most to you. Any score you would change.</td><td class="pg">3</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">3</td><td><b>Mine cart wheels</b> at the front</td><td>Who changed them and when. Why this wheel.</td><td class="pg">4</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">4</td><td><b>Second colour sensor</b></td><td>Where it is mounted and why. Proof that squaring works now.</td><td class="pg">4</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">5</td><td><b>Mini ball caster</b> plan</td><td>Why the "mini" size. Any drifting when it was tested.</td><td class="pg">5</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">6</td><td><b>Attachments</b> on the mounting bar</td><td>Pros and cons of all three attachments, and a rating for each.</td><td class="pg">5</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">7</td><td><b>Quick pins</b> instead of axle pins</td><td>The date. What Jack hoped axle pins would do. Other attachments checked.</td><td class="pg">6</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">8</td><td><b>Gyro PID</b> drive and turn blocks</td><td>Mission 2 test results, in your own words.</td><td class="pg">6</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">9</td><td><b>Technic ball joint</b> and retuning</td><td>Which part it is. What the wobble looked like.</td><td class="pg">7</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">10</td><td>Distance in <b>cm</b></td><td>The distances used in the Mission 2 code. Repeat 1 m checks.</td><td class="pg">7</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">11</td><td><b>Seed basket</b> for Mission 11</td><td>Ideas tried and catches out of 10. How it relates to the seed bucket.</td><td class="pg">8</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">+</td><td><b>Final attachment pick</b></td><td>Which one we chose for final refinement, and why.</td><td class="pg">8</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">12</td><td><b>Forklift</b> vs the original build</td><td>What we changed from the original, and why. Tipping test.</td><td class="pg">9</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">13</td><td><b>Seed bucket</b> vs the original lifting arm</td><td>What we changed, the seed order, how seeds come out.</td><td class="pg">10</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">14</td><td><b>Mission 1</b> attachment vs the original</td><td>Which original build it is, and what we changed.</td><td class="pg">11</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">15</td><td><b>2-axis (with hook)</b> vs the original</td><td>What we changed, and what the hook does.</td><td class="pg">12</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">+</td><td><b>Test results</b></td><td>Drive 1 m ten times, ten 90 degree turns, ruler squaring check.</td><td class="pg">13</td><td class="box"><span class="cb"></span></td></tr>
+    <tr><td class="n">+</td><td><b>Anything we forgot</b></td><td>Other changes to the robot, attachments or code.</td><td class="pg">14-15</td><td class="box"><span class="cb"></span></td></tr>
+  </table>
+
+  <div class="why-box" style="margin-top:14px;">
+    <h3>Why do judges care about this?</h3>
+    <p style="margin:0;">The judges look for a robot design we can explain, evidence that we tested it more than once, and changes we made because of what the tests showed. Every blank you fill in is one more answer we can give out loud.</p>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 2 of 15</span></div>
+</section>
+
+<!-- ======================= PAGE 3: ENTRIES 1, 2 ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">1</span><span class="t">We chose HummerOne as our base robot</span><span class="d">Decided 2026-09-22</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        We shortlisted four designs: HummerOne, Comp Bot, StarterBot, and GummyBears / Droid Bot M. We picked HummerOne because it is free, has a full-width attachment bar (swaps in about 5 seconds, versus about 20 for a pinned design), and its frame should square well against a wall. It has 73 build steps. We chose not to buy StarterBot ($30). The build was finished on 2026-10-01.</div>
+      <div class="q"><span class="pen">&#9998;</span> In your own words, why HummerOne and not one of the others? <span class="hint">(Pick the reason that matters most to you.)</span></div>
+      <div class="lines l3"></div>
+      <div class="q"><span class="pen">&#9998;</span> What do you remember about building it? <span class="hint">(Surprises, problems, how long it took, who helped.)</span></div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Ruler squaring check: does the body touch the ruler before any wheel does? <span class="hint">(Watch the front-left wheel. Put the numbers on page 13.)</span></div>
+      <div class="lines l1"></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">2</span><span class="t">We scored the four designs</span><span class="d">2026-09-22, whole team</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        Six criteria, each scored 1 to 5, all about how the robot performs in a 2.5 minute match: archetype match, attachment swap speed, squaring, stability, maneuverability, and drive repeatability. <b>Totals out of 30: HummerOne 23, Comp Bot 20.5, GummyBears / Droid Bot M 20, StarterBot 14.5.</b> Cost and build time were left out on purpose and decided separately.</div>
+      <div class="q"><span class="pen">&#9998;</span> Which of the six criteria mattered most to you, and why?</div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Was there a score you disagreed with? <span class="hint">(Which design, which criterion, and what would you give it?)</span></div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Why did we leave cost out of the scoring?</div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 3 of 15</span></div>
+</section>
+
+<!-- ======================= PAGE 4: ENTRIES 3, 4 ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">3</span><span class="t">Front wheels: mine cart wheels</span><span class="d">Before 2026-10-01</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        HummerOne's front wheels have no rubber, so they skid unevenly from run to run. We swapped in mine cart wheels, which are lower and create less friction when turning. The conference taught us that smaller wheels wobble less and that <b>accuracy matters more than speed</b>. Problem: the new wheels still stuck out past the sides, so a wheel could touch a wall before the body. They were good in a straight line but resisted turning. We replaced them in entry 9.</div>
+      <div class="inline"><span>Who changed the wheels?</span><span class="ln"></span><span>Date:</span><span class="ln short"></span></div>
+      <div class="q"><span class="pen">&#9998;</span> Why mine cart wheels and not a different wheel? <span class="hint">(What else did you try or look at?)</span></div>
+      <div class="lines l3"></div>
+      <div class="q"><span class="pen">&#9998;</span> How did you notice they stuck out past the sides? <span class="hint">(What did you see or test?)</span></div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">4</span><span class="t">We added a second colour sensor</span><span class="d">2026-09-27 to 09-29, Jack</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        At the conference we learned that squaring up on a line needs <b>two</b> colour sensors: when one sees black, the robot turns until the other sees black too, then wiggles straight. In the gym we could not square up with one sensor, so Jack added a second. The square-up program was finished on 2026-10-01. Still to do: find which lines in front of mission models we can square up on, and show a judge a before and after.</div>
+      <div class="q"><span class="pen">&#9998;</span> Where is the second sensor mounted, and why there?</div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Before and after: what happened when the robot was placed crooked, without and with squaring? <span class="hint">(Write or draw what you saw.)</span></div>
+      <div class="lines l3"></div>
+      <div class="q"><span class="pen">&#9998;</span> Which mission models have a line in front we could square up on?</div>
+      <div class="lines l1"></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 4 of 15</span></div>
+</section>
+
+<!-- ======================= PAGE 5: ENTRIES 5, 6 ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">5</span><span class="t">Plan: mini ball caster at the front</span><span class="d">Fedor and Ira, 2026-09-29</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        A ball caster has almost no friction, turns best, and is small. It sits <b>below</b> the body instead of on the sides, so the flat body faces can touch a wall first. It was postponed on 2026-10-01 because Fedor and Ira were sick. It was finished on 2026-10-13 with a Technic ball joint (entry 9). Known risk: a caster can drift on hard acceleration and when reversing.</div>
+      <div class="q"><span class="pen">&#9998;</span> Why did we choose the <b>mini</b> size? <span class="hint">(Ask Fedor or Ira if you are not sure.)</span></div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Did it drift when driving or reversing? <span class="hint">(What did you test, and what happened?)</span></div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">6</span><span class="t">Mission 1 attachments on HummerOne's mounting bar</span><span class="d">Status 2026-10-01</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        Plan: adapt three Mission 1 attachments to the HummerOne bar, test all three, rate the pros and cons, then pick one for final refinement. <b>Done:</b> lifting arm with a seed bucket, and 2-axis attachment with a hook. <b>In progress:</b> forklift (it is the tallest when extended, so test it for tipping). Ira is writing down the seed order the mission needs.</div>
+      <div class="q"><span class="pen">&#9998;</span> Rate each attachment and tell us the pros and cons. <span class="hint">(What we changed from each original build is on pages 9 to 12.)</span></div>
+      <table class="grid">
+        <tr><th style="width:1.35in;">Attachment</th><th>Pros</th><th>Cons</th><th style="width:0.7in;">Rating<br>1 to 5</th></tr>
+        <tr><td class="lab">Lifting arm + seed bucket</td><td></td><td></td><td></td></tr>
+        <tr><td class="lab">2-axis + hook</td><td></td><td></td><td></td></tr>
+        <tr><td class="lab">Forklift</td><td></td><td></td><td></td></tr>
+      </table>
+      <div class="q"><span class="pen">&#9998;</span> Did the forklift tip over when raised? <span class="hint">(What did you try to fix it?)</span></div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Who built each attachment, and what did you change from the original video?</div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 5 of 15</span></div>
+</section>
+
+<!-- ======================= PAGE 6: ENTRIES 7, 8 ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">7</span><span class="t">Attachment pins: axle pins tried, quick pins kept</span><span class="d">Tested 2026-10-01</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        Jack suggested axle pins as an alternative to quick pins. While testing the lifting arm with the seed bucket, the attachment kept coming off with axle pins. We went back to <b>quick pins, which hold more securely</b>. A secure fit matters more than swap speed, because an attachment that falls off mid-run loses points and time.</div>
+      <div class="inline"><span>When did Jack suggest it?</span><span class="ln"></span><span>Date:</span><span class="ln short"></span></div>
+      <div class="q"><span class="pen">&#9998;</span> What did Jack hope axle pins would do better? <span class="hint">(Faster swap? Smoother? Something else?)</span></div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Did the 2-axis (hook) and the forklift also come off with axle pins? How long does a quick pin swap take?</div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">8</span><span class="t">Gyro PID drive and turn blocks (Mission 2 code)</span><span class="d">2026-10-06, Jordan and Fedor</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        Yaw (gyro) turns the robot by a real angle, but 90 motor degrees only turns a wheel a quarter turn. <b>Gyro Move</b> drives straight by fixing its heading error every 0.1 seconds (Kp 2.1, Ki 2), with a speed ramp. <b>Gyro Turn</b> slows as it nears the angle and stops 3 degrees early so it does not overshoot. Both are reusable My Blocks. Used in a Mission 2 test run on 2026-10-06.</div>
+      <div class="q"><span class="pen">&#9998;</span> How did the Mission 2 test runs go? <span class="hint">(What worked, what failed, what to change?)</span></div>
+      <div class="lines l3"></div>
+      <p class="note" style="margin:6px 0 0;">How Kp and Ki were tuned, and the tests for each attachment, are recorded in the separate Kp/Ki test document.</p>
+      <div class="q"><span class="pen">&#9998;</span> In one sentence, why is gyro driving better than motor degrees?</div>
+      <div class="lines l1"></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 6 of 15</span></div>
+</section>
+
+<!-- ======================= PAGE 7: ENTRIES 9, 10 ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">9</span><span class="t">Technic ball joint instead of mine cart wheels</span><span class="d">Weekend before 2026-10-13, Jordan</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        The mine cart wheels were very good in a straight line but resisted turning and stuck out past the sides. The Technic ball joint is better for turns and stays under the robot, so the flat sides can touch a wall. Side effect: the robot <b>wobbled</b> when driving straight. Jordan adjusted Kp and Ki in Gyro Move until it went straight again. On 2026-10-06 the values were Kp 2.1 and Ki 2.</div>
+      <div class="inline"><span>Which Technic ball joint part is it? (name or part number)</span><span class="ln"></span></div>
+      <p class="note" style="margin:6px 0 0;">The new Kp and Ki values go in the separate Kp/Ki test document.</p>
+      <div class="q"><span class="pen">&#9998;</span> Describe the wobble. How did you know it was fixed?</div>
+      <div class="lines l3"></div>
+      <div class="q"><span class="pen">&#9998;</span> Does the ball joint drift when accelerating hard or reversing?</div>
+      <div class="lines l1"></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">10</span><span class="t">Gyro Move takes distance in centimetres</span><span class="d">Weekend before 2026-10-13, Jordan</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        Distance in cm is easier to communicate and test: measure on the table with a ruler and type it in. We drove a measured <b>100 cm with a 1 m measuring stick, and it took 2070 motor degrees</b>, so Gyro Move uses <b>20.7 motor degrees per cm</b>. The Mission 2 distances (140 and 625 motor degrees) were converted to about 6.8 cm and 30.2 cm.</div>
+      <div class="q"><span class="pen">&#9998;</span> What distances (in cm) are really used in the Mission 2 code now?</div>
+      <div class="inline"><span>Move 1:</span><span class="ln short"></span><span>cm</span><span>Move 2:</span><span class="ln short"></span><span>cm</span><span>Other:</span><span class="ln"></span></div>
+      <div class="q"><span class="pen">&#9998;</span> Why measure on the table instead of working it out from the wheel size? <span class="hint">(Hint: think about tyre squash and slip.)</span></div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Did you repeat the 1 m drive? <span class="hint">(Write the results on page 13.)</span></div>
+      <div class="lines l1"></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 7 of 15</span></div>
+</section>
+
+<!-- ======================= PAGE 8: ENTRY 11 + FINAL ATTACHMENT ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">11</span><span class="t">Mission 11 seed-catching basket</span><span class="d">2026-10-13, Jordan, Brynn, Jack</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b>
+        We built a basket attachment to catch the seed on Mission 11. It catches the seed, but <b>sometimes the seed goes over the top</b>. Ideas to try: higher walls, a lip or a lid, or a slower catch. Jordan is also writing the Mission 11 code.</div>
+      <div class="q"><span class="pen">&#9998;</span> What ideas did you try to stop the seed going over? How many catches out of 10 did each get?</div>
+      <table class="grid">
+        <tr><th>Idea we tried</th><th style="width:1.2in;">Catches out of 10</th><th style="width:2.4in;">What happened</th></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+      </table>
+      <div class="q"><span class="pen">&#9998;</span> How does the basket relate to the seed bucket on the lifting arm (entry 6)? <span class="hint">(Same attachment, or different?)</span></div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head" style="background:var(--leaf);"><span class="num">&#9733;</span><span class="t">Final attachment pick</span><span class="d">Still to record</span></div>
+    <div class="entry-body" style="border-color:var(--leaf);">
+      <div class="known" style="border-left-color:var(--leaf);background:#F1F8F3;"><b class="k" style="color:var(--leaf);">What our log says</b>
+        We plan to test all three Mission 1 attachments on HummerOne, rate their pros and cons (page 5), and pick one for final refinement. The reasons for the pick are not recorded yet.</div>
+      <div class="q"><span class="pen">&#9998;</span> Which attachment do you think we should pick for final refinement?</div>
+      <div class="lines l1"></div>
+      <div class="q"><span class="pen">&#9998;</span> Why? <span class="hint">(Use your ratings and test results. What made it better than the other two?)</span></div>
+      <div class="lines l4"></div>
+      <div class="q"><span class="pen">&#9998;</span> What would you improve about it next?</div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 8 of 15</span></div>
+</section>
+
+<!-- ======================= ATTACHMENT 12: Forklift ======================= -->
+<section class="page attach">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">12</span><span class="t">Forklift</span><span class="d">Jack, Ira, Ella, Amelia</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b> Original build: <b>Forklift1-zoptyk.pdf</b>, a 73 page build in 3 phases that lifts a platform with rack and pinion. It was Ella's first-to-implement task from Robot Man ("raise the platform"). We are adapting it to HummerOne's mounting bar. Our review warned it is the <b>tallest when extended</b> and the <b>biggest centre of gravity risk</b>, so we need to test it for tipping. Jack and Ira worked on it 2026-10-06, Ella and Amelia 2026-10-13. Finish target was 2026-10-15.</div>
+
+      <div class="twocol sketches">
+        <div><div class="q"><span class="pen">&#9998;</span> Original build <span class="hint">(draw it or tape a photo)</span></div><div class="sketch"></div></div>
+        <div><div class="q"><span class="pen">&#9998;</span> Our version <span class="hint">(draw it or tape a photo)</span></div><div class="sketch"></div></div>
+      </div>
+
+      <div class="q"><span class="pen">&#9998;</span> What did we change from the original build, and why? <span class="hint">(One block per change. Need more room? Use the back of the page.)</span></div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 1 &middot; Part or area:</span><span class="ln">Mounting</span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln">Adapted to HummerOne's mounting bar</span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 2 &middot; Part or area:</span><span class="ln"></span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln"></span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 3 &middot; Part or area:</span><span class="ln"></span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln"></span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+
+      <div class="q"><span class="pen">&#9998;</span> How high does it lift, and does the robot tip when it is raised? <span class="hint">(Say what you tried to fix it.)</span></div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Which mission does it do, and what is it carrying or lifting?</div>
+      <div class="lines l1"></div>
+
+      <p class="note" style="margin:5px 0 0;">Kp and Ki testing for this attachment is recorded in the separate Kp/Ki test document, not here.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 9 of 15</span></div>
+</section>
+
+<!-- ======================= ATTACHMENT 13: Seed bucket (on the lifting arm) ======================= -->
+<section class="page attach">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">13</span><span class="t">Seed bucket (on the lifting arm)</span><span class="d">Sylvie, Ella, Alexis, Amelia, Brynn</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b> Original build: <b>Lifting-Arm-Attachment.pdf</b>, a 15 page geared hinge arm for scoop and hook missions. Our review warned about the <b>forward centre of gravity shift</b>. We added a <b>seed bucket</b>. The seed mission needs the seeds to go in a <b>specific order</b>, which Ira is writing down. With axle pins the arm kept coming off, so we switched back to <b>quick pins</b> (entry 7).</div>
+
+      <div class="twocol sketches">
+        <div><div class="q"><span class="pen">&#9998;</span> Original build <span class="hint">(draw it or tape a photo)</span></div><div class="sketch"></div></div>
+        <div><div class="q"><span class="pen">&#9998;</span> Our version <span class="hint">(draw it or tape a photo)</span></div><div class="sketch"></div></div>
+      </div>
+
+      <div class="q"><span class="pen">&#9998;</span> What did we change from the original build, and why? <span class="hint">(One block per change. Need more room? Use the back of the page.)</span></div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 1 &middot; Part or area:</span><span class="ln">Arm end</span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln">Plain geared hinge arm</span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln">Added a seed bucket</span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 2 &middot; Part or area:</span><span class="ln">Pins</span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln">Quick pins (axle pins kept coming off)</span></div>
+        <div class="inline"><span>Why?</span><span class="ln">Holds more securely</span></div>
+        <div class="lines l1"></div>
+      </div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 3 &middot; Part or area:</span><span class="ln"></span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln"></span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+
+      <div class="q"><span class="pen">&#9998;</span> What is the correct seed order, and how does the bucket keep the seeds in order?</div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> How do the seeds get out of the bucket, and does it work every time?</div>
+      <div class="lines l1"></div>
+
+      <p class="note" style="margin:5px 0 0;">Kp and Ki testing for this attachment is recorded in the separate Kp/Ki test document, not here.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 10 of 15</span></div>
+</section>
+
+<!-- ======================= ATTACHMENT 14: Mission 1 attachment ======================= -->
+<section class="page attach">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">14</span><span class="t">Mission 1 attachment</span><span class="d">Three options, one group each</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b> We built three Mission 1 options, inspired by <b>Giraffes #3388</b> (Amelia, Ella), <b>Platinum Pizzeria</b> (Fedor, Ira) and <b>Team TurtleBots</b> (Jordan, Alexis). The plan is to adapt each to the HummerOne bar, rate the pros and cons, and pick one. <b>Not confirmed yet:</b> which original build this page is about. Our review suggested <b>Multipurpose-Single-Attachment.pdf</b>, a 9 page paddle or flipper, as the fastest route to a working Mission 1 tool.</div>
+
+      <div class="twocol sketches">
+        <div><div class="q"><span class="pen">&#9998;</span> Original build <span class="hint">(draw it or tape a photo)</span></div><div class="sketch"></div></div>
+        <div><div class="q"><span class="pen">&#9998;</span> Our version <span class="hint">(draw it or tape a photo)</span></div><div class="sketch"></div></div>
+      </div>
+
+      <div class="q"><span class="pen">&#9998;</span> What did we change from the original build, and why? <span class="hint">(One block per change. Need more room? Use the back of the page.)</span></div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 1 &middot; Part or area:</span><span class="ln"></span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln"></span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 2 &middot; Part or area:</span><span class="ln"></span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln"></span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 3 &middot; Part or area:</span><span class="ln"></span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln"></span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+
+      <div class="inline"><span>Which original build is this?</span><span class="ln"></span></div>
+      <div class="inline"><span>Who built it?</span><span class="ln"></span></div>
+      <div class="q"><span class="pen">&#9998;</span> What does Mission 1 need the attachment to do, and does it do it every time?</div>
+      <div class="lines l2"></div>
+
+      <p class="note" style="margin:5px 0 0;">Kp and Ki testing for this attachment is recorded in the separate Kp/Ki test document, not here.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 11 of 15</span></div>
+</section>
+
+<!-- ======================= ATTACHMENT 15: 2-axis movement (with hook) ======================= -->
+<section class="page attach">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">15</span><span class="t">2-axis movement (with hook)</span><span class="d">Status 2026-10-01</span></div>
+    <div class="entry-body">
+      <div class="known"><b class="k">What our log says</b> Original build: <b>2-Axis-Movement-Attachment.pdf</b>, a 13 page build where bevel gears give <b>vertical and horizontal motion from one input</b>, so one attachment can do two mission actions without a swap. Our review warned that <b>gear backlash reduces precision</b>. We modified it with a <b>hook</b>.</div>
+
+      <div class="twocol sketches">
+        <div><div class="q"><span class="pen">&#9998;</span> Original build <span class="hint">(draw it or tape a photo)</span></div><div class="sketch"></div></div>
+        <div><div class="q"><span class="pen">&#9998;</span> Our version <span class="hint">(draw it or tape a photo)</span></div><div class="sketch"></div></div>
+      </div>
+
+      <div class="q"><span class="pen">&#9998;</span> What did we change from the original build, and why? <span class="hint">(One block per change. Need more room? Use the back of the page.)</span></div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 1 &middot; Part or area:</span><span class="ln">End of arm</span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln">No hook</span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln">Added a hook</span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 2 &middot; Part or area:</span><span class="ln"></span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln"></span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+      <div class="chg-block">
+        <div class="inline"><span>Change 3 &middot; Part or area:</span><span class="ln"></span></div>
+        <div class="inline"><span>The original build had:</span><span class="ln"></span></div>
+        <div class="inline"><span>We changed it to:</span><span class="ln"></span></div>
+        <div class="inline"><span>Why?</span><span class="ln"></span></div>
+        <div class="lines l1"></div>
+      </div>
+
+      <div class="q"><span class="pen">&#9998;</span> Which mission does the hook do, and what does it hook onto?</div>
+      <div class="lines l1"></div>
+      <div class="q"><span class="pen">&#9998;</span> Do the gears slip or have play (backlash)? How did you handle it?</div>
+      <div class="lines l2"></div>
+
+      <p class="note" style="margin:5px 0 0;">Kp and Ki testing for this attachment is recorded in the separate Kp/Ki test document, not here.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 12 of 15</span></div>
+</section>
+
+<!-- ======================= PAGE 9: TEST RESULTS ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <h2>Test results: our evidence</h2>
+  <p>Judges look for proof that we tested the robot <b>more than once</b>. Fill in what we have measured. If a test has not been done yet, do it, then write the numbers here. Kp and Ki tests for each attachment go in the separate Kp/Ki test document.</p>
+
+  <div class="twocol">
+    <div>
+      <div class="q" style="margin-top:6px;">A. Drive 1 m (100 cm), ten times</div>
+      <table class="grid big-table">
+        <tr><th>Run</th><th>Ended at (cm)</th><th>Off by (cm)</th></tr>
+        <tr><td class="lab">1</td><td></td><td></td></tr>
+        <tr><td class="lab">2</td><td></td><td></td></tr>
+        <tr><td class="lab">3</td><td></td><td></td></tr>
+        <tr><td class="lab">4</td><td></td><td></td></tr>
+        <tr><td class="lab">5</td><td></td><td></td></tr>
+        <tr><td class="lab">6</td><td></td><td></td></tr>
+        <tr><td class="lab">7</td><td></td><td></td></tr>
+        <tr><td class="lab">8</td><td></td><td></td></tr>
+        <tr><td class="lab">9</td><td></td><td></td></tr>
+        <tr><td class="lab">10</td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="q" style="margin-top:6px;">B. Turn 90 degrees, ten times</div>
+      <table class="grid big-table">
+        <tr><th>Run</th><th>Turned to (deg)</th><th>Off by (deg)</th></tr>
+        <tr><td class="lab">1</td><td></td><td></td></tr>
+        <tr><td class="lab">2</td><td></td><td></td></tr>
+        <tr><td class="lab">3</td><td></td><td></td></tr>
+        <tr><td class="lab">4</td><td></td><td></td></tr>
+        <tr><td class="lab">5</td><td></td><td></td></tr>
+        <tr><td class="lab">6</td><td></td><td></td></tr>
+        <tr><td class="lab">7</td><td></td><td></td></tr>
+        <tr><td class="lab">8</td><td></td><td></td></tr>
+        <tr><td class="lab">9</td><td></td><td></td></tr>
+        <tr><td class="lab">10</td><td></td><td></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="q" style="margin-top:10px;">C. Ruler squaring check <span class="hint">(Hold a ruler flat against each face. The body should touch before any wheel does. Watch the front-left drive wheel.)</span></div>
+  <table class="grid big-table">
+    <tr><th style="width:1.3in;">Face</th><th style="width:1.2in;">Body touches first?<br>Yes / No</th><th>Notes (which wheel touched first, by how much)</th></tr>
+    <tr><td class="lab">Back</td><td></td><td></td></tr>
+    <tr><td class="lab">Left side</td><td></td><td></td></tr>
+    <tr><td class="lab">Right side</td><td></td><td></td></tr>
+  </table>
+
+  <div class="q" style="margin-top:10px;"><span class="pen">&#9998;</span> What do these numbers tell us? <span class="hint">(Is the robot repeatable? What would you change because of them?)</span></div>
+  <div class="lines l4"></div>
+  <div class="inline"><span>Tested by:</span><span class="ln"></span><span>Date:</span><span class="ln short"></span></div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 13 of 15</span></div>
+</section>
+
+<!-- ======================= PAGES 10-11: BLANK ENTRIES ======================= -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <h2>Did we forget something?</h2>
+  <p>Think about anything you changed or decided that is not in the log: a wheel, a gear, a sensor, a part of the frame, an attachment, a program. Write each one down so the judges can hear the whole story.</p>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">16</span><span class="t">Decision: <span style="font-weight:400;opacity:.85;">____________________________________________</span></span></div>
+    <div class="entry-body">
+      <div class="inline"><span>Who:</span><span class="ln"></span><span>Date:</span><span class="ln short"></span></div>
+      <div class="q"><span class="pen">&#9998;</span> What else did we think about doing?</div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Why did we choose this one? <span class="hint">(What problem did it solve? What did we see or measure?)</span></div>
+      <div class="lines l3"></div>
+      <div class="q"><span class="pen">&#9998;</span> What happened? What is still left to do?</div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">17</span><span class="t">Decision: <span style="font-weight:400;opacity:.85;">____________________________________________</span></span></div>
+    <div class="entry-body">
+      <div class="inline"><span>Who:</span><span class="ln"></span><span>Date:</span><span class="ln short"></span></div>
+      <div class="q"><span class="pen">&#9998;</span> What else did we think about doing?</div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Why did we choose this one? <span class="hint">(What problem did it solve? What did we see or measure?)</span></div>
+      <div class="lines l3"></div>
+      <div class="q"><span class="pen">&#9998;</span> What happened? What is still left to do?</div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 14 of 15</span></div>
+</section>
+
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Design Log</span></div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">18</span><span class="t">Decision: <span style="font-weight:400;opacity:.85;">____________________________________________</span></span></div>
+    <div class="entry-body">
+      <div class="inline"><span>Who:</span><span class="ln"></span><span>Date:</span><span class="ln short"></span></div>
+      <div class="q"><span class="pen">&#9998;</span> What else did we think about doing?</div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Why did we choose this one? <span class="hint">(What problem did it solve? What did we see or measure?)</span></div>
+      <div class="lines l3"></div>
+      <div class="q"><span class="pen">&#9998;</span> What happened? What is still left to do?</div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><span class="num">19</span><span class="t">Decision: <span style="font-weight:400;opacity:.85;">____________________________________________</span></span></div>
+    <div class="entry-body">
+      <div class="inline"><span>Who:</span><span class="ln"></span><span>Date:</span><span class="ln short"></span></div>
+      <div class="q"><span class="pen">&#9998;</span> What else did we think about doing?</div>
+      <div class="lines l2"></div>
+      <div class="q"><span class="pen">&#9998;</span> Why did we choose this one? <span class="hint">(What problem did it solve? What did we see or measure?)</span></div>
+      <div class="lines l3"></div>
+      <div class="q"><span class="pen">&#9998;</span> What happened? What is still left to do?</div>
+      <div class="lines l2"></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head" style="background:var(--leaf);"><span class="num">&#10003;</span><span class="t">One more thing</span></div>
+    <div class="entry-body" style="border-color:var(--leaf);">
+      <div class="q"><span class="pen">&#9998;</span> Something you are proud of about our robot, and one thing you would still like to improve.</div>
+      <div class="lines l3"></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 15 of 15</span></div>
+</section>
+
+</body>
+</html>
