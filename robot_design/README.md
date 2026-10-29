@@ -9,6 +9,8 @@ Materials for the FLL Robot Design judged category — the physical robot's mech
 - [PID_CONTROL_TUTORIAL.md](PID_CONTROL_TUTORIAL.md) — tutorial explaining the PID control implementation
 - [PID_TUNING_GUIDE.md](PID_TUNING_GUIDE.md) — guide for tuning PID constants
 - [mission2/](mission2/) — Jordan and Fedor's Mission 2 SPIKE project (2026-10-06): the PID `Gyro Move` and `Gyro Turn` My Blocks, a readable copy of the code, and the Kp/Ki tuning record
+- [kp-ki-test-protocol.md](kp-ki-test-protocol.md) — step-by-step Kp/Ki test the team runs for each attachment (forklift, seed bucket, Mission 1, 2-axis), with data sheets and pass targets
+- [kp-ki-test-sheets/](kp-ki-test-sheets/) — printable, team-branded Kp/Ki test sheets (13 pages, PDF plus HTML source): a guide, two data sheets for each attachment and the no-attachment control, and a summary page
 - [pidStraightDrive.py](pidStraightDrive.py) — PID-based straight drive control code
 - [examples_pidDrive.py](examples_pidDrive.py) — example usage of the PID drive code
 
