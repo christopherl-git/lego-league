@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Robot Run Scoring Worksheet - Team 69255, Look it's a Giraffe!</title>
+<style>
+  @page { size: 8.5in 11in; margin: 0; }
+  :root {
+    --giraffe: #E8A317;
+    --brown: #5A3A1A;
+    --leaf: #2F7D4F;
+    --cream: #FFF6DC;
+    --ink: #222;
+    --rule: #9a8a70;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- page frame ---------- */
+  .page {
+    position: relative;
+    width: 8.5in;
+    height: 11in;
+    padding: 0.82in 0.55in 0.6in;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .band {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    background-color: var(--giraffe);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='42' viewBox='0 0 150 42'><g fill='%235A3A1A' fill-opacity='0.55' stroke='%235A3A1A' stroke-opacity='0.55' stroke-width='3' stroke-linejoin='round'><polygon points='6,8 22,3 33,12 28,27 12,30 4,20'/><polygon points='58,22 70,14 86,18 90,33 76,40 60,36'/><polygon points='108,4 124,2 134,13 128,26 112,28 104,15'/></g></svg>");
+    background-size: 150px 42px;
+    border-bottom: 3px solid var(--brown);
+  }
+  .band-inner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 0.55in;
+  }
+  .band-inner .name {
+    background: var(--cream);
+    border: 2px solid var(--brown);
+    border-radius: 999px;
+    padding: 3px 14px;
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-weight: 800; font-size: 13pt; color: var(--brown);
+  }
+  .band-inner .tag {
+    background: var(--cream);
+    border: 2px solid var(--brown);
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-weight: 700; font-size: 9.5pt; color: var(--brown);
+  }
+  .foot {
+    position: absolute; left: 0.55in; right: 0.55in; bottom: 0.22in;
+    display: flex; justify-content: space-between;
+    font-size: 8pt; color: #6b5a40;
+    border-top: 1px solid var(--rule); padding-top: 4px;
+  }
+
+  /* ---------- text ---------- */
+  h1 {
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-size: 25pt; line-height: 1.1; margin: 0 0 4px; color: var(--brown);
+  }
+  h2 {
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-size: 15pt; margin: 0 0 6px; color: var(--brown);
+  }
+  p { margin: 0 0 6px; }
+  .sub { font-size: 12pt; color: var(--leaf); font-weight: 700; margin-bottom: 14px; }
+
+  .namebar { display: flex; gap: 20px; margin: 10px 0 14px; }
+  .namebar .f { flex: 1; font-weight: 700; display: flex; align-items: flex-end; gap: 6px; }
+  .namebar .f .ln { flex: 1; border-bottom: 1.5px solid var(--ink); height: 20px; }
+
+  .steps { list-style: none; counter-reset: s; margin: 0 0 12px; padding: 0; }
+  .steps li {
+    counter-increment: s; position: relative; padding: 4px 0 4px 38px; margin-bottom: 5px; font-size: 10.5pt;
+  }
+  .steps li::before {
+    content: counter(s);
+    position: absolute; left: 0; top: 2px; width: 27px; height: 27px; border-radius: 50%;
+    background: var(--leaf); color: #fff; font-weight: 800; font-size: 12pt;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .tips {
+    border: 2px solid var(--leaf); border-radius: 10px; padding: 8px 12px; background: #F1F8F3;
+    margin-bottom: 10px;
+  }
+  .tips h3 { margin: 0 0 3px; font-size: 11pt; color: var(--leaf); }
+  .tips ul { margin: 0; padding-left: 18px; }
+  .tips li { margin-bottom: 2px; }
+
+  .why-box {
+    border: 2px dashed var(--brown); border-radius: 10px; padding: 7px 12px; background: var(--cream);
+  }
+  .why-box h3 { margin: 0 0 2px; font-size: 11pt; color: var(--brown); }
+
+  /* ---------- checklist table ---------- */
+  table.check { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 9.5pt; }
+  table.check th {
+    background: var(--brown); color: #fff; text-align: left; padding: 5px 7px; font-size: 9pt;
+  }
+  table.check td { border-bottom: 1px solid var(--rule); padding: 5px 7px; vertical-align: top; }
+  table.check td.n { font-weight: 800; color: var(--brown); width: 24px; }
+  table.check td.pg { width: 42px; text-align: center; color: #6b5a40; }
+  table.check td.box { width: 42px; text-align: center; }
+  .cb { display: inline-block; width: 15px; height: 15px; border: 2px solid var(--brown); border-radius: 3px; vertical-align: middle; }
+  table.check tr:nth-child(even) td { background: #FBF4E2; }
+
+  /* ---------- entry cards ---------- */
+  .entry { margin-bottom: 0.12in; }
+  .entry-head {
+    display: flex; align-items: center; gap: 9px;
+    background: var(--brown); color: #fff; border-radius: 9px 9px 0 0; padding: 4px 10px;
+  }
+  .entry-head .num {
+    background: var(--giraffe); color: var(--brown); font-weight: 900; font-size: 12pt;
+    width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none;
+  }
+  .entry-head .t { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 11.5pt; flex: 1; }
+  .entry-head .d { font-size: 8.5pt; opacity: 0.9; }
+  .entry-body { border: 2px solid var(--brown); border-top: none; border-radius: 0 0 9px 9px; padding: 6px 10px 5px; }
+
+  .known {
+    background: var(--cream); border-left: 5px solid var(--giraffe); padding: 4px 9px; margin-bottom: 5px;
+    font-size: 9.5pt; line-height: 1.32;
+  }
+  .known b.k { color: var(--brown); text-transform: uppercase; font-size: 7.5pt; letter-spacing: 0.4px; display: block; }
+  .q { font-weight: 700; font-size: 9.5pt; margin-top: 4px; }
+  .q .pen { color: var(--leaf); font-size: 10.5pt; margin-right: 2px; }
+  .q .hint { font-weight: 400; color: #6b5a40; }
+
+  .lines {
+    --lh: 0.31in;
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--lh) - 1px), var(--rule) calc(var(--lh) - 1px), var(--rule) var(--lh));
+  }
+  .l1 { height: calc(var(--lh) * 1); } .l2 { height: calc(var(--lh) * 2); } .l3 { height: calc(var(--lh) * 3); } .l4 { height: calc(var(--lh) * 4); } .l5 { height: calc(var(--lh) * 5); } .l6 { height: calc(var(--lh) * 6); }
+
+  .inline { display: flex; align-items: flex-end; gap: 6px; margin-top: 3px; font-weight: 700; font-size: 9pt; }
+  .inline .ln { flex: 1; border-bottom: 1px solid var(--rule); height: 0.22in; }
+  .inline .ln.short { flex: none; width: 0.9in; }
+  .inline span.u { font-weight: 400; color: #6b5a40; }
+
+  table.grid { width: 100%; border-collapse: collapse; margin-top: 3px; font-size: 8.5pt; }
+  table.grid th { background: #EBDDB9; border: 1px solid var(--rule); padding: 2px 5px; text-align: left; font-size: 8pt; color: var(--brown); }
+  table.grid td { border: 1px solid var(--rule); height: 0.31in; padding: 0 5px; }
+  table.grid td.lab { font-weight: 700; background: #FBF4E2; white-space: nowrap; }
+
+  .big-table th, .big-table td { text-align: center; }
+  .note { font-size: 8.5pt; color: #6b5a40; }
+  .twocol { display: flex; gap: 0.2in; }
+  .twocol > div { flex: 1; }
+
+  /* ---------- attachment pages ---------- */
+  .sketches { margin: 2px 0 4px; }
+  .sketch { height: 2.45in; border: 1.5px dashed var(--rule); border-radius: 8px; background: #fff; }
+  table.chg td { height: 0.42in; }
+
+  /* ---------- extra styles for the run scoring worksheet ---------- */
+  .page { padding-top: 0.78in; }
+  .fields { display: flex; gap: 14px; margin: 4px 0 8px; }
+  .fields .f { flex: 1; font-weight: 700; display: flex; align-items: flex-end; gap: 5px; font-size: 9.5pt; }
+  .fields .f .ln { flex: 1; border-bottom: 1.5px solid var(--ink); height: 18px; }
+  .fields .f.s { flex: 0 0 1.25in; }
+
+  .key { display: flex; gap: 10px; margin: 4px 0 8px; }
+  .key div { flex: 1; border: 2px solid var(--brown); border-radius: 8px; padding: 4px 8px; font-size: 9pt; background: #fff; }
+  .key b { font-size: 11pt; }
+  .k-done b { color: var(--leaf); } .k-part b { color: #B7791F; } .k-fail b { color: #B03A2E; }
+
+  table.run { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  table.run th { background: var(--brown); color: #fff; padding: 4px 5px; font-size: 8.5pt; text-align: center; border: 1px solid var(--brown); }
+  table.run th.l { text-align: left; }
+  table.run td { border: 1px solid var(--rule); height: 0.92in; padding: 3px 5px; vertical-align: top; }
+  table.run td.ord { width: 0.3in; text-align: center; vertical-align: middle; font-weight: 900; font-size: 13pt; color: var(--brown); background: #FBF4E2; }
+  table.run td.mis { width: 1.75in; vertical-align: middle; background: #FBF4E2; }
+  table.run td.mis .mn { display: block; font-size: 7.5pt; font-weight: 800; color: var(--leaf); text-transform: uppercase; letter-spacing: 0.4px; }
+  table.run td.mis .mt { display: block; font-weight: 800; font-size: 10pt; color: var(--brown); line-height: 1.15; }
+  table.run td.mis .ms { display: block; font-size: 7.8pt; color: #6b5a40; line-height: 1.2; margin-top: 1px; }
+  table.run td.res { width: 0.95in; vertical-align: middle; font-size: 8.5pt; line-height: 1.75; }
+  table.run td.pts { width: 0.72in; vertical-align: bottom; text-align: center; font-size: 8pt; color: #6b5a40; }
+  table.run td.tm { width: 0.72in; vertical-align: bottom; text-align: center; font-size: 8pt; color: #6b5a40; }
+  table.run td.notes { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(0.27in - 1px), #d8ccb4 calc(0.27in - 1px), #d8ccb4 0.27in); background-position: 0 0.12in; }
+  .cb.sm { width: 12px; height: 12px; border-width: 1.5px; margin-right: 4px; }
+
+  .totals { display: flex; gap: 8px; margin-top: 8px; }
+  .tbox { flex: 1; border: 2px solid var(--brown); border-radius: 9px; padding: 3px 8px 5px; background: var(--cream); text-align: center; }
+  .tbox .tl { font-size: 7.8pt; font-weight: 800; color: var(--brown); text-transform: uppercase; letter-spacing: 0.4px; }
+  .tbox .tv { height: 0.36in; border-bottom: 1.5px solid var(--ink); margin: 2px 6px 0; font-size: 8pt; color: #6b5a40; display: flex; align-items: flex-end; justify-content: flex-end; }
+  .tbox.big { flex: 1.3; border-color: var(--leaf); background: #F1F8F3; }
+  .tbox.big .tl { color: var(--leaf); }
+
+  .nextbox { margin-top: 8px; border: 2px solid var(--leaf); border-radius: 10px; background: #F1F8F3; padding: 5px 10px 6px; }
+  .nextbox h3 { margin: 0; font-size: 11pt; color: var(--leaf); }
+  .nextbox .ruled div { height: 0.3in; border-bottom: 1px solid var(--rule); }
+  .nextbox .who { display: flex; gap: 14px; margin-top: 4px; font-weight: 700; font-size: 9pt; }
+  .nextbox .who .f { flex: 1; display: flex; align-items: flex-end; gap: 5px; }
+  .nextbox .who .ln { flex: 1; border-bottom: 1.5px solid var(--ink); height: 16px; }
+
+  table.sum { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  table.sum th { background: var(--brown); color: #fff; padding: 4px 4px; font-size: 8pt; text-align: center; border: 1px solid var(--brown); line-height: 1.2; }
+  table.sum td { border: 1px solid var(--rule); height: 0.34in; text-align: center; }
+  table.sum td.r { font-weight: 900; color: var(--brown); background: #FBF4E2; width: 0.45in; }
+  table.sum td.hl { background: #F1F8F3; }
+  table.sum tr.ex td { color: #8a7a5a; font-style: italic; background: #fafafa; }
+
+  .stats { display: flex; gap: 8px; margin: 8px 0 6px; }
+  .stat { flex: 1; border: 2px solid var(--leaf); border-radius: 10px; background: #F1F8F3; padding: 4px 8px 6px; text-align: center; }
+  .stat .sl { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 11pt; color: var(--leaf); }
+  .stat .sh { font-size: 7.6pt; color: #4b5a50; line-height: 1.25; min-height: 0.3in; }
+  .stat .sv { height: 0.42in; border-bottom: 1.5px solid var(--ink); margin: 2px 8px 0; display: flex; align-items: flex-end; justify-content: flex-end; font-size: 8pt; color: #6b5a40; }
+
+  table.tally { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+  table.tally th { background: var(--brown); color: #fff; padding: 4px 3px; font-size: 8pt; text-align: center; border: 1px solid var(--brown); }
+  table.tally th.l { text-align: left; padding-left: 6px; }
+  table.tally td { border: 1px solid var(--rule); height: 0.5in; text-align: center; }
+  table.tally td.m { text-align: left; padding: 2px 6px; background: #FBF4E2; width: 1.8in; line-height: 1.15; }
+  table.tally td.m b { color: var(--brown); font-size: 9pt; }
+  table.tally td.m span { display: block; font-size: 7.5pt; color: var(--leaf); font-weight: 800; }
+  table.tally td.c { background: #F1F8F3; width: 0.48in; }
+
+  .work { border: 1.5px dashed var(--rule); border-radius: 8px; height: 0.95in; background: #fff; padding: 3px 7px; font-size: 8pt; color: #6b5a40; }
+  table.sym { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 3px 0 8px; }
+  table.sym th { background: var(--brown); color: #fff; text-align: left; padding: 4px 7px; font-size: 8.5pt; }
+  table.sym td { border: 1px solid var(--rule); padding: 4px 7px; vertical-align: top; }
+  table.tally { table-layout: fixed; }
+  table.tally th.rn { width: 0.36in; }
+  table.check td.what { width: 3.1in; }
+</style>
+</head>
+<body>
+
+<!-- ======================= PAGE 1: GUIDE ======================= -->
+<section class="page">
+  <div class="band"></div><div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Robot Run Scoring</span></div>
+
+  <h1>Robot Run Scoring Worksheet</h1>
+  <div class="sub">Full 2:30 test runs. Run it like the real match. Write down every run.</div>
+
+  <p>A full test run is a practice match: all six missions in order, with the <b>2 minute 30 second</b> timer running. Each run gets its own run sheet. After a few runs, the summary pages show our <b>average, best, worst and middle score</b>, and which missions fail most often. That tells us what to fix first, and it is proof for the Robot Design judges.</p>
+
+  <h2 style="margin-top:8px;">Our mission order</h2>
+  <table class="check">
+    <tr><th>#</th><th>Mission</th><th style="width:3.1in;">What the robot does</th></tr>
+    <tr><td class="n">1</td><td><b>Mission 9: Research Platform</b></td><td></td></tr>
+    <tr><td class="n">2</td><td><b>Mission 2: Drone Survey</b></td><td></td></tr>
+    <tr><td class="n">3</td><td><b>Mission ___: Exploding Seeds</b></td><td></td></tr>
+    <tr><td class="n">4</td><td><b>Mission 15: Biocentric Architecture</b> <span class="note">(city dock: garden skylight and nesting canopy)</span></td><td></td></tr>
+    <tr><td class="n">5</td><td><b>Mission 6: Leafcutter Frenzy</b></td><td></td></tr>
+    <tr><td class="n">6</td><td><b>Mission 11: Window to the Past</b></td><td></td></tr>
+  </table>
+  <p class="note" style="margin-top:3px;">Fill in the right-hand column once, from the rule book, so everyone knows what "done" means for each mission.</p>
+
+  <h2 style="margin-top:8px;">Jobs for each run</h2>
+  <ol class="steps">
+    <li><b>Driver</b> runs the robot and swaps attachments. <b>Timer</b> starts the 2:30 clock and calls out the time. <b>Scorer</b> fills in the run sheet. Swap jobs every run.</li>
+    <li><b>Reset the field</b> exactly like the start of a match, with every model in its starting spot.</li>
+    <li><b>Start the timer and go.</b> When each mission ends, the timer calls out the time left and the scorer writes it in the <b>Timer</b> column.</li>
+    <li><b>Stop at 0:00</b> even if missions are left. Missions not tried count as <b>Failed</b>, 0 points.</li>
+    <li><b>Score each mission</b> using the rule book, add up the total, and agree on the <b>one change</b> to make before the next run.</li>
+  </ol>
+
+  <div class="key">
+    <div class="k-done"><b>&#10003; Done</b><br>Did everything the mission asks and got full points.</div>
+    <div class="k-part"><b>&frac12; Partial</b><br>Got some points but not all of them.</div>
+    <div class="k-fail"><b>&#10007; Failed</b><br>0 points: missed, broke, ran out of time or not tried.</div>
+  </div>
+
+  <div class="tips small">
+    <h3>Rules that keep the numbers honest</h3>
+    <ul><li><b>Never skip a bad run.</b> If we only write down good runs, our average lies to us.</li>
+        <li><b>Change one thing between runs</b> (code, attachment or how we line up), so we know what made the difference.</li>
+        <li>Write down every time a hand touches the robot outside home. In a real match that can cost points.</li></ul>
+  </div>
+  <p class="note">Print one run sheet (page 2) for every run. Pages 3 and 4 collect all the runs together.</p>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 1 of 4</span></div>
+</section>
+
+<!-- ======================= PAGE 2: RUN SHEET ======================= -->
+<section class="page">
+  <div class="band"></div><div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Run Sheet &middot; 2:30</span></div>
+
+  <h2 style="font-size:19pt; margin-bottom:2px;">Run Sheet &nbsp;<span style="font-size:13pt;">Run # ______</span></h2>
+  <div class="fields">
+    <div class="f s">Date: <span class="ln"></span></div>
+    <div class="f">Driver: <span class="ln"></span></div>
+    <div class="f">Timer: <span class="ln"></span></div>
+    <div class="f">Scorer: <span class="ln"></span></div>
+  </div>
+
+  <table class="run">
+    <tr><th>#</th><th class="l">Mission</th><th>Result</th><th>Points</th><th>Timer at end</th><th class="l">What happened? What should we change?</th></tr>
+    <tr><td class="ord">1</td><td class="mis"><span class="mn">Mission 9</span><span class="mt">Research Platform</span></td>
+      <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
+      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">2</td><td class="mis"><span class="mn">Mission 2</span><span class="mt">Drone Survey</span></td>
+      <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
+      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">3</td><td class="mis"><span class="mn">Mission ___</span><span class="mt">Exploding Seeds</span></td>
+      <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
+      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">4</td><td class="mis"><span class="mn">Mission 15</span><span class="mt">Biocentric Architecture</span><span class="ms">City dock: garden skylight and nesting canopy</span></td>
+      <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
+      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">5</td><td class="mis"><span class="mn">Mission 6</span><span class="mt">Leafcutter Frenzy</span></td>
+      <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
+      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">6</td><td class="mis"><span class="mn">Mission 11</span><span class="mt">Window to the Past</span></td>
+      <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
+      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+  </table>
+
+  <div class="totals">
+    <div class="tbox big"><div class="tl">Total points</div><div class="tv">pts</div></div>
+    <div class="tbox"><div class="tl">Total time used</div><div class="tv">m : ss</div></div>
+    <div class="tbox"><div class="tl">&#10003; Done</div><div class="tv">of 6</div></div>
+    <div class="tbox"><div class="tl">&frac12; Partial</div><div class="tv">of 6</div></div>
+    <div class="tbox"><div class="tl">&#10007; Failed</div><div class="tv">of 6</div></div>
+    <div class="tbox"><div class="tl">Hand touches</div><div class="tv">times</div></div>
+  </div>
+  <p class="note" style="margin:3px 0 0;"><b>Total time used</b> = 2:30 minus the timer when the robot finished its last mission. If the timer hit 0:00, write 2:30.</p>
+
+  <div class="nextbox">
+    <h3>The ONE change for the next run</h3>
+    <div class="ruled"><div></div><div></div></div>
+    <div class="who"><div class="f">Who will do it: <span class="ln"></span></div><div class="f">Did it help? (next run) <span class="ln"></span></div></div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; Print one copy for every run</span><span>Page 2 of 4</span></div>
+</section>
+
+<!-- ======================= PAGE 3: ALL RUNS + STATS ======================= -->
+<section class="page">
+  <div class="band"></div><div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">All Runs &middot; Points</span></div>
+
+  <h2 style="font-size:19pt; margin-bottom:2px;">All Runs: Points and Time</h2>
+  <p>Copy the totals from each run sheet into one row. The first row is an example.</p>
+
+  <table class="sum">
+    <tr><th>Run</th><th>Date</th><th>Total<br>points</th><th>Time<br>used</th><th>&#10003;<br>Done</th><th>&frac12;<br>Partial</th><th>&#10007;<br>Failed</th><th>Hand<br>touches</th><th style="width:2.4in;">The change we made after this run</th></tr>
+    <tr class="ex"><td class="r">eg</td><td>11/12</td><td class="hl">145</td><td>2:22</td><td>3</td><td>2</td><td>1</td><td>1</td><td style="text-align:left; padding-left:5px;">Slow down the turn before Mission 6</td></tr>
+    <tr><td class="r">1</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">2</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">3</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">4</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">5</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">6</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">7</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">8</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">9</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">10</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">11</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="r">12</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <h2 style="margin-top:10px; margin-bottom:0;">Our points numbers</h2>
+  <p class="note" style="margin:0;">Use only the <b>Total points</b> column, and don't count the example row.</p>
+  <div class="stats">
+    <div class="stat"><div class="sl">Average</div><div class="sh">Add up all the totals, then divide by the number of runs.</div><div class="sv">pts</div></div>
+    <div class="stat"><div class="sl">Max (best)</div><div class="sh">The biggest total.</div><div class="sv">pts</div></div>
+    <div class="stat"><div class="sl">Min (worst)</div><div class="sh">The smallest total.</div><div class="sv">pts</div></div>
+    <div class="stat"><div class="sl">Median (middle)</div><div class="sh">Put the totals in order. The middle one. Even number of runs? Average the two middle ones.</div><div class="sv">pts</div></div>
+  </div>
+
+  <div class="twocol">
+    <div><div class="work"><b>Work space:</b> totals in order, smallest to biggest</div></div>
+    <div><div class="work"><b>What the numbers tell us:</b> is the average close to the max? If not, which missions keep dragging it down?</div></div>
+  </div>
+  <p class="note" style="margin-top:5px;"><b>Why the median?</b> One really bad run (robot fell over) pulls the average down a lot but barely moves the median. If the average is much lower than the median, we have a few disaster runs to look at.</p>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 3 of 4</span></div>
+</section>
+
+<!-- ======================= PAGE 4: MISSION TALLY ======================= -->
+<section class="page">
+  <div class="band"></div><div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Mission by Mission</span></div>
+
+  <h2 style="font-size:19pt; margin-bottom:2px;">Mission by Mission</h2>
+  <p>For each run, write the mission's result: <b>&#10003;</b>, <b>&frac12;</b> or <b>&#10007;</b>, and its points underneath if there is room. Then count across. The mission with the most &#10007; is the one to fix first.</p>
+
+  <table class="tally">
+    <tr><th class="l" style="width:1.8in;">Mission</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th style="width:0.5in;">&#10003;<br>count</th><th style="width:0.5in;">&#10007;<br>count</th></tr>
+    <tr><td class="m"><span>1 &middot; Mission 9</span><b>Research Platform</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
+    <tr><td class="m"><span>2 &middot; Mission 2</span><b>Drone Survey</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
+    <tr><td class="m"><span>3 &middot; Mission ___</span><b>Exploding Seeds</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
+    <tr><td class="m"><span>4 &middot; Mission 15</span><b>Biocentric Architecture</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
+    <tr><td class="m"><span>5 &middot; Mission 6</span><b>Leafcutter Frenzy</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
+    <tr><td class="m"><span>6 &middot; Mission 11</span><b>Window to the Past</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
+  </table>
+
+  <h2 style="margin-top:12px;">What to fix next</h2>
+  <table class="sym">
+    <tr><th style="width:0.3in;">#</th><th style="width:1.9in;">Mission</th><th>Why does it fail or only get partial points?</th><th style="width:1.6in;">Fix and who</th></tr>
+    <tr><td style="height:0.62in; font-weight:800; color:var(--brown);">1</td><td></td><td></td><td></td></tr>
+    <tr><td style="height:0.62in; font-weight:800; color:var(--brown);">2</td><td></td><td></td><td></td></tr>
+    <tr><td style="height:0.62in; font-weight:800; color:var(--brown);">3</td><td></td><td></td><td></td></tr>
+  </table>
+
+  <h2 style="margin-top:10px;">Time check</h2>
+  <div class="twocol">
+    <div class="inline">Slowest mission (biggest time gap on the run sheets): <span class="ln"></span></div>
+  </div>
+  <div class="inline">Average time used: <span class="ln short"></span> <span class="u">of 2:30</span></div>
+  <div class="inline">Spare time we could use for another mission (2:30 minus average time used): <span class="ln short"></span></div>
+  <p class="note" style="margin-top:6px;">The time a mission takes is the gap between the timer reading before it and after it. Mission 1 starts at 2:30.</p>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 4 of 4</span></div>
+</section>
+
+</body>
+</html>
