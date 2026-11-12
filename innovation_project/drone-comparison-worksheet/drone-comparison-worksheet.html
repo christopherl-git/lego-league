@@ -1,0 +1,494 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Drone Prototype Comparison - Team 69255, Look it's a Giraffe!</title><style>
+  @page { size: 8.5in 11in; margin: 0; }
+  :root {
+    --giraffe: #E8A317;
+    --brown: #5A3A1A;
+    --leaf: #2F7D4F;
+    --cream: #FFF6DC;
+    --ink: #222;
+    --rule: #9a8a70;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- page frame ---------- */
+  .page {
+    position: relative;
+    width: 8.5in;
+    height: 11in;
+    padding: 0.82in 0.55in 0.6in;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .band {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    background-color: var(--giraffe);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='42' viewBox='0 0 150 42'><g fill='%235A3A1A' fill-opacity='0.55' stroke='%235A3A1A' stroke-opacity='0.55' stroke-width='3' stroke-linejoin='round'><polygon points='6,8 22,3 33,12 28,27 12,30 4,20'/><polygon points='58,22 70,14 86,18 90,33 76,40 60,36'/><polygon points='108,4 124,2 134,13 128,26 112,28 104,15'/></g></svg>");
+    background-size: 150px 42px;
+    border-bottom: 3px solid var(--brown);
+  }
+  .band-inner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 0.55in;
+  }
+  .band-inner .name {
+    background: var(--cream); border: 2px solid var(--brown); border-radius: 999px;
+    padding: 3px 14px; font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-weight: 800; font-size: 13pt; color: var(--brown);
+  }
+  .band-inner .tag {
+    background: var(--cream); border: 2px solid var(--brown); border-radius: 999px;
+    padding: 3px 12px; font-weight: 700; font-size: 9.5pt; color: var(--brown);
+  }
+  .foot {
+    position: absolute; left: 0.55in; right: 0.55in; bottom: 0.22in;
+    display: flex; justify-content: space-between;
+    font-size: 8pt; color: #6b5a40;
+    border-top: 1px solid var(--rule); padding-top: 4px;
+  }
+
+  /* ---------- text ---------- */
+  h1 { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-size: 25pt; line-height: 1.1; margin: 0 0 4px; color: var(--brown); }
+  h2 { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-size: 15pt; margin: 0 0 6px; color: var(--brown); }
+  p { margin: 0 0 6px; }
+  .sub { font-size: 12pt; color: var(--leaf); font-weight: 700; margin-bottom: 10px; }
+  .note { font-size: 8.5pt; color: #6b5a40; }
+
+  .namebar { display: flex; gap: 20px; margin: 8px 0 12px; }
+  .namebar .f { flex: 1; font-weight: 700; display: flex; align-items: flex-end; gap: 6px; }
+  .namebar .f .ln { flex: 1; border-bottom: 1.5px solid var(--ink); height: 20px; }
+
+  .steps { list-style: none; counter-reset: s; margin: 0 0 10px; padding: 0; }
+  .steps li { counter-increment: s; position: relative; padding: 4px 0 4px 38px; margin-bottom: 4px; font-size: 10.5pt; }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 2px; width: 27px; height: 27px; border-radius: 50%;
+    background: var(--leaf); color: #fff; font-weight: 800; font-size: 12pt;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .entry { margin-bottom: 0.14in; }
+  .entry-head { display: flex; align-items: center; gap: 9px; background: var(--brown); color: #fff; border-radius: 9px 9px 0 0; padding: 4px 10px; }
+  .entry-head .num { background: var(--giraffe); color: var(--brown); font-weight: 900; font-size: 12pt; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
+  .entry-head .t { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 12pt; flex: 1; }
+  .entry-body { border: 2px solid var(--brown); border-top: none; border-radius: 0 0 9px 9px; padding: 7px 10px 7px; }
+  .badge { font-weight: 800; font-size: 8.5pt; border-radius: 999px; padding: 2px 10px; border: 1.5px solid #fff; }
+  .badge.fly { background: var(--leaf); color: #fff; }
+  .badge.model { background: #D9D2C3; color: var(--brown); }
+  .badge.addon { background: var(--giraffe); color: var(--brown); }
+
+  .top { display: flex; gap: 10px; }
+  .pic { flex: none; width: 2.75in; height: 2.06in; border: 1.5px solid var(--rule); border-radius: 7px; overflow: hidden; background: #fff; }
+  .pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .info { flex: 1; font-size: 9.3pt; line-height: 1.3; }
+  .info .kind { font-weight: 800; color: var(--leaf); font-size: 9.5pt; margin-bottom: 2px; }
+  .facts { display: grid; grid-template-columns: auto 1fr; gap: 1px 7px; background: var(--cream); border-left: 5px solid var(--giraffe); padding: 3px 8px; margin: 3px 0 5px; font-size: 8.6pt; }
+  .facts b { color: var(--brown); }
+  .info p { margin: 0 0 3px; }
+  .think { font-size: 8.6pt; color: #6b5a40; font-style: italic; }
+  .src { font-size: 7.5pt; color: #6b5a40; margin-top: 2px; }
+
+  .scores { display: flex; gap: 7px; margin-top: 7px; }
+  .sc { flex: 1; border: 2px solid var(--brown); border-radius: 8px; padding: 3px 4px 4px; text-align: center; }
+  .sc b { display: block; color: var(--brown); font-size: 8.8pt; line-height: 1.15; }
+  .sc .dots { display: flex; justify-content: center; gap: 4px; margin-top: 3px; }
+  .sc .dots span { width: 19px; height: 19px; border: 1.5px solid var(--brown); border-radius: 50%; font-size: 8.5pt; font-weight: 700; display: flex; align-items: center; justify-content: center; color: var(--brown); }
+  .sc.tot { flex: 0 0 0.95in; background: var(--cream); }
+  .sc.tot .bx { height: 0.26in; border-bottom: 1.5px solid var(--ink); margin: 0 8px; }
+
+  .lines { --lh: 0.32in; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--lh) - 1px), var(--rule) calc(var(--lh) - 1px), var(--rule) var(--lh)); }
+  .l1 { height: calc(var(--lh) * 1); } .l2 { height: calc(var(--lh) * 2); } .l3 { height: calc(var(--lh) * 3); }
+  .q { font-weight: 700; font-size: 9.5pt; margin-top: 6px; }
+  .q .pen { color: var(--leaf); font-size: 10.5pt; margin-right: 2px; }
+  .q .hint { font-weight: 400; color: #6b5a40; }
+
+  .tips { border: 2px solid var(--leaf); border-radius: 10px; padding: 8px 12px; background: #F1F8F3; margin-bottom: 10px; }
+  .tips h3 { margin: 0 0 3px; font-size: 11pt; color: var(--leaf); }
+  .tips ul { margin: 0; padding-left: 18px; }
+  .why-box { border: 2px dashed var(--brown); border-radius: 10px; padding: 7px 12px; background: var(--cream); margin-bottom: 10px; }
+  .why-box h3 { margin: 0 0 2px; font-size: 11pt; color: var(--brown); }
+  .pill { display: inline-block; background: var(--giraffe); color: var(--brown); font-weight: 900; border-radius: 999px; padding: 0 8px; margin-right: 3px; }
+  table.check { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 9.3pt; }
+  table.check th { background: var(--brown); color: #fff; text-align: left; padding: 5px 7px; font-size: 9pt; }
+  table.check td { border-bottom: 1px solid var(--rule); padding: 5px 7px; vertical-align: top; }
+  table.check tr:nth-child(even) td { background: #FBF4E2; }
+  table.check td.crit { font-weight: 800; color: var(--brown); width: 1.3in; }
+  table.check td.crit span { display: block; font-weight: 400; color: #6b5a40; font-size: 8.5pt; }
+  .legend { display: flex; gap: 14px; font-size: 9pt; margin-top: 4px; align-items: center; flex-wrap: wrap; }
+  .legend .badge { border-color: var(--brown); }
+
+  table.score { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 9pt; }
+  table.score th { background: var(--brown); color: #fff; padding: 4px 5px; font-size: 8.5pt; text-align: center; border: 1px solid var(--brown); }
+  table.score th.l { text-align: left; }
+  table.score td { border: 1px solid var(--rule); padding: 3px 6px; vertical-align: middle; height: 0.48in; }
+  table.score td.idea { font-weight: 800; color: var(--brown); line-height: 1.2; }
+  table.score td.idea span { display: block; font-weight: 400; color: #6b5a40; font-size: 8pt; }
+  table.score td.box { width: 0.72in; background: #fff; }
+  table.score td.tot { width: 0.72in; background: var(--cream); }
+  table.tally { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 8.5pt; table-layout: fixed; }
+  table.tally th { background: var(--brown); color: #fff; padding: 4px 2px; font-size: 8pt; text-align: center; border: 1px solid var(--brown); }
+  table.tally th.l { text-align: left; padding-left: 6px; width: 1.75in; }
+  table.tally th.tt { background: var(--leaf); border-color: var(--leaf); width: 0.62in; }
+  table.tally td { border: 1px solid var(--rule); height: 0.4in; }
+  table.tally td.idea { font-weight: 800; color: var(--brown); padding: 2px 6px; line-height: 1.15; }
+  table.tally td.tt { background: var(--cream); }
+  .job { display: flex; gap: 14px; align-items: center; margin-top: 6px; font-size: 9.2pt; }
+  .job b { color: var(--brown); }
+  .job i { color: #6b5a40; font-size: 8.3pt; }
+  .roles { display: flex; gap: 10px; }
+  .role { flex: 1; background: #fff; border: 1.5px solid var(--brown); border-radius: 8px; padding: 4px 8px; font-size: 9.2pt; line-height: 1.3; }
+  .role > b:first-child { display: block; color: var(--leaf); font-size: 10.5pt; }
+  table.score td.jb { text-align: center; font-weight: 800; color: var(--brown); font-size: 10pt; }
+  table.tally th.tt + th.tt { width: 0.5in; }
+  .inline { display: flex; align-items: flex-end; gap: 6px; margin-top: 6px; font-weight: 700; font-size: 9.5pt; }
+  .inline .ln { flex: 1; border-bottom: 1px solid var(--rule); height: 0.26in; }
+</style></head><body>
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <h1>Drone Prototype Comparison</h1>
+  <div class="sub">Ten drones we could 3D print. Which two are the best start for our prototype?</div>
+  <div class="namebar"><div class="f">Name: <span class="ln"></span></div><div class="f" style="flex:0 0 2.3in;">Date: <span class="ln"></span></div></div>
+
+  <div class="why-box"><h3>Our solution, updated after Bob Leigh's advice</h3><p style="margin:0 0 5px;">Satellites show where the invasive grass grows. Then <b>two drones work together</b>. Bob told us: &ldquo;The two drones could work together.&rdquo;</p>
+    <div class="roles">
+      <div class="role"><b>&#128269; Scout drone</b>Light and fast. Flies over the grassy areas with a <b>heat (infrared) camera</b> and <b>LIDAR</b> to find small fires early. Needs: <b>speed</b>, <b>distance</b>, and room for light sensors.</div>
+      <div class="role"><b>&#128167; Water drone</b>Bigger and slower. A person checks the scout's video, then sends this drone to drop water on the fire. Needs: <b>carrying capacity</b> and <b>distance</b>.</div>
+    </div></div>
+
+  <h2>What to do</h2>
+  <ol class="steps">
+    <li><b>Look at each drone</b> on pages 2 to 6: the picture, the facts and what it does.</li>
+    <li><b>Circle a score from 1 to 5</b> for each of the four questions. Use the scoring guide below.</li>
+    <li><b>Add up the total</b> (out of 20), tick its <b>best job</b> (scout, water drone or neither), and write what we would change.</li>
+    <li><b>Copy your scores</b> to page 7 and pick your best scout and best water drone. Then we add up the team scores on page 8.</li>
+  </ol>
+
+  <h2 style="margin-top:4px;">Scoring guide</h2>
+  <table class="check">
+    <tr><th>Score it on ...</th><th><span class="pill">1</span> No</th><th><span class="pill">3</span> Some</th><th><span class="pill">5</span> Yes!</th></tr>
+    <tr><td class="crit">Carrying capacity<span>Could it carry water, or a camera and sensors?</span></td><td>No room and no power to lift anything.</td><td>Could carry something light, like a small cup of water.</td><td>Has room and power to carry a real load.</td></tr>
+    <tr><td class="crit">Speed<span>Could it get to a fire quickly?</span></td><td>Slow, or it can't fly.</td><td>About as fast as a toy plane or drone.</td><td>Very fast. Built for speed.</td></tr>
+    <tr><td class="crit">Distance<span>Could it cover a big area of rainforest?</span></td><td>Short flights close to us.</td><td>Could fly across a field.</td><td>Could fly far and stay up a long time.</td></tr>
+    <tr><td class="crit">Can we build it?<span>With our printer, time and help</span></td><td>Too hard, too big or too costly for us.</td><td>We can print it, but need help with motors and electronics.</td><td>We can print it and put it together ourselves.</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;">Use 2 and 4 for in between. The highest total is 20.</p>
+
+  <div class="tips" style="margin-top:8px;"><h3>Display models count too</h3><ul>
+    <li>Some of these are <b>models that don't fly</b>. Score the <b>design</b>: if we added a motor and battery, would this shape be good at carrying, speed and distance?</li>
+    <li>Then score <b>Can we build it?</b> honestly, including the parts we would have to add.</li>
+  </ul>
+  <div class="legend"><span class="badge fly">FLIES</span> really flies &nbsp; <span class="badge model">DISPLAY MODEL</span> doesn't fly as printed &nbsp; <span class="badge addon">ADD-ON</span> rides on another drone</div></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 1 of 8</span></div>
+</section>
+
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <div class="entry"><div class="entry-head"><span class="num">1</span><span class="t">FP-5 Flamingo (1:35 scale)</span><span class="badge model">DISPLAY MODEL</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/01-flamingo.jpg" alt="FP-5 Flamingo (1:35 scale)"></div>
+      <div class="info">
+        <div class="kind">Winged drone &middot; display model</div>
+        <div class="facts"><b>Print</b><span>83 g of plastic, about 5&frac12; hours, 3 plates</span><b>Also need</b><span>Super glue</span><b>Flies?</b><span>No. It is a small copy of a real drone.</span></div>
+        <p>A small model of a large, long-range winged drone from Ukraine. The real one has long straight wings and a jet engine on its back, and flies very far. This model is glued together and sits on a shelf.</p>
+        <div class="think">Think: long straight wings help a plane fly far. Could our drone use wings like these?</div>
+        <div class="src">makerworld.com/en/models/2626260</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="entry"><div class="entry-head"><span class="num">2</span><span class="t">WingJet (phone-controlled plane)</span><span class="badge fly">FLIES</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/02-wingjet.jpg" alt="WingJet (phone-controlled plane)"></div>
+      <div class="info">
+        <div class="kind">Flying wing &middot; really flies</div>
+        <div class="facts"><b>Print</b><span>29 g, about 2&frac34; hours, 1 plate</span><b>Also need</b><span>PowerUp 4.0 kit (motor, propeller, battery), bought separately</span><b>Flies?</b><span>Yes, outdoors in calm weather. You steer it with a phone app.</span></div>
+        <p>A very light flying wing (no tail, just one big wing). The PowerUp kit clips on the front and you fly it from a smartphone. Easy to build and fly, but it is too light to carry much.</p>
+        <div class="think">Think: could a bigger version carry a small water pod? What happens in wind?</div>
+        <div class="src">makerworld.com/en/models/1038079</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 2 of 8</span></div>
+</section>
+
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <div class="entry"><div class="entry-head"><span class="num">3</span><span class="t">World's Fastest Sub-250 g FPV Quad</span><span class="badge fly">FLIES</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/03-speed-quad.jpg" alt="World's Fastest Sub-250 g FPV Quad"></div>
+      <div class="info">
+        <div class="kind">Quadcopter (4 propellers) &middot; really flies</div>
+        <div class="facts"><b>Print</b><span>46 g, about 2&frac12; hours, 3 plates</span><b>Also need</b><span>Flight controller, 4 motors, FPV camera, battery, radio; soldering</span><b>Flies?</b><span>Yes, very fast. The designer says it breaks if you crash it.</span></div>
+        <p>A racing drone shaped like a rocket, built to be as light and fast as possible, like a Formula 1 car. The pilot wears goggles and sees through its camera. Fast, but built light, not strong.</p>
+        <div class="think">Think: speed is great for getting to a fire, but can it lift anything?</div>
+        <div class="src">makerworld.com/en/models/458347</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="entry"><div class="entry-head"><span class="num">4</span><span class="t">Delta-wing drone model <span style="font-weight:400;font-size:9pt;">(listed as &ldquo;Iranian kamikaze drone&rdquo;)</span></span><span class="badge model">DISPLAY MODEL</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/04-delta-wing.jpg" alt="Delta-wing drone model"></div>
+      <div class="info">
+        <div class="kind">Triangle (delta) wing &middot; display model</div>
+        <div class="facts"><b>Print</b><span>7 g, about 1 hour, 1 plate</span><b>Also need</b><span>Nothing</span><b>Flies?</b><span>No. Small one-piece model.</span></div>
+        <p>A model of a triangle-shaped winged drone with the propeller at the back. Real drones with this shape fly long distances. This one is a quick, small print you can hold in your hand.</p>
+        <div class="think">Think: is a triangle wing or a straight wing better for carrying a load?</div>
+        <div class="src">makerworld.com/en/models/2596404</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 3 of 8</span></div>
+</section>
+
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <div class="entry"><div class="entry-head"><span class="num">5</span><span class="t">Javelin X140 FPV Carrier Aircraft</span><span class="badge fly">FLIES</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/05-javelin.jpg" alt="Javelin X140 FPV Carrier Aircraft"></div>
+      <div class="info">
+        <div class="kind">Winged RC plane, 1.4 m wingspan &middot; really flies</div>
+        <div class="facts"><b>Print</b><span>1.6 kg of plastic, about 70 hours, 11 plates</span><b>Also need</b><span>Carbon rods, motor, speed controller, 4 servos, big battery, 6-channel radio</span><b>Flies?</b><span>Yes. Takes off at 2&ndash;2.5 kg. Designer says it is still being tested and is not for beginners.</span></div>
+        <p>A big remote-control plane copied from a real drone used in Ukraine. It has a large battery bay, so it can fly far and carry weight. It is the closest to a real fire-fighting winged drone, but it is the hardest and most expensive to build.</p>
+        <div class="think">Think: could the battery bay or nose hold a water tank or camera instead?</div>
+        <div class="src">makerworld.com/en/models/2896506</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="entry"><div class="entry-head"><span class="num">6</span><span class="t">NRO4 Nano Rocket FPV drone</span><span class="badge fly">FLIES</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/06-nano-rocket.jpg" alt="NRO4 Nano Rocket FPV drone"></div>
+      <div class="info">
+        <div class="kind">Tiny quadcopter &middot; really flies</div>
+        <div class="facts"><b>Print</b><span>38 g, about 2&frac12; hours, 1 plate</span><b>Also need</b><span>DJI O4 camera, 2-inch propellers, motors, small 1-cell battery, radio</span><b>Flies?</b><span>Yes. Fully 3D-printed frame.</span></div>
+        <p>A tiny camera drone small enough to fit in your hand. It flies with a small battery and sends live video to goggles. Good for looking around, but too small to carry anything.</p>
+        <div class="think">Think: could a drone like this be the &ldquo;scout&rdquo; that finds the fire or the grass?</div>
+        <div class="src">makerworld.com/en/models/2175285</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 4 of 8</span></div>
+</section>
+
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <div class="entry"><div class="entry-head"><span class="num">7</span><span class="t">Swift Falcon glider</span><span class="badge fly">FLIES</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/07-swift-falcon.jpg" alt="Swift Falcon glider"></div>
+      <div class="info">
+        <div class="kind">Hand-thrown glider &middot; flies, no motor</div>
+        <div class="facts"><b>Print</b><span>3&ndash;4 g, about 18 minutes, 1 piece</span><b>Also need</b><span>Nothing</span><b>Flies?</b><span>Yes, you throw it. Bend the flaps to change how it flies.</span></div>
+        <p>A tiny one-piece glider with a main wing, a tail and bendable flaps. It is very tough and fast to print. We can print many and test wing shapes the same day.</p>
+        <div class="think">Think: test how far it glides, then add a paper clip as a &ldquo;load&rdquo;. What changes?</div>
+        <div class="src">makerworld.com/en/models/2467409</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="entry"><div class="entry-head"><span class="num">8</span><span class="t">Immersive FPV Accessories (drop pod)</span><span class="badge addon">ADD-ON</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/08-fpv-accessories.jpg" alt="Immersive FPV Accessories (drop pod)"></div>
+      <div class="info">
+        <div class="kind">Pod that straps under a quadcopter &middot; add-on</div>
+        <div class="facts"><b>Print</b><span>130 g, about 5 hours, 1 plate (pauses to change colours)</span><b>Also need</b><span>An FPV quadcopter to strap it to, and a strap</span><b>Flies?</b><span>Not by itself. It rides under another drone.</span></div>
+        <p>A pod shaped like a falling bomb with fins, strapped under a racing quadcopter. It is for looks only and does not open. Its shape gives us an idea: a pod that hangs under a drone and could hold water.</p>
+        <div class="think">Think: how would we make a pod like this open and drop water over a fire?</div>
+        <div class="src">makerworld.com/en/models/533814</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 5 of 8</span></div>
+</section>
+
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <div class="entry"><div class="entry-head"><span class="num">9</span><span class="t">DJI Neo model</span><span class="badge model">DISPLAY MODEL</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/09-dji-neo.jpg" alt="DJI Neo model"></div>
+      <div class="info">
+        <div class="kind">Small camera quadcopter &middot; display model</div>
+        <div class="facts"><b>Print</b><span>182 g, about 18 hours, 1 plate</span><b>Also need</b><span>Nothing (propellers glue on)</span><b>Flies?</b><span>No. A copy of a real camera drone.</span></div>
+        <p>A model of a small real drone with guards around the propellers so it is safe near people. The maker built it from a photo using an AI tool. It can be printed smaller.</p>
+        <div class="think">Think: propeller guards keep a drone safe. Would our drone need them near trees?</div>
+        <div class="src">makerworld.com/en/models/2679270</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="entry"><div class="entry-head"><span class="num">10</span><span class="t">Stinger Drone model kit</span><span class="badge model">DISPLAY MODEL</span></div>
+  <div class="entry-body">
+    <div class="top">
+      <div class="pic"><img src="images/10-stinger.jpg" alt="Stinger Drone model kit"></div>
+      <div class="info">
+        <div class="kind">Two-rotor drone with wings &middot; toy kit</div>
+        <div class="facts"><b>Print</b><span>15 g, about 45 minutes, 7 parts</span><b>Also need</b><span>Nothing: snaps together, no glue</span><b>Flies?</b><span>No. The rotors turn by hand.</span></div>
+        <p>A toy drone with two rotors that can tilt, plus small front wings for speed. It mixes a copter and a plane: rotors to lift off, wings to fly fast and far (a &ldquo;VTOL&rdquo; drone).</p>
+        <div class="think">Think: could our drone take off like a copter and fly like a plane?</div>
+        <div class="src">makerworld.com/en/models/852615</div>
+      </div>
+    </div>
+    <div class="scores">
+      <div class="sc"><b>Carrying capacity</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Speed</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Distance</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc"><b>Can we build it?</b><div class="dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+      <div class="sc tot"><b>Total /20</b><div class="bx"></div></div>
+    </div>
+    <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
+    <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
+    <div class="lines l3"></div>
+  </div></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 6 of 8</span></div>
+</section>
+
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <h2>My scores</h2>
+  <div class="namebar" style="margin-top:0;"><div class="f">Name: <span class="ln"></span></div></div>
+  <p class="note">Copy your circled scores from pages 2 to 6. Add across for the total, out of 20. In the last column, circle <b>S</b> if you ticked scout or <b>W</b> if you ticked water drone.</p>
+  <table class="score">
+    <tr><th class="l">Drone</th><th>Carrying</th><th>Speed</th><th>Distance</th><th>Can we<br>build it?</th><th>Total<br>/20</th><th>Best job<br>S or W</th></tr>
+    <tr><td class="idea">1. FP-5 Flamingo (1:35 scale)</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">2. WingJet (phone-controlled plane)</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">3. World's Fastest Sub-250 g FPV Quad</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">4. Delta-wing drone model</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">5. Javelin X140 FPV Carrier Aircraft</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">6. NRO4 Nano Rocket FPV drone</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">7. Swift Falcon glider</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">8. Immersive FPV Accessories (drop pod)</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">9. DJI Neo model</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">10. Stinger Drone model kit</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr>
+  </table>
+  <div class="q" style="margin-top:10px;"><span class="pen">&#9998;</span> My best <b>scout drone</b> is number ____ because ... <span class="hint">(look at its speed and distance)</span></div>
+  <div class="lines l2"></div>
+  <div class="q"><span class="pen">&#9998;</span> My best <b>water drone</b> is number ____ because ... <span class="hint">(look at its carrying capacity and distance)</span></div>
+  <div class="lines l2"></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 7 of 8</span></div>
+</section>
+
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <h2>Team scores</h2>
+  <p class="note">Each person reads out their total for each drone (from page 7). Add across for the team total, out of 180. Then count how many people circled <b>S</b> (scout) and <b>W</b> (water drone).</p>
+  <table class="tally">
+    <tr><th class="l">Drone</th><th>Sylvie</th><th>Brynn</th><th>Jack</th><th>Fedor</th><th>Ira</th><th>Jordan</th><th>Ella</th><th>Alexis</th><th>Amelia</th><th class="tt">Team<br>total</th><th class="tt">S<br>votes</th><th class="tt">W<br>votes</th></tr>
+    <tr><td class="idea">1. FP-5 Flamingo (1:35 scale)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr><tr><td class="idea">2. WingJet (phone-controlled plane)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr><tr><td class="idea">3. World's Fastest Sub-250 g FPV Quad</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr><tr><td class="idea">4. Delta-wing drone model</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr><tr><td class="idea">5. Javelin X140 FPV Carrier Aircraft</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr><tr><td class="idea">6. NRO4 Nano Rocket FPV drone</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr><tr><td class="idea">7. Swift Falcon glider</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr><tr><td class="idea">8. Immersive FPV Accessories (drop pod)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr><tr><td class="idea">9. DJI Neo model</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr><tr><td class="idea">10. Stinger Drone model kit</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td><td class="tt"></td><td class="tt"></td></tr>
+  </table>
+  <div class="entry" style="margin-top:12px;"><div class="entry-head"><span class="num">&#10003;</span><span class="t">Our two drones</span><span class="badge addon">DESIGN</span></div>
+  <div class="entry-body">
+    <div class="inline">&#128269; Scout drone: <span class="ln"></span> &nbsp; &#128167; Water drone: <span class="ln"></span></div>
+    <div class="q"><span class="pen">&#9998;</span> We picked them because ... <span class="hint">(scout: speed, distance; water drone: carrying, distance; can we build them?)</span></div>
+    <div class="lines l2"></div>
+    <div class="q"><span class="pen">&#9998;</span> How will they work together? Where will we launch them from, and can they fly far enough? <span class="hint">(Bob's question)</span></div>
+    <div class="lines l2"></div>
+    <div class="q"><span class="pen">&#9998;</span> Parts we need to buy or borrow, and who will find them:</div>
+    <div class="lines l2"></div>
+  </div></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 8 of 8</span></div>
+</section>
+</body></html>

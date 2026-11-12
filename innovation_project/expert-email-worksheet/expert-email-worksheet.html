@@ -1,0 +1,244 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Expert Email Worksheet - Team 69255, Look it's a Giraffe!</title><style>
+  @page { size: 8.5in 11in; margin: 0; }
+  :root {
+    --giraffe: #E8A317;
+    --brown: #5A3A1A;
+    --leaf: #2F7D4F;
+    --cream: #FFF6DC;
+    --ink: #222;
+    --rule: #9a8a70;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- page frame ---------- */
+  .page {
+    position: relative; width: 8.5in; height: 11in;
+    padding: 0.82in 0.55in 0.6in;
+    overflow: hidden; page-break-after: always; break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  .band {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    background-color: var(--giraffe);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='42' viewBox='0 0 150 42'><g fill='%235A3A1A' fill-opacity='0.55' stroke='%235A3A1A' stroke-opacity='0.55' stroke-width='3' stroke-linejoin='round'><polygon points='6,8 22,3 33,12 28,27 12,30 4,20'/><polygon points='58,22 70,14 86,18 90,33 76,40 60,36'/><polygon points='108,4 124,2 134,13 128,26 112,28 104,15'/></g></svg>");
+    background-size: 150px 42px;
+    border-bottom: 3px solid var(--brown);
+  }
+  .band-inner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 0.55in;
+  }
+  .band-inner .name {
+    background: var(--cream); border: 2px solid var(--brown); border-radius: 999px; padding: 3px 14px;
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 13pt; color: var(--brown);
+  }
+  .band-inner .tag {
+    background: var(--cream); border: 2px solid var(--brown); border-radius: 999px; padding: 3px 12px;
+    font-weight: 700; font-size: 9.5pt; color: var(--brown);
+  }
+  .foot {
+    position: absolute; left: 0.55in; right: 0.55in; bottom: 0.22in;
+    display: flex; justify-content: space-between; font-size: 8pt; color: #6b5a40;
+    border-top: 1px solid var(--rule); padding-top: 4px;
+  }
+
+  p { margin: 0 0 6px; }
+  .note { font-size: 8.5pt; color: #6b5a40; }
+
+  /* ---------- expert header ---------- */
+  .entry-head {
+    display: flex; align-items: center; gap: 9px;
+    background: var(--brown); color: #fff; border-radius: 9px; padding: 5px 10px; margin-bottom: 6px;
+  }
+  .entry-head .num {
+    background: var(--giraffe); color: var(--brown); font-weight: 900; font-size: 12pt;
+    width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none;
+  }
+  .entry-head .t { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 13pt; line-height: 1.1; }
+  .entry-head .t span { display: block; font-family: "Segoe UI", Arial, sans-serif; font-weight: 400; font-size: 9pt; opacity: 0.92; margin-top: 1px; }
+  .entry-head .t .ln { display: inline-block; border-bottom: 1.5px solid #fff; width: 3.2in; height: 0.22in; vertical-align: bottom; }
+  .entry-head .t span .ln { width: 4.4in; height: 0.18in; border-bottom-width: 1px; }
+  .entry-head .grow { flex: 1; }
+  .tagr { background: var(--giraffe); color: var(--brown); font-weight: 800; font-size: 8.5pt; border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
+
+  .track { display: flex; gap: 14px; font-size: 8.5pt; color: #6b5a40; margin: 0 0 6px; align-items: flex-end; }
+  .track .f { display: flex; align-items: flex-end; gap: 4px; }
+  .track .ln { border-bottom: 1px solid var(--rule); width: 0.9in; height: 0.18in; }
+  .cb { display: inline-block; width: 12px; height: 12px; border: 1.5px solid var(--brown); border-radius: 2px; vertical-align: -2px; margin-right: 3px; }
+
+  /* ---------- the email ---------- */
+  .email { border: 2px solid var(--leaf); border-radius: 10px; background: #fff; overflow: hidden; }
+  .email .bar {
+    background: #F1F8F3; border-bottom: 1.5px solid var(--leaf); padding: 4px 12px;
+    font-size: 8.5pt; color: var(--leaf); display: flex; gap: 6px; align-items: flex-end;
+  }
+  .email .bar b { color: var(--leaf); }
+  .email .bar .ln { flex: 1; border-bottom: 1px solid var(--leaf); height: 0.18in; }
+  .email .body { padding: 8px 14px 8px; font-size: 10.5pt; line-height: 1.4; }
+  .email .body p { margin: 0 0 7px; }
+  .email .body .fill { display: inline-block; border-bottom: 1.5px solid var(--ink); min-width: 1.8in; height: 0.22in; vertical-align: bottom; }
+
+  .qzone { background: var(--cream); border: 2px dashed var(--giraffe); border-radius: 8px; padding: 5px 10px 4px; margin: 4px 0 8px; }
+  .qzone .qt { font-weight: 800; color: var(--brown); font-size: 9.5pt; }
+  .qzone .qt .hint { font-weight: 400; color: #6b5a40; font-size: 8.5pt; }
+  .qrow { display: flex; gap: 6px; margin-top: 3px; }
+  .qrow .n { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--leaf); color: #fff; font-weight: 800; font-size: 10pt; display: flex; align-items: center; justify-content: center; margin-top: 0.08in; }
+  .qrow .lines { flex: 1; }
+  .lines { --lh: 0.38in; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--lh) - 1px), var(--rule) calc(var(--lh) - 1px), var(--rule) var(--lh)); }
+  .l1 { height: calc(var(--lh) * 1); } .l2 { height: calc(var(--lh) * 2); } .l3 { height: calc(var(--lh) * 3); }
+
+  .sign { font-size: 10pt; line-height: 1.35; }
+  .sign b { color: var(--brown); }
+
+  /* ---------- about the expert ---------- */
+  .about { margin-top: 10px; border-left: 6px solid var(--giraffe); background: var(--cream); border-radius: 0 8px 8px 0; padding: 6px 12px 6px; }
+  .about h3 { margin: 0 0 3px; font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-size: 11pt; color: var(--brown); }
+  .about ul { margin: 0 0 4px; padding-left: 17px; font-size: 9pt; }
+  .about li { margin-bottom: 1px; }
+  .about .ideas { font-size: 8.5pt; color: #4a3a22; border-top: 1px dashed var(--rule); padding-top: 3px; margin-top: 2px; }
+  .about .ideas b { color: var(--leaf); }
+  .about .lines { --lh: 0.3in; }
+  .about .lab { font-weight: 700; font-size: 9pt; color: var(--brown); margin-top: 3px; }
+</style></head><body>
+
+<!-- ============ BOB ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Expert Email</span></div>
+  <div class="entry-head"><span class="num">1</span><div class="t grow">Bob Leigh, P.Eng.<span>Senior Director of Commercial Markets, RTI</span></div><span class="tagr">DRONES THAT THINK FOR THEMSELVES</span></div>
+  <div class="track"><div class="f">Written by: <span class="ln" style="width:1.5in"></span></div><div class="f"><span class="cb"></span>Coach checked</div><div class="f">Sent on: <span class="ln"></span></div><div class="f"><span class="cb"></span>Reply came back</div></div>
+  <div class="email">
+    <div class="bar"><b>To:</b> Bob Leigh <b style="margin-left:14px;">Subject:</b><span class="ln"></span></div>
+    <div class="body">
+      <p>Hello <b>Bob</b>!</p>
+      <p>We are a FIRST LEGO League (FLL) team called &ldquo;Look It&rsquo;s A Giraffe&rdquo;, and we&rsquo;re looking for some help with our innovation project. We thought maybe you could answer some of our questions.</p>
+      <p>For our innovation project, our topic is invasive grass in rainforests. Specifically, how the grass is a threat to the rainforests.</p>
+      <div class="qzone">
+        <div class="qt">&#9998; Our questions for Bob <span class="hint">(one or two great questions beat five okay ones; ask about what he knows)</span></div>
+        <div class="qrow"><span class="n">1</span><div class="lines l3"></div></div>
+        <div class="qrow"><span class="n">2</span><div class="lines l3"></div></div>
+        <div class="qrow"><span class="n">3</span><div class="lines l3"></div></div>
+      </div>
+      <div class="sign">Thanks<br><b>Look It&rsquo;s A Giraffe</b><br>Sylvie, Jordan, Jack, Ella, Brynn, Fedor, Ira, Alexis, Amelia<br>Team Coach: Chris Leigh</div>
+    </div>
+  </div>
+  <div class="about">
+    <h3>About Bob</h3>
+    <ul>
+      <li>Professional Engineer (P.Eng.). Senior Director of Commercial Markets at RTI.</li>
+      <li>Knows about <b>autonomous systems</b>: machines like drones that can find their way and make decisions without a person steering them.</li>
+      <li>Works on problems nobody has solved yet.</li>
+      <li>Suggested by Jordan.</li>
+    </ul>
+    <div class="ideas"><b>Ideas to ask about:</b> drones that fly and map on their own &middot; telling invasive grass apart from native plants &middot; predicting which spots will burn next &middot; what makes autonomous drones hard to build</div>
+  </div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 1 of 4</span></div>
+</section>
+
+<!-- ============ DAN ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Expert Email</span></div>
+  <div class="entry-head"><span class="num">2</span><div class="t grow">Dan Panko<span>Manager, Ontario Ministry of the Environment, Conservation and Parks</span></div><span class="tagr">ENVIRONMENT AND PESTICIDE RULES</span></div>
+  <div class="track"><div class="f">Written by: <span class="ln" style="width:1.5in"></span></div><div class="f"><span class="cb"></span>Coach checked</div><div class="f">Sent on: <span class="ln"></span></div><div class="f"><span class="cb"></span>Reply came back</div></div>
+  <div class="email">
+    <div class="bar"><b>To:</b> Dan Panko <b style="margin-left:14px;">Subject:</b><span class="ln"></span></div>
+    <div class="body">
+      <p>Hello <b>Dan</b>!</p>
+      <p>We are a FIRST LEGO League (FLL) team called &ldquo;Look It&rsquo;s A Giraffe&rdquo;, and we&rsquo;re looking for some help with our innovation project. We thought maybe you could answer some of our questions.</p>
+      <p>For our innovation project, our topic is invasive grass in rainforests. Specifically, how the grass is a threat to the rainforests.</p>
+      <div class="qzone">
+        <div class="qt">&#9998; Our questions for Dan <span class="hint">(one or two great questions beat five okay ones; ask about what he knows)</span></div>
+        <div class="qrow"><span class="n">1</span><div class="lines l3"></div></div>
+        <div class="qrow"><span class="n">2</span><div class="lines l3"></div></div>
+        <div class="qrow"><span class="n">3</span><div class="lines l3"></div></div>
+      </div>
+      <div class="sign">Thanks<br><b>Look It&rsquo;s A Giraffe</b><br>Sylvie, Jordan, Jack, Ella, Brynn, Fedor, Ira, Alexis, Amelia<br>Team Coach: Chris Leigh</div>
+    </div>
+  </div>
+  <div class="about">
+    <h3>About Dan</h3>
+    <ul>
+      <li>Manager at the Ontario Ministry of the Environment, Conservation and Parks, with over 22 years in government.</li>
+      <li>Leads technical and science work on <b>air quality</b>, <b>environmental assessment</b>, <b>pesticide rules</b> and making sure people follow environmental laws. He is a Designated Provincial Officer.</li>
+      <li>Expert in <b>environmental sampling</b> (testing air, soil or water to find a problem) and in designing government programs.</li>
+      <li>Knows how to teach, so he is good at explaining things.</li>
+    </ul>
+    <div class="ideas"><b>Ideas to ask about:</b> herbicide safety near native plants &middot; rules for drones that spray &middot; sampling to track where grass spreads &middot; smoke and air quality from fires &middot; invasive plants here in Ontario</div>
+  </div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 2 of 4</span></div>
+</section>
+
+<!-- ============ MATT ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Expert Email</span></div>
+  <div class="entry-head"><span class="num">3</span><div class="t grow">Matthew Lusty<span>Program Engineer, GE Aerospace</span></div><span class="tagr">WINGED DRONES AND FLIGHT</span></div>
+  <div class="track"><div class="f">Written by: <span class="ln" style="width:1.5in"></span></div><div class="f"><span class="cb"></span>Coach checked</div><div class="f">Sent on: <span class="ln"></span></div><div class="f"><span class="cb"></span>Reply came back</div></div>
+  <div class="email">
+    <div class="bar"><b>To:</b> Matthew Lusty <b style="margin-left:14px;">Subject:</b><span class="ln"></span></div>
+    <div class="body">
+      <p>Hello <b>Matthew</b>!</p>
+      <p>We are a FIRST LEGO League (FLL) team called &ldquo;Look It&rsquo;s A Giraffe&rdquo;, and we&rsquo;re looking for some help with our innovation project. We thought maybe you could answer some of our questions.</p>
+      <p>For our innovation project, our topic is invasive grass in rainforests. Specifically, how the grass is a threat to the rainforests.</p>
+      <div class="qzone">
+        <div class="qt">&#9998; Our questions for Matthew <span class="hint">(one or two great questions beat five okay ones; ask about what he knows)</span></div>
+        <div class="qrow"><span class="n">1</span><div class="lines l3"></div></div>
+        <div class="qrow"><span class="n">2</span><div class="lines l3"></div></div>
+        <div class="qrow"><span class="n">3</span><div class="lines l3"></div></div>
+      </div>
+      <div class="sign">Thanks<br><b>Look It&rsquo;s A Giraffe</b><br>Sylvie, Jordan, Jack, Ella, Brynn, Fedor, Ira, Alexis, Amelia<br>Team Coach: Chris Leigh</div>
+    </div>
+  </div>
+  <div class="about">
+    <h3>About Matthew</h3>
+    <ul>
+      <li>Program Engineer at GE Aerospace, a company that makes engines and parts for aircraft.</li>
+      <li>An <b>aerospace engineer</b>, so he knows how things fly. He can tell us about <b>winged (fixed-wing) drones</b>.</li>
+      <li>Suggested by Sylvie.</li>
+    </ul>
+    <div class="ideas"><b>Ideas to ask about:</b> winged vs copter drones: range and flight time &middot; carrying and dropping a payload &middot; take-off and landing in a rainforest &middot; flying in heat, smoke and wind</div>
+  </div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 3 of 4</span></div>
+</section>
+
+<!-- ============ BLANK ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Expert Email</span></div>
+  <div class="entry-head"><span class="num">4</span><div class="t grow">Expert: <span class="ln" style="display:inline-block"></span><span>Job and where they work: <span class="ln" style="display:inline-block"></span></span></div><span class="tagr">NEW EXPERT</span></div>
+  <div class="track"><div class="f">Written by: <span class="ln" style="width:1.5in"></span></div><div class="f"><span class="cb"></span>Coach checked</div><div class="f">Sent on: <span class="ln"></span></div><div class="f"><span class="cb"></span>Reply came back</div></div>
+  <div class="email">
+    <div class="bar"><b>To:</b><span class="ln" style="flex:0 0 2in"></span><b style="margin-left:14px;">Subject:</b><span class="ln"></span></div>
+    <div class="body">
+      <p>Hello <span class="fill"></span>!</p>
+      <p>We are a FIRST LEGO League (FLL) team called &ldquo;Look It&rsquo;s A Giraffe&rdquo;, and we&rsquo;re looking for some help with our innovation project. We thought maybe you could answer some of our questions.</p>
+      <p>For our innovation project, our topic is invasive grass in rainforests. Specifically, how the grass is a threat to the rainforests.</p>
+      <div class="qzone">
+        <div class="qt">&#9998; Our questions <span class="hint">(one or two great questions beat five okay ones; ask about what they know)</span></div>
+        <div class="qrow"><span class="n">1</span><div class="lines l3"></div></div>
+        <div class="qrow"><span class="n">2</span><div class="lines l3"></div></div>
+        <div class="qrow"><span class="n">3</span><div class="lines l3"></div></div>
+      </div>
+      <div class="sign">Thanks<br><b>Look It&rsquo;s A Giraffe</b><br>Sylvie, Jordan, Jack, Ella, Brynn, Fedor, Ira, Alexis, Amelia<br>Team Coach: Chris Leigh</div>
+    </div>
+  </div>
+  <div class="about">
+    <h3>About this expert</h3>
+    <div class="lab">What they do and what they know about:</div>
+    <div class="lines l2"></div>
+    <div class="lab">Why we picked them, and who suggested them:</div>
+    <div class="lines l1"></div>
+  </div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 4 of 4</span></div>
+</section>
+</body></html>

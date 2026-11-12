@@ -70,6 +70,70 @@ Alexis's research (11-03) shows herbicide, planting native trees and cutting off
 
 My lean is detection plus response: map where the grass grows and send a drone to the places that are about to burn. That answers the whole cycle, not one step.
 
+## Solution chosen (2026-11-10)
+
+**Our solution: map where the grass grows, then send a winged drone** (ideas F and D combined). Every member scored each idea on New, Doable and Biodiversity (1 to 5 each, out of 15) with the [solution scoring worksheet](solution-scoring-worksheet/solution-scoring-worksheet.pdf). Scan: [team-scores-2026-11-10.pdf](solution-scoring-worksheet/team-scores-2026-11-10.pdf).
+
+| Idea | Sylvie | Brynn | Jack | Fedor | Ira | Jordan | Ella | Alexis | Amelia | Team total (of 135) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **F. Map, then send a drone** | 10 | 11 | 10 | 11 | 11 | 10 | 12 | 12 | 12 | **99** |
+| **D. Winged drones** | 11 | 11 | 9 | 13 | 12 | 11 | 7 | 10 | 10 | **94** |
+| C. Map the grass | 11 | 11 | 10 | 10 | 11 | 10 | 9 | 10 | 10 | 92 |
+| A. Fire drones | 9 | 9 | 11 | 9 | 9 | 9 | 8 | 9 | 9 | 82 |
+| B. Sand drones | 8 | 8 | 10 | 8 | 8 | 8 | 7 | 7 | 8 | 72 |
+| E. Herbicide by roads | 7 | 6 | 10 | 8 | 7 | 8 | 7 | 7 | 6 | 66 |
+
+The sheet gives B's total as 86, but its scores add up to 72. The order of the ideas is the same either way. No new ideas (G, H) were added.
+
+**What the team wrote:**
+- **We chose it because** "we think it's newer and better."
+- **It beat D because** "it is D and F combined."
+- **Still to prove:** "we need to prove that it is possible."
+- **On 11-17 we will build or draw:** left blank, so decide this at the start of the 11-17 meeting.
+
+**How it works, in the team's words so far:** satellite images show where the invasive grass is (Bob's question), and winged drones fly there to find fires early and drop water on them (Matthew's and Pete's questions).
+
+**For the judges, make the reasons stronger than "newer and better":**
+- **New:** existing fixes (herbicide, native trees, loan rules) don't spot the grass early or fight its fires (Alexis, 11-03).
+- **Doable:** satellite data such as NASA Landsat is free (Sylvie, Amelia). Range and payload for winged drones still need a source (drones group).
+- **Biodiversity:** stopping fires early breaks the grass–fire cycle (Fusco and others, 2021).
+
+**Expert emails:** questions written 2026-11-10 for Bob Leigh, Dan Panko, Matthew Lusty and Pete, a firefighter. Drafts are in [expert-emails-2026-11-10.md](expert-emails-2026-11-10.md).
+
+## Expert feedback: Bob Leigh (replied 2026-11-10)
+
+Bob Leigh (RTI) answered our three questions by email. Full reply: [expert-emails-2026-11-10.md](expert-emails-2026-11-10.md#bobs-reply-2026-11-10).
+
+**What he told us:**
+- **Our solution is a good approach.** The rainforest is huge, so satellite data shows where to focus and drones target those spots.
+- **His challenge for us:** the drones may need to go very far from roads or villages. *How will we launch them, from where, and can they fly far enough?*
+- **Autonomous systems** make decisions without a person. Flying ones are easier to build than driving ones because there are fewer obstacles. He suggests a **semi-autonomous** drone with a **human in the loop**: the drone flies over the target areas and finds hot spots by itself, then a person reviews the video and data and decides where to drop water or fire retardant. That is cheaper and easier to build.
+- **Sensors:** satellite images aren't very detailed and only pass over on their schedule. Use satellites to find the grassy areas, then drones to find hot spots there. **LIDAR** shows exactly where grass is versus forest. A **heat sensor (infrared camera)** shows fires, even very small ones.
+- **Two drones, not one.** The drone that collects data can be light and fast. A different drone, bigger and slower, can lift the water. "The two drones could work together."
+
+**What we changed because of it (2026-11-12):** our plan now uses **two drones**, so we pick two designs instead of one.
+
+| Drone | Job | Needs most | Sensors or load |
+|---|---|---|---|
+| **Scout drone** | Flies over the mapped grass and finds hot spots on its own | Speed, distance | Infrared (heat) camera, LIDAR |
+| **Water drone** | Goes to a fire a person has checked and drops water | Carrying capacity, distance | Water (or fire retardant) |
+
+The [drone prototype comparison worksheet](drone-comparison-worksheet/drone-comparison-worksheet.pdf) now asks each member to tick the best job for each design and pick a best scout and a best water drone. Bob's launch question goes on the team page to answer when we pick.
+
+**How it works, updated:** satellites map where the invasive grass grows; a light, fast scout drone flies over those areas with a heat camera and LIDAR and flags hot spots; a person checks the video; a bigger water drone flies out and drops water before the fire spreads.
+
+**Still to answer (from Bob's reply):**
+- Where do we launch from, and how far can each drone fly? (Drones group: find range figures for fixed-wing drones.)
+- How much water can the water drone carry, and is that enough for a small grass fire? (Matthew Lusty's question 2 may answer this.)
+- Optional follow-up: Bob offered to say more about how autonomous systems are trained.
+
+**New sources from Bob (LIDAR mapping of vegetation), not yet read:**
+- Peter Boucher, SANParks (South African National Parks) presentation: sanparks.org/wp-content/uploads/2021/07/4_Peter-Boucher.pdf
+- Natural Resources Canada, "Airborne LiDAR forest inventory and monitoring": natural-resources.canada.ca/forests-forestry/sustainable-forest-management/airborne-lidar-forest-inventory-monitoring
+- Candrone, "LiDAR in the leaf canopy: getting clean data in dense forests" (a company blog, so use it as an example, not proof): candrone.com/blogs/news/lidar-in-the-leaf-canopy-getting-clean-data-in-dense-forests
+
+These help the mapping group (Sylvie, Amelia) with the claim "early detection of the grass works, and mapping is feasible".
+
 ## Who does what (homework due Tue 2026-11-03)
 
 - **Sylvie, Amelia:** types of grass (which one is our problem grass, and how it burns)

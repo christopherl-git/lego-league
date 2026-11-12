@@ -61,7 +61,7 @@ Tracks task status across workstreams. Update dates and assignments as work move
 - [ ] Finish adapting the forklift to HummerOne's mounting bar — Jack, Ira (continued 2026-10-06); Ella, Amelia (continued 2026-10-13)
 - [ ] Innovation research on invasive species, in two groups: Ella, Amelia, Alexis; and Sylvie, Brynn (started 2026-10-06). Credible source search: Fedor, Alexis, Sylvie (2026-10-13). Research group: Alexis, Fedor, Ira, Jack, Jordan (2026-10-20)
 - [ ] Build three Mission 1 attachment options (inspired by Platinum Pizzeria, Giraffes #3388, Team TurtleBots) — Sylvie, Ella, Alexis, Amelia, Brynn (started 2026-09-17, regrouped 2026-09-22); Sylvie, Amelia (continued 2026-10-20)
-- [ ] Team logo: Ira, Fedor, Alexis, Brynn and Ella shared logos on 2026-10-27, the t-shirt deadline. Confirm which one the team picked and order — Brynn, Ella (started 2026-10-20)
+- [ ] Team logo: **Alexis's logo won** the ranked vote on 2026-11-10 (5 of 9 first choices; Ira 3, Ella 1). Save final art, order t-shirts, and use on the banner and poster — Brynn, Ella, Alexis (started 2026-10-20). See [logo vote results](resources/logo-vote/results-2026-11-10.md)
 
 ## Done
 

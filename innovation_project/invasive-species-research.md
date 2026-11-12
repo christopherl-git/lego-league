@@ -115,12 +115,13 @@ Use jet or winged (fixed-wing) drones instead of copter drones to find and fight
 
 | Who / where | Suggested by | Why | Status |
 |---|---|---|---|
-| Bob Leigh, P.Eng., Senior Director of Commercial Markets at RTI | Jordan | Knows about autonomous systems; works on problems with no known answer | To contact |
-| Matthew Lusty, Program Engineer at GE Aerospace | Sylvie | Aerospace engineer; can speak to winged drones | To contact |
+| Bob Leigh, P.Eng., Senior Director of Commercial Markets at RTI | Jordan | Knows about autonomous systems; works on problems with no known answer | Email sent 2026-11-10 (written by Sylvie, Alexis); reply asked for by 11-16 |
+| Matthew Lusty, Program Engineer at GE Aerospace | Sylvie | Aerospace engineer; can speak to winged drones | Email sent 2026-11-10; reply asked for by 11-16 |
+| Dan Panko, Manager at the Ontario Ministry of the Environment, Conservation and Parks (added 2026-11-10) | Not recorded | 22+ years in government on air quality, environmental assessment, pesticide regulation and compliance; environmental sampling; Designated Provincial Officer. Can speak to herbicide rules, sampling and environmental programs | Email sent 2026-11-10 (written by Ella, Amelia); reply asked for by 11-16 |
 | Royal Ontario Museum (ROM) | Ira | Possible experts on plants and ecology | Brynn goes Thursday 2026-11-05 and will ask the experts there |
 | Toronto Botanical Garden | Ira | Possible plant experts | To contact |
 | Allen Gardens | Fedor | Possible plant experts | To contact |
-| A firefighter Brynn knows | Brynn | Fire-fighting side of the problem | Brynn to ask |
+| Pete, a firefighter Brynn knows | Brynn | Fire-fighting side of the problem | Questions written 2026-11-10 (Fedor, Ira). Not sent yet: waiting for Pete's email address from Brynn's parents |
 
 
 

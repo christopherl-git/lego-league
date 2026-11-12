@@ -1,0 +1,339 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Solution Scoring Worksheet - Team 69255, Look it's a Giraffe!</title><style>
+  @page { size: 8.5in 11in; margin: 0; }
+  :root {
+    --giraffe: #E8A317;
+    --brown: #5A3A1A;
+    --leaf: #2F7D4F;
+    --cream: #FFF6DC;
+    --ink: #222;
+    --rule: #9a8a70;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- page frame ---------- */
+  .page {
+    position: relative;
+    width: 8.5in;
+    height: 11in;
+    padding: 0.82in 0.55in 0.6in;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .band {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    background-color: var(--giraffe);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='42' viewBox='0 0 150 42'><g fill='%235A3A1A' fill-opacity='0.55' stroke='%235A3A1A' stroke-opacity='0.55' stroke-width='3' stroke-linejoin='round'><polygon points='6,8 22,3 33,12 28,27 12,30 4,20'/><polygon points='58,22 70,14 86,18 90,33 76,40 60,36'/><polygon points='108,4 124,2 134,13 128,26 112,28 104,15'/></g></svg>");
+    background-size: 150px 42px;
+    border-bottom: 3px solid var(--brown);
+  }
+  .band-inner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 0.55in;
+  }
+  .band-inner .name {
+    background: var(--cream); border: 2px solid var(--brown); border-radius: 999px;
+    padding: 3px 14px; font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-weight: 800; font-size: 13pt; color: var(--brown);
+  }
+  .band-inner .tag {
+    background: var(--cream); border: 2px solid var(--brown); border-radius: 999px;
+    padding: 3px 12px; font-weight: 700; font-size: 9.5pt; color: var(--brown);
+  }
+  .foot {
+    position: absolute; left: 0.55in; right: 0.55in; bottom: 0.22in;
+    display: flex; justify-content: space-between;
+    font-size: 8pt; color: #6b5a40;
+    border-top: 1px solid var(--rule); padding-top: 4px;
+  }
+
+  /* ---------- text ---------- */
+  h1 { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-size: 25pt; line-height: 1.1; margin: 0 0 4px; color: var(--brown); }
+  h2 { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-size: 15pt; margin: 0 0 6px; color: var(--brown); }
+  p { margin: 0 0 6px; }
+  .sub { font-size: 12pt; color: var(--leaf); font-weight: 700; margin-bottom: 10px; }
+  .note { font-size: 8.5pt; color: #6b5a40; }
+
+  .namebar { display: flex; gap: 20px; margin: 8px 0 12px; }
+  .namebar .f { flex: 1; font-weight: 700; display: flex; align-items: flex-end; gap: 6px; }
+  .namebar .f .ln { flex: 1; border-bottom: 1.5px solid var(--ink); height: 20px; }
+
+  .steps { list-style: none; counter-reset: s; margin: 0 0 10px; padding: 0; }
+  .steps li { counter-increment: s; position: relative; padding: 4px 0 4px 38px; margin-bottom: 4px; font-size: 10.5pt; }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 2px; width: 27px; height: 27px; border-radius: 50%;
+    background: var(--leaf); color: #fff; font-weight: 800; font-size: 12pt;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .tips { border: 2px solid var(--leaf); border-radius: 10px; padding: 8px 12px; background: #F1F8F3; margin-bottom: 10px; }
+  .tips h3 { margin: 0 0 3px; font-size: 11pt; color: var(--leaf); }
+  .tips ul { margin: 0; padding-left: 18px; }
+  .tips li { margin-bottom: 2px; }
+
+  .why-box { border: 2px dashed var(--brown); border-radius: 10px; padding: 7px 12px; background: var(--cream); margin-bottom: 10px; }
+  .why-box h3 { margin: 0 0 2px; font-size: 11pt; color: var(--brown); }
+
+  table.check { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 9.5pt; }
+  table.check th { background: var(--brown); color: #fff; text-align: left; padding: 5px 7px; font-size: 9pt; }
+  table.check td { border-bottom: 1px solid var(--rule); padding: 5px 7px; vertical-align: top; }
+  table.check tr:nth-child(even) td { background: #FBF4E2; }
+  table.check td.crit { font-weight: 800; color: var(--brown); width: 1.25in; }
+  table.check td.crit span { display: block; font-weight: 400; color: #6b5a40; font-size: 8.5pt; }
+  .pill { display: inline-block; background: var(--giraffe); color: var(--brown); font-weight: 900; border-radius: 999px; padding: 0 8px; margin-right: 3px; }
+
+  /* ---------- entry cards ---------- */
+  .entry { margin-bottom: 0.12in; }
+  .entry-head { display: flex; align-items: center; gap: 9px; background: var(--brown); color: #fff; border-radius: 9px 9px 0 0; padding: 4px 10px; }
+  .entry-head .num { background: var(--giraffe); color: var(--brown); font-weight: 900; font-size: 12pt; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
+  .entry-head .t { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 11.5pt; flex: 1; }
+  .entry-body { border: 2px solid var(--brown); border-top: none; border-radius: 0 0 9px 9px; padding: 6px 10px 6px; }
+  .tagr { background: var(--giraffe); color: var(--brown); font-weight: 800; font-size: 8.5pt; border-radius: 999px; padding: 2px 10px; }
+
+  .known { background: var(--cream); border-left: 5px solid var(--giraffe); padding: 4px 9px; margin-bottom: 5px; font-size: 9.5pt; line-height: 1.32; }
+  .known b.k { color: var(--brown); text-transform: uppercase; font-size: 7.5pt; letter-spacing: 0.4px; display: block; }
+  .q { font-weight: 700; font-size: 9.5pt; margin-top: 6px; }
+  .q .pen { color: var(--leaf); font-size: 10.5pt; margin-right: 2px; }
+  .q .hint { font-weight: 400; color: #6b5a40; }
+
+  .lines { --lh: 0.36in; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--lh) - 1px), var(--rule) calc(var(--lh) - 1px), var(--rule) var(--lh)); }
+  .l1 { height: calc(var(--lh) * 1); } .l2 { height: calc(var(--lh) * 2); } .l3 { height: calc(var(--lh) * 3); } .l4 { height: calc(var(--lh) * 4); }
+
+  .inline { display: flex; align-items: flex-end; gap: 6px; margin-top: 5px; font-weight: 700; font-size: 9.5pt; }
+  .inline .ln { flex: 1; border-bottom: 1px solid var(--rule); height: 0.26in; }
+  .inline .ln.short { flex: none; width: 1.1in; }
+
+  .opt { display: inline-block; margin-right: 12px; font-size: 9.5pt; }
+
+  /* ---------- scoring grids ---------- */
+  table.score { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 9pt; }
+  table.score th { background: var(--brown); color: #fff; padding: 4px 5px; font-size: 8.5pt; text-align: center; border: 1px solid var(--brown); }
+  table.score th.l { text-align: left; }
+  table.score td { border: 1px solid var(--rule); padding: 3px 6px; vertical-align: middle; }
+  table.score td.idea { font-weight: 800; color: var(--brown); line-height: 1.2; }
+  table.score td.idea span { display: block; font-weight: 400; color: #6b5a40; font-size: 8pt; margin-top: 1px; }
+  table.score td.box { width: 0.62in; background: #fff; }
+  table.score td.tot { width: 0.62in; background: var(--cream); }
+  table.score tr.r td { height: 0.72in; }
+  table.score tr.new td.idea { background: #F1F8F3; color: var(--leaf); }
+  table.score tr.new td.idea .ln { display: block; border-bottom: 1px solid var(--rule); height: 0.22in; margin-top: 2px; }
+
+  table.tally { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 8.5pt; table-layout: fixed; }
+  table.tally th { background: var(--brown); color: #fff; padding: 4px 2px; font-size: 8pt; text-align: center; border: 1px solid var(--brown); }
+  table.tally th.l { text-align: left; padding-left: 6px; width: 1.65in; }
+  table.tally th.tt { background: var(--leaf); border-color: var(--leaf); width: 0.62in; }
+  table.tally td { border: 1px solid var(--rule); height: 0.42in; }
+  table.tally td.idea { font-weight: 800; color: var(--brown); padding: 2px 6px; line-height: 1.15; }
+  table.tally td.tt { background: var(--cream); }
+  table.tally tr.new td.idea { background: #F1F8F3; color: var(--leaf); }
+
+  .sketch { height: 2.35in; border: 1.5px dashed var(--rule); border-radius: 8px; background: #fff; margin-top: 3px; position: relative; }
+  .sketch span { position: absolute; left: 8px; top: 5px; font-size: 8pt; color: #6b5a40; }
+
+  .card { border: 2px solid var(--leaf); border-radius: 10px; padding: 6px 10px 6px; margin-bottom: 0.14in; background: #fff; }
+  .card .ct { display: flex; gap: 8px; align-items: flex-end; font-weight: 800; color: var(--leaf); font-size: 10.5pt; margin-bottom: 2px; }
+  .card .ct .ln { flex: 1; border-bottom: 1.5px solid var(--ink); height: 0.26in; }
+  .card .q { margin-top: 5px; }
+  .card .lines { --lh: 0.33in; }
+
+  .minis { display: flex; gap: 10px; margin-top: 6px; }
+  .mini { flex: 1; border: 2px solid var(--brown); border-radius: 8px; padding: 4px 8px; text-align: center; }
+  .mini b { display: block; color: var(--brown); font-size: 9pt; }
+  .mini .bx { height: 0.42in; }
+  .mini.tot { background: var(--cream); }
+</style></head><body>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <h1>Choosing Our Solution</h1>
+  <div class="sub">Score every idea the same way, then pick the best one together.</div>
+  <div class="namebar"><div class="f">Name: <span class="ln"></span></div><div class="f" style="flex:0 0 2.3in;">Date: <span class="ln"></span></div></div>
+
+  <div class="why-box"><h3>Our problem</h3><p style="margin:0;">Invasive grasses (Guinea, Gamba, Molasses and Cogon) dry out and burn. The fires kill rainforest plants, and the grass grows back first, so every fire lets the grass spread further into the rainforest. Our solution has to help break this <b>grass&ndash;fire cycle</b>.</p></div>
+
+  <h2>What to do</h2>
+  <ol class="steps">
+    <li><b>Read</b> the scoring guide below so we all score the same way.</li>
+    <li><b>Score each idea on your own</b> on page 2. Give each idea 1 to 5 points in each column. Use the research, not just what sounds cool.</li>
+    <li><b>Got a new idea?</b> Write it on page 3 and score it the same way.</li>
+    <li><b>Add up as a team</b> on page 4. Then talk about the top two before we vote.</li>
+    <li><b>Ask an expert.</b> Write what they tell us on pages 5 and 6, and what we changed because of it.</li>
+  </ol>
+
+  <h2 style="margin-top:4px;">Scoring guide</h2>
+  <table class="check">
+    <tr><th>Score it on ...</th><th><span class="pill">1</span> No</th><th><span class="pill">3</span> Some</th><th><span class="pill">5</span> Yes!</th></tr>
+    <tr><td class="crit">New<span>Is it innovative?</span></td><td>Someone already does this, the same way.</td><td>Uses something that exists, but in a new way or a new place.</td><td>Nobody does this yet. We can say what is new.</td></tr>
+    <tr><td class="crit">Doable<span>Could it really work?</span></td><td>Too big, too costly or too risky. We can't explain how it works.</td><td>Could work with more research. We can draw it.</td><td>Could really work in a rainforest, and we can show it with a model by 11-17.</td></tr>
+    <tr><td class="crit">Biodiversity<span>Does it help plants and animals?</span></td><td>Doesn't help, or harms native plants, animals or soil.</td><td>Helps one part: stops the grass <b>or</b> stops the fires.</td><td>Breaks the whole cycle and protects lots of rainforest life.</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;">Use 2 and 4 for in between. The highest total is 15.</p>
+
+  <div class="tips" style="margin-top:8px;"><h3>Judges will ask</h3><ul>
+    <li>What solutions already exist, and how is ours different?</li>
+    <li>How does your solution help biodiversity?</li>
+    <li>Who gave you feedback, and what did you change because of it?</li></ul></div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 1 of 6</span></div>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <h2>My scores</h2>
+  <div class="namebar" style="margin-top:0;"><div class="f">Name: <span class="ln"></span></div></div>
+  <p class="note">Give 1 to 5 points in each box. Add the three boxes for the total (out of 15). The grey words under each idea are the big question we still need to answer.</p>
+  <table class="score">
+    <tr><th class="l">Idea</th><th>New</th><th>Doable</th><th>Bio&shy;diversity</th><th>Total<br>/15</th></tr>
+    <tr class="r"><td class="idea">A. Fire drones: find fires and put them out<span>Do rainforest fire drones already exist? What would we do that is new?</span></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td></tr>
+    <tr class="r"><td class="idea">B. Drones that drop sand on fires<span>Does sand put out grass fires? Is it safe for the soil?</span></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td></tr>
+    <tr class="r"><td class="idea">C. Map and watch the grass from above<span>Can drones or satellites spot the grass early, and how accurately?</span></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td></tr>
+    <tr class="r"><td class="idea">D. Winged drones that find and fight fires<span>Can a winged drone carry and drop fire-fighting material? How does it take off and land?</span></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td></tr>
+    <tr class="r"><td class="idea">E. Herbicide beside roads<span>Harms native plants? Is it new at all?</span></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td></tr>
+    <tr class="r"><td class="idea">F. Map the grass, then send a drone to the spots about to burn<span>Can we join C and D into one system?</span></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td></tr>
+    <tr class="r new"><td class="idea">G. New idea (page 3):<span class="ln"></span></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td></tr>
+    <tr class="r new"><td class="idea">H. New idea (page 3):<span class="ln"></span></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td></tr>
+  </table>
+  <div class="q" style="margin-top:10px;"><span class="pen">&#9998;</span> My favourite is ______ because ... <span class="hint">(use a fact from our research)</span></div>
+  <div class="lines l2"></div>
+  <div class="q"><span class="pen">&#9998;</span> One thing that worries me about it is ...</div>
+  <div class="lines l1"></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 2 of 6</span></div>
+</section>
+
+<!-- ============ PAGE 3 ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <div class="entry"><div class="entry-head"><span class="num">+</span><span class="t">Our new idea</span><span class="tagr">DESIGN</span></div>
+  <div class="entry-body">
+    <div class="known"><b class="k">Tip</b>A new idea can be brand new, or two ideas joined together, or an old idea changed to work better. Score it with the same guide as the others.</div>
+    <div class="inline">Idea name: <span class="ln"></span></div>
+    <div class="inline">Who thought of it: <span class="ln"></span></div>
+    <div class="q"><span class="pen">&#9998;</span> What it does, and how it works:</div>
+    <div class="lines l3"></div>
+    <div class="q"><span class="pen">&#9998;</span> Which part of the cycle does it stop?</div>
+    <div style="margin:3px 0 2px;"><span class="opt">&#9744; the grass spreading</span><span class="opt">&#9744; the fires starting</span><span class="opt">&#9744; the fires spreading</span><span class="opt">&#9744; the grass growing back</span></div>
+    <div class="q"><span class="pen">&#9998;</span> Does something like this already exist? What is new about ours?</div>
+    <div class="lines l2"></div>
+    <div class="q"><span class="pen">&#9998;</span> The big question we need to answer, and who could help us:</div>
+    <div class="lines l2"></div>
+    <div class="q"><span class="pen">&#9998;</span> Quick sketch</div>
+    <div class="sketch"><span>Draw it. Label the parts.</span></div>
+    <div class="minis">
+      <div class="mini"><b>New</b><div class="bx"></div></div>
+      <div class="mini"><b>Doable</b><div class="bx"></div></div>
+      <div class="mini"><b>Biodiversity</b><div class="bx"></div></div>
+      <div class="mini tot"><b>Total /15</b><div class="bx"></div></div>
+    </div>
+  </div></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 3 of 6</span></div>
+</section>
+
+<!-- ============ PAGE 4 ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <h2>Team scores</h2>
+  <p class="note">Each person reads out their total for each idea (from page 2). Add across for the team total, out of 135.</p>
+  <table class="tally">
+    <tr><th class="l">Idea</th><th>Sylvie</th><th>Brynn</th><th>Jack</th><th>Fedor</th><th>Ira</th><th>Jordan</th><th>Ella</th><th>Alexis</th><th>Amelia</th><th class="tt">Team<br>total</th></tr>
+    <tr><td class="idea">A. Fire drones</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td></tr>
+    <tr><td class="idea">B. Sand drones</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td></tr>
+    <tr><td class="idea">C. Map the grass</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td></tr>
+    <tr><td class="idea">D. Winged drones</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td></tr>
+    <tr><td class="idea">E. Herbicide by roads</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td></tr>
+    <tr><td class="idea">F. Map, then send a drone</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td></tr>
+    <tr class="new"><td class="idea">G.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td></tr>
+    <tr class="new"><td class="idea">H.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="tt"></td></tr>
+  </table>
+
+  <div class="entry" style="margin-top:12px;"><div class="entry-head"><span class="num">&#10003;</span><span class="t">Our choice</span><span class="tagr">DESIGN</span></div>
+  <div class="entry-body">
+    <div class="inline">Top two ideas: <span class="ln"></span> and <span class="ln"></span></div>
+    <div class="inline">We chose: <span class="ln"></span> Votes: <span class="ln short"></span></div>
+    <div class="q"><span class="pen">&#9998;</span> We chose it because ... <span class="hint">(new? doable? helps biodiversity? give a fact)</span></div>
+    <div class="lines l2"></div>
+    <div class="q"><span class="pen">&#9998;</span> It beat ______ because ...</div>
+    <div class="lines l1"></div>
+    <div class="q"><span class="pen">&#9998;</span> What we still need to prove, and who will find it:</div>
+    <div class="lines l2"></div>
+    <div class="q"><span class="pen">&#9998;</span> On 11-17 we will build or draw: <span class="hint">(prototype or detailed drawing)</span></div>
+    <div class="lines l1"></div>
+  </div></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 4 of 6</span></div>
+</section>
+
+<!-- ============ PAGE 5 ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <h2>Expert feedback</h2>
+  <p class="note">Fill in a box each time an expert replies: by email, on a call or in person. Write what they really said. This is how we show judges what we changed and why. Experts we have asked or may ask: Bob Leigh (RTI), Matthew Lusty (GE Aerospace), the ROM, Toronto Botanical Garden, Allen Gardens, and Brynn's firefighter.</p>
+  <div class="card">
+    <div class="ct">Expert: <span class="ln"></span> Works at: <span class="ln"></span></div>
+    <div class="inline">Date: <span class="ln short"></span> How: <span style="font-weight:400;">&#9744; email &nbsp; &#9744; call &nbsp; &#9744; visit</span> &nbsp; Written down by: <span class="ln"></span></div>
+    <div class="q"><span class="pen">&#9998;</span> What we asked:</div>
+    <div class="lines l1"></div>
+    <div class="q"><span class="pen">&#9998;</span> What they told us:</div>
+    <div class="lines l4"></div>
+    <div class="q"><span class="pen">&#9998;</span> What we will change because of it: <span class="hint">(or why we kept it the same)</span></div>
+    <div class="lines l2"></div>
+  </div>
+  <div class="card">
+    <div class="ct">Expert: <span class="ln"></span> Works at: <span class="ln"></span></div>
+    <div class="inline">Date: <span class="ln short"></span> How: <span style="font-weight:400;">&#9744; email &nbsp; &#9744; call &nbsp; &#9744; visit</span> &nbsp; Written down by: <span class="ln"></span></div>
+    <div class="q"><span class="pen">&#9998;</span> What we asked:</div>
+    <div class="lines l1"></div>
+    <div class="q"><span class="pen">&#9998;</span> What they told us:</div>
+    <div class="lines l4"></div>
+    <div class="q"><span class="pen">&#9998;</span> What we will change because of it: <span class="hint">(or why we kept it the same)</span></div>
+    <div class="lines l2"></div>
+  </div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 5 of 6</span></div>
+</section>
+
+<!-- ============ PAGE 6 ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Innovation Project</span></div>
+  <h2>More expert feedback</h2>
+  <p class="note">Feedback from a coach, a parent or another team counts too. Record who said it and the date.</p>
+  <div class="card">
+    <div class="ct">Expert: <span class="ln"></span> Works at: <span class="ln"></span></div>
+    <div class="inline">Date: <span class="ln short"></span> How: <span style="font-weight:400;">&#9744; email &nbsp; &#9744; call &nbsp; &#9744; visit</span> &nbsp; Written down by: <span class="ln"></span></div>
+    <div class="q"><span class="pen">&#9998;</span> What we asked:</div>
+    <div class="lines l1"></div>
+    <div class="q"><span class="pen">&#9998;</span> What they told us:</div>
+    <div class="lines l4"></div>
+    <div class="q"><span class="pen">&#9998;</span> What we will change because of it: <span class="hint">(or why we kept it the same)</span></div>
+    <div class="lines l2"></div>
+  </div>
+  <div class="card">
+    <div class="ct">Expert: <span class="ln"></span> Works at: <span class="ln"></span></div>
+    <div class="inline">Date: <span class="ln short"></span> How: <span style="font-weight:400;">&#9744; email &nbsp; &#9744; call &nbsp; &#9744; visit</span> &nbsp; Written down by: <span class="ln"></span></div>
+    <div class="q"><span class="pen">&#9998;</span> What we asked:</div>
+    <div class="lines l1"></div>
+    <div class="q"><span class="pen">&#9998;</span> What they told us:</div>
+    <div class="lines l4"></div>
+    <div class="q"><span class="pen">&#9998;</span> What we will change because of it: <span class="hint">(or why we kept it the same)</span></div>
+    <div class="lines l2"></div>
+  </div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 6 of 6</span></div>
+</section>
+</body></html>

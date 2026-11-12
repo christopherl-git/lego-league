@@ -1,0 +1,209 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Logo Vote Ballot and Tally - Team 69255, Look it's a Giraffe!</title><style>
+  @page { size: 8.5in 11in; margin: 0; }
+  :root {
+    --giraffe: #E8A317;
+    --brown: #5A3A1A;
+    --leaf: #2F7D4F;
+    --cream: #FFF6DC;
+    --ink: #222;
+    --rule: #9a8a70;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--ink); font-size: 10pt; line-height: 1.35;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page {
+    position: relative; width: 8.5in; height: 11in; padding: 0.82in 0.55in 0.6in;
+    overflow: hidden; page-break-after: always; break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  .band {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    background-color: var(--giraffe);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='42' viewBox='0 0 150 42'><g fill='%235A3A1A' fill-opacity='0.55' stroke='%235A3A1A' stroke-opacity='0.55' stroke-width='3' stroke-linejoin='round'><polygon points='6,8 22,3 33,12 28,27 12,30 4,20'/><polygon points='58,22 70,14 86,18 90,33 76,40 60,36'/><polygon points='108,4 124,2 134,13 128,26 112,28 104,15'/></g></svg>");
+    background-size: 150px 42px; border-bottom: 3px solid var(--brown);
+  }
+  .band-inner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.58in;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 0.55in;
+  }
+  .band-inner .name {
+    background: var(--cream); border: 2px solid var(--brown); border-radius: 999px; padding: 3px 14px;
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 13pt; color: var(--brown);
+  }
+  .band-inner .tag {
+    background: var(--cream); border: 2px solid var(--brown); border-radius: 999px; padding: 3px 12px;
+    font-weight: 700; font-size: 9.5pt; color: var(--brown);
+  }
+  .foot {
+    position: absolute; left: 0.55in; right: 0.55in; bottom: 0.22in;
+    display: flex; justify-content: space-between; font-size: 8pt; color: #6b5a40;
+    border-top: 1px solid var(--rule); padding-top: 4px;
+  }
+
+  h1 { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-size: 25pt; line-height: 1.1; margin: 0 0 4px; color: var(--brown); }
+  h2 { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-size: 15pt; margin: 0 0 6px; color: var(--brown); }
+  p { margin: 0 0 6px; }
+  .sub { font-size: 12pt; color: var(--leaf); font-weight: 700; margin-bottom: 10px; }
+  .note { font-size: 8.5pt; color: #6b5a40; }
+
+  .steps { list-style: none; counter-reset: s; margin: 0 0 10px; padding: 0; }
+  .steps li { counter-increment: s; position: relative; padding: 3px 0 3px 36px; margin-bottom: 4px; font-size: 10.5pt; }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 1px; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--leaf); color: #fff; font-weight: 800; font-size: 12pt;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .steps.small li { font-size: 9.5pt; margin-bottom: 2px; }
+
+  .tips { border: 2px solid var(--leaf); border-radius: 10px; padding: 7px 12px; background: #F1F8F3; margin-bottom: 10px; }
+  .tips h3 { margin: 0 0 3px; font-size: 11pt; color: var(--leaf); }
+  .tips ul { margin: 0; padding-left: 18px; }
+  .tips li { margin-bottom: 2px; }
+
+  .why-box { border: 2px dashed var(--brown); border-radius: 10px; padding: 7px 12px; background: var(--cream); margin-bottom: 10px; }
+  .why-box h3 { margin: 0 0 2px; font-size: 11pt; color: var(--brown); }
+
+  /* ---------- ballot ---------- */
+  .ballot { border: 3px solid var(--brown); border-radius: 12px; overflow: hidden; margin: 8px 0 12px; }
+  .ballot .head {
+    background: var(--brown); color: #fff; padding: 6px 14px; display: flex; justify-content: space-between; align-items: center;
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 12pt;
+  }
+  .ballot .head span { font-family: "Segoe UI", Arial, sans-serif; font-weight: 400; font-size: 9pt; }
+  .brow { display: flex; align-items: center; gap: 16px; padding: 6px 14px; border-top: 1.5px solid var(--rule); }
+  .brow:nth-child(even) { background: #FBF4E2; }
+  .rank {
+    flex: none; width: 0.7in; height: 0.7in; border: 3px solid var(--brown); border-radius: 10px; background: #fff;
+  }
+  .brow .who { flex: 1; font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-weight: 800; font-size: 15pt; color: var(--brown); }
+  .brow .who span { display: block; font-family: "Segoe UI", Arial, sans-serif; font-weight: 400; font-size: 9pt; color: #6b5a40; }
+  .brow .who .ln { display: inline-block; border-bottom: 1.5px solid var(--ink); width: 2.6in; height: 0.26in; vertical-align: bottom; }
+  .brow.other .who { color: var(--leaf); }
+
+  .examples { display: flex; gap: 10px; margin-top: 4px; }
+  .ex { flex: 1; border: 1.5px solid var(--rule); border-radius: 8px; padding: 4px 8px; font-size: 8.5pt; background: #fff; }
+  .ex b { display: block; font-size: 9pt; }
+  .ex.ok b { color: var(--leaf); }
+  .ex.no b { color: #A33; }
+  .chip { display: inline-block; min-width: 18px; text-align: center; border: 1.5px solid var(--brown); border-radius: 4px; font-weight: 800; margin: 0 2px; padding: 0 2px; }
+
+  /* ---------- tally ---------- */
+  .facts { display: flex; gap: 10px; margin: 4px 0 10px; }
+  .fact { flex: 1; border: 2px solid var(--brown); border-radius: 8px; padding: 4px 8px; }
+  .fact b { display: block; color: var(--brown); font-size: 9pt; }
+  .fact span { font-size: 8pt; color: #6b5a40; }
+  .fact .bx { height: 0.34in; }
+  .fact.key { background: var(--cream); border-color: var(--giraffe); }
+
+  table.tally { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 9pt; }
+  table.tally th { background: var(--brown); color: #fff; padding: 4px 3px; font-size: 8.5pt; text-align: center; border: 1px solid var(--brown); }
+  table.tally th.l { text-align: left; padding-left: 7px; width: 1.55in; }
+  table.tally th span { display: block; font-weight: 400; font-size: 7.5pt; opacity: 0.9; }
+  table.tally td { border: 1px solid var(--rule); height: 0.44in; vertical-align: top; position: relative; }
+  table.tally td.idea { font-weight: 800; color: var(--brown); padding: 4px 7px; vertical-align: middle; }
+  table.tally td.idea .ln { display: block; border-bottom: 1px solid var(--rule); height: 0.2in; }
+  table.tally td .tot { position: absolute; right: 3px; bottom: 3px; width: 0.32in; height: 0.24in; border: 1.5px solid var(--brown); border-radius: 4px; background: var(--cream); }
+  table.tally tr.other td.idea { color: var(--leaf); background: #F1F8F3; }
+  table.tally tr.sum td { height: 0.32in; background: #FBF4E2; }
+  table.tally tr.sum td.idea { font-size: 8.5pt; }
+  table.tally tr.out td { height: 0.32in; background: #F6E3DC; }
+  table.tally tr.out td.idea { color: #8a2a1a; font-size: 8.5pt; }
+
+  .winner {
+    margin-top: 10px; border: 3px solid var(--giraffe); border-radius: 12px; background: var(--cream); padding: 8px 14px 8px;
+  }
+  .winner h3 { margin: 0 0 4px; font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; font-size: 15pt; color: var(--brown); }
+  .inline { display: flex; align-items: flex-end; gap: 6px; margin-top: 6px; font-weight: 700; font-size: 10.5pt; }
+  .inline .ln { flex: 1; border-bottom: 1.5px solid var(--ink); height: 0.28in; }
+  .inline .ln.short { flex: none; width: 0.6in; }
+  .inline .ln.mid { flex: none; width: 1.6in; }
+  .cb { display: inline-block; width: 13px; height: 13px; border: 1.5px solid var(--brown); border-radius: 2px; vertical-align: -2px; margin-right: 4px; }
+  .next { font-size: 9.5pt; margin-top: 7px; display: flex; gap: 18px; flex-wrap: wrap; }
+</style></head><body>
+
+<!-- ============ PAGE 1: BALLOT ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Logo Vote</span></div>
+  <h1>Team Logo Ballot</h1>
+  <div class="sub">Rank the logos. Your 1 is your favourite.</div>
+
+  <ol class="steps">
+    <li>Write <b>1</b> in the box next to your favourite logo, <b>2</b> next to your second favourite, then <b>3</b>, and so on.</li>
+    <li>Rank as many logos as you like. Leave a box empty if you really don't want that logo.</li>
+    <li>Use each number <b>only once</b>. You may vote for your own logo.</li>
+    <li>Don't write your name. Fold your ballot in half and hand it in.</li>
+  </ol>
+
+  <div class="ballot">
+    <div class="head">Rank</div>
+    <div class="brow"><div class="rank"></div><div class="who">Ira&rsquo;s logo</div></div>
+    <div class="brow"><div class="rank"></div><div class="who">Fedor&rsquo;s logo</div></div>
+    <div class="brow"><div class="rank"></div><div class="who">Alexis&rsquo;s logo</div></div>
+    <div class="brow"><div class="rank"></div><div class="who">Brynn&rsquo;s logo</div></div>
+    <div class="brow"><div class="rank"></div><div class="who">Ella&rsquo;s logo</div></div>
+    <div class="brow other"><div class="rank"></div><div class="who">Other: <span class="ln"></span><span>Only if the team adds a new or combined logo before the vote</span></div></div>
+  </div>
+
+  <div class="examples">
+    <div class="ex ok"><b>&#10003; Good ballot</b>Boxes say <span class="chip">2</span><span class="chip">1</span><span class="chip">4</span><span class="chip">3</span><span class="chip">&nbsp;</span>. Every number used once.</div>
+    <div class="ex no"><b>&#10007; Spoiled ballot</b>Boxes say <span class="chip">1</span><span class="chip">1</span><span class="chip">2</span>. Two 1s, so we can't tell your favourite.</div>
+  </div>
+
+  <div class="tips" style="margin-top:10px;"><h3>Why rank instead of picking one?</h3><ul>
+    <li>If your favourite gets the fewest votes, your vote isn't wasted. It moves to your next choice.</li>
+    <li>The winner is the logo that more than half of the team is happy with.</li></ul></div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Ballot</span></div>
+</section>
+
+<!-- ============ PAGE 2: TALLY ============ -->
+<section class="page">
+  <div class="band"></div>
+  <div class="band-inner"><span class="name">Look it's a Giraffe!</span><span class="tag">Logo Vote</span></div>
+  <h2>Counting the votes</h2>
+  <ol class="steps small">
+    <li><b>Round 1:</b> sort the ballots into piles by the logo marked <b>1</b>. Write each pile's count in the Round 1 column.</li>
+    <li>If a logo has <b>more than half</b> of the ballots still counting, it wins. Stop and fill in the winner box.</li>
+    <li>If not, the logo with the <b>fewest</b> votes is out. Move each of its ballots to that ballot&rsquo;s <b>next choice</b> still in the race. If a ballot has no choices left, put it in the &ldquo;No choices left&rdquo; row.</li>
+    <li>Count again in the next round. Repeat until one logo has more than half.</li>
+  </ol>
+  <p class="note"><b>Tie for fewest votes?</b> The one with fewer 1st-choice votes in Round 1 is out. Still tied? Flip a coin. &nbsp;<b>Spoiled ballot</b> (a number used twice)? Count it only up to the mistake.</p>
+
+  <div class="facts">
+    <div class="fact"><b>Ballots handed in</b><div class="bx"></div></div>
+    <div class="fact"><b>Spoiled ballots</b><div class="bx"></div></div>
+    <div class="fact key"><b>Counters (2 people)</b><div class="bx"></div></div>
+    <div class="fact"><b>Date</b><div class="bx"></div></div>
+  </div>
+
+  <table class="tally">
+    <tr><th class="l">Logo</th><th>Round 1<span>1st choices</span></th><th>Round 2</th><th>Round 3</th><th>Round 4</th><th>Round 5</th></tr>
+    <tr><td class="idea">Ira</td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td></tr>
+    <tr><td class="idea">Fedor</td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td></tr>
+    <tr><td class="idea">Alexis</td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td></tr>
+    <tr><td class="idea">Brynn</td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td></tr>
+    <tr><td class="idea">Ella</td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td></tr>
+    <tr class="other"><td class="idea">Other:<span class="ln"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td><td><span class="tot"></span></td></tr>
+    <tr class="sum"><td class="idea">No choices left</td><td style="background:#ddd"></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="sum"><td class="idea">Ballots still counting</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="sum"><td class="idea">More than half is</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="out"><td class="idea">Out this round</td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <p class="note" style="margin-top:3px;">Make tally marks in each box and write the count in the small box. More than half: 9 ballots still counting means 5 or more; 8 means 5 or more; 7 means 4 or more.</p>
+
+  <div class="winner">
+    <h3>&#127942; Our winning logo</h3>
+    <div class="inline">The winner is <span class="ln"></span>&rsquo;s logo</div>
+    <div class="inline">It won in Round <span class="ln short"></span> with <span class="ln short"></span> votes out of <span class="ln short"></span> still counting.</div>
+    <div class="inline">Counted by <span class="ln"></span> and <span class="ln"></span></div>
+    <div class="next"><span><span class="cb"></span>Told the team</span><span><span class="cb"></span>Final art saved</span><span><span class="cb"></span>T-shirts ordered</span><span><span class="cb"></span>Logo used on banner and poster</span></div>
+  </div>
+
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Tally</span></div>
+</section>
+</body></html>
