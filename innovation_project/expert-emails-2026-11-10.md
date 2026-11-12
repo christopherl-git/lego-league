@@ -4,7 +4,7 @@ These drafts are built from Ella's template, the team's chosen solution (2026-11
 
 The "Our solution" paragraph is new. It is written from the team's choice: **map where the grass grows, then send a winged drone** (ideas F and D combined; see the [team scores](solution-scoring-worksheet/team-scores-2026-11-10.pdf)).
 
-**Status:** sent to Bob, Dan and Matthew on 2026-11-10. Pete's email is not sent yet: waiting for his address from Brynn's parents. **Bob replied on 2026-11-10** (below); what we changed because of it is in [project-plan.md](project-plan.md#expert-feedback-bob-leigh-replied-2026-11-10).
+**Status:** sent to Bob, Dan and Matthew on 2026-11-10. Pete's was sent on 2026-11-12. **Bob replied on 2026-11-10** and **Pete replied on 2026-11-12** (both below); what they mean for our plan is in [project-plan.md](project-plan.md#expert-feedback-bob-leigh-replied-2026-11-10).
 
 ---
 
@@ -143,6 +143,32 @@ Thanks
 Look It's A Giraffe
 Sylvie, Jordan, Jack, Ella, Brynn, Fedor, Ira, Alexis, Amelia
 Team Coach: Chris Leigh
+
+### Pete's reply (2026-11-12)
+
+> Hi Chris, these are some very good questions. Based on my experience with my urban fire department, we have only had only one drone and it didn't have any firefighting capability, rather it was used to see terrain that was difficult to access by vehicle or by foot.
+>
+> I did some research on the internet like I'm sure you and your group has. From my reading, there are several countries using or looking into using drones for firefighting purposes.
+
+**1. Do firefighters use copter or winged drones?**
+
+> To answer your first question, many fire departments use drones, most appear to use copter drones. They can be used to see aerial views, for search and rescue purposes, to determine hot spots via thermal imaging camera and also some have the ability to carry water or fire retardant material such as firefighting foam. Copter drones need less space to take off and land so they could be more useful in an area such as a rainforest. Although winged drones appear to be able to carry more weight, thereby able to carry more water or fire retardant material. I have also seen videos where in urban settings drones are hooked up to a water supply and are used to fight fires in high rise buildings.
+
+**2. What makes firefighting difficult in rainforests?**
+
+> As for the second question, I have never battled a fire in a rainforest but I would gather that access to a fire in a rainforest would be difficult. The high canopy would pose challenges to any aerial operations hoping to extinguish fires on ground level. If the drone is trying to access low lying ground cover through a dense tree canopy this would pose challenges or if water / fire retardant material was dropped above the canopy then not all of the material would not reach the intended target on the ground.
+
+**3. Is a winged drone that drops water a good solution?**
+
+> To answer the third and final question, the use of winged drones could very well be a good solution to drop water / fire retardant on fires. It appears several countries are using or looking into doing this. Winged drones would have certain limitations as the need for bigger takeoff and landing spaces compared to copter drones, and they wouldn't be able to maneuver into smaller spaces like a copter drone would, but depending on the situation, especially considering the higher payload a winged drone could carry, a winged drone could be useful in fighting fires in the rainforest.
+>
+> My take on it.. I would look into using both winged drones and copter drones where resources are available so the advantages of both could be used to fight fires in the rainforest.
+>
+> I hope that helps.
+>
+> Cheers,
+>
+> Pete
 
 ---
 

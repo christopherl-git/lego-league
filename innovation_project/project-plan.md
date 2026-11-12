@@ -134,6 +134,29 @@ The [drone prototype comparison worksheet](drone-comparison-worksheet/drone-comp
 
 These help the mapping group (Sylvie, Amelia) with the claim "early detection of the grass works, and mapping is feasible".
 
+## Expert feedback: Pete, firefighter (replied 2026-11-12)
+
+Pete, a firefighter we reached through Brynn's parents, answered our three questions by email. Full reply: [expert-emails-2026-11-10.md](expert-emails-2026-11-10.md#petes-reply-2026-11-12).
+
+**What he told us:**
+- **His own fire department** (in a city) has had only one drone. It could not fight fires; it was used to look at ground that was hard to reach by truck or on foot.
+- **Most fire departments that use drones use copter drones.** They give an aerial view, help with search and rescue, find hot spots with a thermal (heat) camera, and some can carry water or fire-fighting foam. In cities, some drones are hooked up to a water hose to fight fires in tall buildings. Several countries use or are testing drones for firefighting.
+- **Copter versus winged:** copter drones need less space to take off and land and can fit into small spaces, which helps in a rainforest. Winged drones seem to carry more weight, so more water, but need bigger take-off and landing areas.
+- **Why rainforest fires are hard:** fires are hard to get to. The **tall canopy** blocks aerial firefighting: a drone can't easily get down through the trees to the ground, and water dropped from above the canopy won't all reach the fire on the ground.
+- **Is our solution good?** Winged drones dropping water or fire retardant "could very well be a good solution", and several countries are looking at it. His advice: **use both winged and copter drones** where possible, so we get the strengths of each.
+
+**What it means for our plan:** Pete agrees with Bob that two kinds of drones working together is a good idea, and he adds a reason to think about *which* drone does which job.
+
+| Drone | Bob's view | Pete's view | Question for the team |
+|---|---|---|---|
+| **Scout drone** | Light and fast | Fire departments mostly use copters with heat cameras to find hot spots | Winged (covers more distance) or copter (lands in small clearings)? |
+| **Water drone** | Bigger and slower, lifts the water | Winged drones carry more water but need room to take off and land | Where is there room to launch a winged water drone in a rainforest? |
+
+**Still to answer (from Pete's reply):**
+- **The canopy problem.** Water dropped from above the trees won't all reach a ground fire. The invasive grass grows in gaps and cleared areas, so is there less canopy where our fires start? (Mapping group: check whether the grass grows under trees or in open patches.)
+- **Water or retardant?** Pete mentions fire retardant and foam as well as water. Which works better on a grass fire, and which is safer for the rainforest?
+- **Launch space.** This adds to Bob's launch question: a winged drone needs a long, clear area to take off and land.
+
 ## Who does what (homework due Tue 2026-11-03)
 
 - **Sylvie, Amelia:** types of grass (which one is our problem grass, and how it burns)
