@@ -423,6 +423,19 @@ Sessions we attended, and what we did about each. This is the clearest evidence 
 
 - **2026-11-03:** Homework on the innovation project. Tournament details: **Saturday, November 28**, Western Technical Commercial School, pits open 7:30 AM.
 
+**Our mission run order** (from Coach Chris, 2026-11-12):
+
+| Order | Mission | Name |
+|---|---|---|
+| 1 | 9 | Research Platform |
+| 2 | 1 | Drone Survey |
+| 3 | 3 **(confirm)** | Exploding Seeds |
+| 4 | 15 | Biocentric Architecture (city dock: garden skylight and nesting canopy) |
+| 5 | 6 | Leafcutter Frenzy |
+| 6 | 11 | Window to the Past |
+
+The pasted list gave "mission 2" for both Drone Survey and Exploding Seeds. The Mission 1 attachment page confirms the drone is Mission 1. Exploding Seeds is shown as Mission 3 (from the 2026-11-05 test runs); confirm.
+
 ### B5. Judging tips we were given (use these!)
 
 - Pick a favorite mission. Explain how we solved it, what each person did, and how we used our time.

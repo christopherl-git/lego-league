@@ -17,7 +17,7 @@ Two groups worked today. Jordan, Ira, Jack and Fedor ran full robot game test ru
 5. Raising the roof at the city (the ant one)
 6. The roof one
 
-**(confirm)** the mission numbers for steps 4 to 6 and whether "the ant one" and "the roof one" are two separate missions. The notes above follow how the order was described.
+**Update 2026-11-12:** Coach Chris gave the full run order: Mission 9 Research Platform, Mission 1 Drone Survey, Mission 3 Exploding Seeds, Mission 15 Biocentric Architecture (city dock: garden skylight and nesting canopy), Mission 6 Leafcutter Frenzy, Mission 11 Window to the Past. The list said "mission 2" for both the drone and the seeds, which looks like a typo (confirm 1 and 3). So steps 4 to 6 above are Missions 15, 6 and 11. Original note: **(confirm)** the mission numbers for steps 4 to 6 and whether "the ant one" and "the roof one" are two separate missions. The notes above follow how the order was described.
 
 ### Results from the timing sheet (8 runs)
 
@@ -55,16 +55,18 @@ Still needed from this group:
 Everyone else filled in the speech writing sheets (scan: `robot design speech draft.pdf`, 7 pages). What was written so far, as the kids wrote it (spelling tidied):
 
 ### Section 1: Opening and mission strategy (page 3 to 4)
-- **Mission strategy:** "They got us lots of points and were relatively easy. We looked at all the different missions and ranked them by two things: they needed to be able to get us lots of points, so we have a higher chance of doing better. The other way was how easy it is to achieve the mission, so we can go fast and get more missions done."
+- **Opening line:** "Hello, we're Look it's a Giraffe and today we will explain how we designed our robot. Our strategy is to attempt these missions:" The answer continues on the back of the page (page 2 of the scan). The team name was written over the blank, and the words "and our fun" were added above the line (unclear what they were meant to add).
+- **Mission strategy (written on the missions line, so the list of missions is still missing):** "They got us lots of points and were relatively easy. We looked at all the different missions and ranked them by two things: they needed to be able to get us lots of points, so we have a higher chance of doing better. The other way was how easy it is to achieve the mission, so we can go fast and get more missions done."
 - **Why this order:** "We did the missions in that order because we wanted to get from one side to the other just once to save time."
 - **Resources:** "When building and coding the robot we used bot-fluencers, conference sessions, SPIKE app and build instructions."
-- **Blank:** the list of missions we attempt (the opening line does not name them), "From ___ we learned ___", and "When we got stuck we asked ___".
+- **Blank:** the actual list of missions we attempt, "We chose those missions because", "From ___ we learned ___", and "When we got stuck we asked ___".
 - The team name and a note "and our fun" were added at the top. A margin note on page 3 says "Wrong", with no clear reason. **(confirm what was wrong)**
 
 ### Section 2: Choosing and building our robot (page 4 to 5)
 - **Designs and criteria:** "We looked at 4 different designs: HummerOne, Comp Bot, GummyBears / Droid Bot M and StarterBot. We scored them on six criteria all about how the robot performs in a match." The six criteria were listed: archetype match to proven competitive designs, attachment swap speed at the base, squaring (flat back and sides), stability under load, maneuverability in tight spaces, and drive repeatability (for PID code).
 - **Problem noticed after building:** "After we finished building the HummerOne we noticed the front wheels would slide and create friction, which made it harder to move straight."
-- **Blank:** why cost was left out, the highest score and why we chose it, and what we changed the wheels to (and why).
+- **Wheel fix (added 2026-11-12, page 4 rewrite):** "We changed the front wheels to two mini ball casters, which helped cause less friction, which helped the robot move straight." **(confirm)** the design log says one Technic ball joint (2026-10-13), not two mini ball casters.
+- **Blank:** why cost was left out, and the highest score and why we chose it.
 
 ### Section 3: Attachments, forklift (page 6 to 7)
 - **Attachment:** forklift. **Mission:** 9.
@@ -73,11 +75,50 @@ Everyone else filled in the speech writing sheets (scan: `robot design speech dr
 - **Blank:** what we changed from the original and why, and what it is good and not so good at.
 - **Check:** the design log says the forklift came from `Forklift1-zoptyk.pdf`, and Coach Zain is the Comp Bot creator. Confirm which source the forklift really came from. Also the log described the forklift as raising a platform, and today it is listed for Mission 9 (the tree). Confirm which is right.
 
+### Lifting arm card (added 2026-11-12 from a photo of the printed sheet)
+- **Mission:** written as 2 **(confirm: Mission 2 is not in our run order)**
+- **Started from:** "The design it originated from was from botfluencer." (which one is not named)
+- **What changed:** "We added a seed bucket because it couldn't bring the seeds back without one. We also added axle pins because it didn't stay on properly." **(confirm)** the design log (entry 7) says axle pins kept coming off and the team went back to quick pins.
+- **Problem and fix:** "The robot didn't line up with the mission. To fix this, we added what we call the masher. The masher forces/mashes the robot into place."
+- **Good and not so good:** "It is good when it does its job but it's not very consistent."
+
+### Mission 1 attachment card (added 2026-11-12 from a photo of the printed sheet)
+- **Attachment and mission:** "The drone survey attachment", Mission 1. This confirms the drone is Mission 1.
+- **Started from:** "The design was inspired by Team Turtlebots. We made one similar to theirs."
+- **What changed:** "We added some smaller curved pieces so it wouldn't get caught on things or on the mission."
+- **Problem and fix:** "The attachment used to be wiggly and loose. Our solution was to add extra points for it to attach to itself as well as some other pieces."
+- **Good and not so good:** "It is good at flipping open the lidar map but it can't get the drone there."
+- **Needs:** a test number, the plan for the drone, who built it, and why this option was picked over the other two Mission 1 options.
+
 ### Section 4: Code and sensors, part 1 (page 8)
 - **Sensors:** "We use 2 colour sensors and 1 gyro sensor. The colour sensors sense the colours on the mat. We use them for squaring. The gyro sensor ..." (sentence not finished).
 - **Why a second sensor:** "When one sensor sees the colour black, it will turn until the other sensor sees black. It will then wiggle till straight." They added that squaring is needed because the robot drives crooked without it.
 - **Squaring step by step:** 1. "It drives up to the line diagonally and senses the black line." 2. "It turns until the other sensor senses the black line." 3. "It wiggles until it's straight."
 - **Blank or unfinished:** what the gyro sensor does (turns and driving straight), and where each sensor is mounted.
+
+### Section 4: Code and sensors, part 2 (added 2026-11-12 from a photo of the printed sheet, written in red)
+- **Drive straight:** the blanks were filled "Gyro Move" (block name), "The yaw angle" (what it checks) and "corrects itself" (what it does if off).
+- **Kp and Ki:** "Kp decides how it corrects itself over a short period of time. Ki decides how it corrects itself over a long period of time." ("short" was crossed out and "long" written for Ki.)
+- **Turning:** "Yaw angle. Yaw is more reliable. We also increase the speed of the turn depending on how big the turn is." **(confirm)** the design log says the turn speed falls as the robot nears the target.
+- **Speed ramp:** "That makes it so that the robot doesn't go farther than we want it to."
+- **Distance block:** "degrees" to "cm", "not as easy to measure than" (unfinished, so the words in brackets on the sheet are inferred). The 2070 degrees = 100 cm measurement is not written.
+- **Needs:** the why for yaw, the numbers (Kp 2, Ki 1, 20.7 degrees per cm), and one step-by-step example.
+
+### Section 5: Testing and improving, story 1 (added 2026-11-12 from a photo of the printed sheet)
+- **We wanted to know:** "If we had a good Kp and Ki."
+- **How we tested:** "Kp and Ki, 15 times." **(confirm)** the number is hard to read: it looks like 15, which would be 5 Kp values with 3 runs each.
+- **Results:** "The result was that the Kp was already good. When we tested it at 1 the avg error was 26 mm, we tested 3 and the error was 13. Our original Kp of 2 was under 1 mm error." (The last line is written up the right margin.) This matches the 2026-10-29 sheet: Kp 1.0 about 26 mm, Kp 3.0 about 13 mm, Kp 2.0 about 0.6 mm.
+- **What we changed:** "We tested Ki at 0.5, 1, 2. We found changing it from 2 to 1 we were more accurate by 5 mm." This matches the sheet: Ki 2 about 6 mm, Ki 1 under 1 mm. Note the 2026-10-06 code values were Kp 2.1 and Ki 2.
+- **After the change:** "It worked very well."
+- **Needs:** a before and after number, a plain-words explanation of Kp and Ki, and the 10-run confirmation.
+
+### Section 5: Testing and improving, story 2 (added 2026-11-12 from a photo of the printed sheet)
+- **We wanted to know:** "If we could complete our missions (in the time limit)."
+- **How we tested:** "We tested it by doing the missions with a stopwatch repeatedly." No number of runs was written.
+- **What we changed:** "So we added blocks with a timer so the robot would carry on instead of stopping and wasting tokens."
+- **After the change:** "We wasted less precision tokens and got more points in the end."
+- **Not finished:** "We still need to work on some funky code."
+- **Needs:** numbers (runs, times, points, precision tokens before and after) and which code is "funky". The timing sheet from 2026-11-05 has times, points and touches for 8 runs. **(confirm)** that "precision tokens" lines up with the "touches" count on that sheet.
 
 ### Not started in the scans
 Section 3 for the other attachments (lifting arm and seed bucket, 2-axis with hook, Mission 1, Mission 11 basket), section 4 part 2 (Gyro Move, Kp and Ki, yaw turns, ramp, cm), section 5 (test stories), section 6, section 7, and the who-says-what table.

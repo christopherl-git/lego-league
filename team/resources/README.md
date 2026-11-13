@@ -19,3 +19,4 @@ Meeting resources, organized by date (YYYY-MM-DD folders), plus running referenc
 - [2026-10-27/](2026-10-27/) — Team logos shared; research on the grass fire cycle, fire-fighting drones and Miconia; four problem statements; vote chose fires due to invasive grass (5 to 4 over Miconia)
 - [2026-11-05/](2026-11-05/) — Full robot test runs (best 185 points in 2:50, none under 2:30 yet), first drafts of the robot design speech, and the speech writing sheets and reference packet
 - [2026-11-10/](2026-11-10/) — Logo vote (Alexis's logo won, 5 of 9), innovation solution chosen (map the grass, then send a winged drone), and expert emails sent to Bob Leigh, Dan Panko and Matthew Lusty (Pete's to follow)
+- [2026-11-12/](2026-11-12/) — Parent update: PA day rehearsal on November 20 (8:30 AM start, 2:30 PM parent presentation)
