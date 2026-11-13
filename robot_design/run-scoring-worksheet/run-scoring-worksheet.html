@@ -172,6 +172,7 @@
   table.chg td { height: 0.42in; }
 
   /* ---------- extra styles for the run scoring worksheet ---------- */
+  .steps.tight li { padding: 2px 0 2px 38px; margin-bottom: 3px; font-size: 10pt; }
   .page { padding-top: 0.78in; }
   .fields { display: flex; gap: 14px; margin: 4px 0 8px; }
   .fields .f { flex: 1; font-weight: 700; display: flex; align-items: flex-end; gap: 5px; font-size: 9.5pt; }
@@ -186,7 +187,7 @@
   table.run { width: 100%; border-collapse: collapse; font-size: 9pt; }
   table.run th { background: var(--brown); color: #fff; padding: 4px 5px; font-size: 8.5pt; text-align: center; border: 1px solid var(--brown); }
   table.run th.l { text-align: left; }
-  table.run td { border: 1px solid var(--rule); height: 0.92in; padding: 3px 5px; vertical-align: top; }
+  table.run td { border: 1px solid var(--rule); height: 0.86in; padding: 3px 5px; vertical-align: top; }
   table.run td.ord { width: 0.3in; text-align: center; vertical-align: middle; font-weight: 900; font-size: 13pt; color: var(--brown); background: #FBF4E2; }
   table.run td.mis { width: 1.75in; vertical-align: middle; background: #FBF4E2; }
   table.run td.mis .mn { display: block; font-size: 7.5pt; font-weight: 800; color: var(--leaf); text-transform: uppercase; letter-spacing: 0.4px; }
@@ -201,7 +202,7 @@
   .totals { display: flex; gap: 8px; margin-top: 8px; }
   .tbox { flex: 1; border: 2px solid var(--brown); border-radius: 9px; padding: 3px 8px 5px; background: var(--cream); text-align: center; }
   .tbox .tl { font-size: 7.8pt; font-weight: 800; color: var(--brown); text-transform: uppercase; letter-spacing: 0.4px; }
-  .tbox .tv { height: 0.36in; border-bottom: 1.5px solid var(--ink); margin: 2px 6px 0; font-size: 8pt; color: #6b5a40; display: flex; align-items: flex-end; justify-content: flex-end; }
+  .tbox .tv { height: 0.3in; border-bottom: 1.5px solid var(--ink); margin: 2px 6px 0; font-size: 8pt; color: #6b5a40; display: flex; align-items: flex-end; justify-content: flex-end; }
   .tbox.big { flex: 1.3; border-color: var(--leaf); background: #F1F8F3; }
   .tbox.big .tl { color: var(--leaf); }
 
@@ -256,18 +257,19 @@
 
   <h2 style="margin-top:8px;">Our mission order</h2>
   <table class="check">
-    <tr><th>#</th><th>Mission</th><th style="width:3.1in;">What the robot does</th></tr>
-    <tr><td class="n">1</td><td><b>Mission 9: Research Platform</b></td><td></td></tr>
-    <tr><td class="n">2</td><td><b>Mission 2: Drone Survey</b></td><td></td></tr>
-    <tr><td class="n">3</td><td><b>Mission ___: Exploding Seeds</b></td><td></td></tr>
-    <tr><td class="n">4</td><td><b>Mission 15: Biocentric Architecture</b> <span class="note">(city dock: garden skylight and nesting canopy)</span></td><td></td></tr>
-    <tr><td class="n">5</td><td><b>Mission 6: Leafcutter Frenzy</b></td><td></td></tr>
-    <tr><td class="n">6</td><td><b>Mission 11: Window to the Past</b></td><td></td></tr>
+    <tr><th>#</th><th>Mission</th><th>How it scores (rule book)</th><th style="text-align:center;">Max</th></tr>
+    <tr><td class="n">1</td><td><b>Mission 9: Research Platform</b></td><td style="font-size:9pt;">Platform raised 10 &middot; camera trap deployed 10 &middot; seed no longer touching the tree 10</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">30</td></tr>
+    <tr><td class="n">2</td><td><b>Mission 1: Drone Survey</b></td><td style="font-size:9pt;">Drone no longer touching the mat 20 &middot; <i>bonus:</i> LiDAR map completely flipped, scan marker partly in the survey area +10</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">30</td></tr>
+    <tr><td class="n">3</td><td><b>Mission 2: Exploding Seeds</b></td><td style="font-size:9pt;">10 for each seed no longer touching the stalk</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">10 each</td></tr>
+    <tr><td class="n">4</td><td><b>Mission 15: Biocentric Architecture</b> <span class="note">(city dock: garden skylight and nesting canopy)</span></td><td style="font-size:9pt;">Nesting canopy raised 10 &middot; garden skylight completely in 10 &middot; <i>city dock bonus</i> (skylight) +10</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">30</td></tr>
+    <tr><td class="n">5</td><td><b>Mission 6: Leafcutter Frenzy</b></td><td style="font-size:9pt;">Ant touching the nest: 10 for each leaf fragment inside the nest</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">10 each</td></tr>
+    <tr><td class="n">6</td><td><b>Mission 11: Window to the Past</b></td><td style="font-size:9pt;">Root cover down, touching the mat 20</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">20</td></tr>
   </table>
-  <p class="note" style="margin-top:3px;">Fill in the right-hand column once, from the rule book, so everyone knows what "done" means for each mission.</p>
+  <p class="note" style="margin-top:3px;"><b>Done</b> = the max for that mission. For Seeds and Leafcutter, count the seeds and leaf fragments on the models and write the max here: Seeds ______ &nbsp; Leafcutter ______</p>
+  <div class="key" style="margin-top:5px;"><div><b style="font-size:10pt;color:var(--brown);">Equipment inspection: 20</b><br>Robot and all attachments fit in one launch area, under 12 in. tall.</div><div style="flex:1.6;"><b style="font-size:10pt;color:var(--brown);">Precision tokens: start with 6</b><br>Lose 1 each time we touch the robot outside home. Tokens left &rarr; points: 6 or 5 = 50, 4 = 35, 3 = 25, 2 = 15, 1 = 10, 0 = 0</div></div>
 
   <h2 style="margin-top:8px;">Jobs for each run</h2>
-  <ol class="steps">
+  <ol class="steps tight">
     <li><b>Driver</b> runs the robot and swaps attachments. <b>Timer</b> starts the 2:30 clock and calls out the time. <b>Scorer</b> fills in the run sheet. Swap jobs every run.</li>
     <li><b>Reset the field</b> exactly like the start of a match, with every model in its starting spot.</li>
     <li><b>Start the timer and go.</b> When each mission ends, the timer calls out the time left and the scorer writes it in the <b>Timer</b> column.</li>
@@ -285,11 +287,10 @@
     <h3>Rules that keep the numbers honest</h3>
     <ul><li><b>Never skip a bad run.</b> If we only write down good runs, our average lies to us.</li>
         <li><b>Change one thing between runs</b> (code, attachment or how we line up), so we know what made the difference.</li>
-        <li>Write down every time a hand touches the robot outside home. In a real match that can cost points.</li></ul>
+</ul>
   </div>
-  <p class="note">Print one run sheet (page 2) for every run. Pages 3 and 4 collect all the runs together.</p>
 
-  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 1 of 4</span></div>
+  <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; Print one run sheet (page 2) for every run</span><span>Page 1 of 4</span></div>
 </section>
 
 <!-- ======================= PAGE 2: RUN SHEET ======================= -->
@@ -306,35 +307,40 @@
 
   <table class="run">
     <tr><th>#</th><th class="l">Mission</th><th>Result</th><th>Points</th><th>Timer at end</th><th class="l">What happened? What should we change?</th></tr>
-    <tr><td class="ord">1</td><td class="mis"><span class="mn">Mission 9</span><span class="mt">Research Platform</span></td>
+    <tr><td class="ord">1</td><td class="mis"><span class="mn">Mission 9</span><span class="mt">Research Platform</span><span class="ms">Platform up 10 &middot; camera trap 10 &middot; seed off tree 10</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
-      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
-    <tr><td class="ord">2</td><td class="mis"><span class="mn">Mission 2</span><span class="mt">Drone Survey</span></td>
+      <td class="pts">of 30</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">2</td><td class="mis"><span class="mn">Mission 1</span><span class="mt">Drone Survey</span><span class="ms">Drone off mat 20 &middot; bonus: LiDAR map flipped +10</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
-      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
-    <tr><td class="ord">3</td><td class="mis"><span class="mn">Mission ___</span><span class="mt">Exploding Seeds</span></td>
+      <td class="pts">of 30</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">3</td><td class="mis"><span class="mn">Mission 2</span><span class="mt">Exploding Seeds</span><span class="ms">10 for each seed off the stalk</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
-      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
-    <tr><td class="ord">4</td><td class="mis"><span class="mn">Mission 15</span><span class="mt">Biocentric Architecture</span><span class="ms">City dock: garden skylight and nesting canopy</span></td>
+      <td class="pts">of ___</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">4</td><td class="mis"><span class="mn">Mission 15</span><span class="mt">Biocentric Architecture</span><span class="ms">Canopy up 10 &middot; skylight in 10 &middot; city bonus +10</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
-      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
-    <tr><td class="ord">5</td><td class="mis"><span class="mn">Mission 6</span><span class="mt">Leafcutter Frenzy</span></td>
+      <td class="pts">of 30</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">5</td><td class="mis"><span class="mn">Mission 6</span><span class="mt">Leafcutter Frenzy</span><span class="ms">Ant at nest: 10 per leaf fragment</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
-      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
-    <tr><td class="ord">6</td><td class="mis"><span class="mn">Mission 11</span><span class="mt">Window to the Past</span></td>
+      <td class="pts">of ___</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">6</td><td class="mis"><span class="mn">Mission 11</span><span class="mt">Window to the Past</span><span class="ms">Root cover down 20</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
-      <td class="pts">pts</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+      <td class="pts">of 20</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
   </table>
 
   <div class="totals">
-    <div class="tbox big"><div class="tl">Total points</div><div class="tv">pts</div></div>
+    <div class="tbox"><div class="tl">Mission points</div><div class="tv">add 1-6</div></div>
+    <div class="tbox"><div class="tl">+ Inspection</div><div class="tv">0 or 20</div></div>
+    <div class="tbox"><div class="tl">Tokens left</div><div class="tv">of 6</div></div>
+    <div class="tbox"><div class="tl">+ Token points</div><div class="tv">max 50</div></div>
+    <div class="tbox big"><div class="tl">= Total points</div><div class="tv">pts</div></div>
+  </div>
+  <div class="totals" style="margin-top:6px;">
     <div class="tbox"><div class="tl">Total time used</div><div class="tv">m : ss</div></div>
     <div class="tbox"><div class="tl">&#10003; Done</div><div class="tv">of 6</div></div>
     <div class="tbox"><div class="tl">&frac12; Partial</div><div class="tv">of 6</div></div>
     <div class="tbox"><div class="tl">&#10007; Failed</div><div class="tv">of 6</div></div>
-    <div class="tbox"><div class="tl">Hand touches</div><div class="tv">times</div></div>
   </div>
-  <p class="note" style="margin:3px 0 0;"><b>Total time used</b> = 2:30 minus the timer when the robot finished its last mission. If the timer hit 0:00, write 2:30.</p>
+  <p class="note" style="margin:3px 0 0;"><b>Token points:</b> 6 or 5 left = 50, 4 = 35, 3 = 25, 2 = 15, 1 = 10. <b>Total time used</b> = 2:30 minus the timer when the robot finished its last mission (2:30 if the timer hit 0:00).</p>
 
   <div class="nextbox">
     <h3>The ONE change for the next run</h3>
@@ -353,8 +359,8 @@
   <p>Copy the totals from each run sheet into one row. The first row is an example.</p>
 
   <table class="sum">
-    <tr><th>Run</th><th>Date</th><th>Total<br>points</th><th>Time<br>used</th><th>&#10003;<br>Done</th><th>&frac12;<br>Partial</th><th>&#10007;<br>Failed</th><th>Hand<br>touches</th><th style="width:2.4in;">The change we made after this run</th></tr>
-    <tr class="ex"><td class="r">eg</td><td>11/12</td><td class="hl">145</td><td>2:22</td><td>3</td><td>2</td><td>1</td><td>1</td><td style="text-align:left; padding-left:5px;">Slow down the turn before Mission 6</td></tr>
+    <tr><th>Run</th><th>Date</th><th>Total<br>points</th><th>Time<br>used</th><th>&#10003;<br>Done</th><th>&frac12;<br>Partial</th><th>&#10007;<br>Failed</th><th>Tokens<br>left</th><th style="width:2.4in;">The change we made after this run</th></tr>
+    <tr class="ex"><td class="r">eg</td><td>11/12</td><td class="hl">145</td><td>2:22</td><td>3</td><td>2</td><td>1</td><td>5</td><td style="text-align:left; padding-left:5px;">Slow down the turn before Mission 6</td></tr>
     <tr><td class="r">1</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     <tr><td class="r">2</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     <tr><td class="r">3</td><td></td><td class="hl"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -397,8 +403,8 @@
   <table class="tally">
     <tr><th class="l" style="width:1.8in;">Mission</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th style="width:0.5in;">&#10003;<br>count</th><th style="width:0.5in;">&#10007;<br>count</th></tr>
     <tr><td class="m"><span>1 &middot; Mission 9</span><b>Research Platform</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
-    <tr><td class="m"><span>2 &middot; Mission 2</span><b>Drone Survey</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
-    <tr><td class="m"><span>3 &middot; Mission ___</span><b>Exploding Seeds</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
+    <tr><td class="m"><span>2 &middot; Mission 1</span><b>Drone Survey</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
+    <tr><td class="m"><span>3 &middot; Mission 2</span><b>Exploding Seeds</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
     <tr><td class="m"><span>4 &middot; Mission 15</span><b>Biocentric Architecture</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
     <tr><td class="m"><span>5 &middot; Mission 6</span><b>Leafcutter Frenzy</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
     <tr><td class="m"><span>6 &middot; Mission 11</span><b>Window to the Past</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c"></td><td class="c"></td></tr>
@@ -418,7 +424,7 @@
   </div>
   <div class="inline">Average time used: <span class="ln short"></span> <span class="u">of 2:30</span></div>
   <div class="inline">Spare time we could use for another mission (2:30 minus average time used): <span class="ln short"></span></div>
-  <p class="note" style="margin-top:6px;">The time a mission takes is the gap between the timer reading before it and after it. Mission 1 starts at 2:30.</p>
+  <p class="note" style="margin-top:6px;">The time a mission takes is the gap between the timer reading before it and after it. The first mission (Research Platform) starts at 2:30.</p>
 
   <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 4 of 4</span></div>
 </section>
