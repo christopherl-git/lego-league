@@ -107,7 +107,8 @@
   .sc.tot { flex: 0 0 0.95in; background: var(--cream); }
   .sc.tot .bx { height: 0.26in; border-bottom: 1.5px solid var(--ink); margin: 0 8px; }
 
-  .lines { --lh: 0.32in; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--lh) - 1px), var(--rule) calc(var(--lh) - 1px), var(--rule) var(--lh)); }
+  .lines { --lh: 0.32in; }
+  .lines i { display: block; height: var(--lh); border-bottom: 1px solid var(--rule); box-sizing: border-box; }
   .l1 { height: calc(var(--lh) * 1); } .l2 { height: calc(var(--lh) * 2); } .l3 { height: calc(var(--lh) * 3); }
   .q { font-weight: 700; font-size: 9.5pt; margin-top: 6px; }
   .q .pen { color: var(--leaf); font-size: 10.5pt; margin-right: 2px; }
@@ -179,14 +180,14 @@
   <table class="check">
     <tr><th>Score it on ...</th><th><span class="pill">1</span> No</th><th><span class="pill">3</span> Some</th><th><span class="pill">5</span> Yes!</th></tr>
     <tr><td class="crit">Carrying capacity<span>Could it carry water, or a camera and sensors?</span></td><td>No room and no power to lift anything.</td><td>Could carry something light, like a small cup of water.</td><td>Has room and power to carry a real load.</td></tr>
-    <tr><td class="crit">Speed<span>Could it get to a fire quickly?</span></td><td>Slow, or it can't fly.</td><td>About as fast as a toy plane or drone.</td><td>Very fast. Built for speed.</td></tr>
-    <tr><td class="crit">Distance<span>Could it cover a big area of rainforest?</span></td><td>Short flights close to us.</td><td>Could fly across a field.</td><td>Could fly far and stay up a long time.</td></tr>
+    <tr><td class="crit">Speed<span>Could it get to a fire quickly?</span></td><td>Slower than a bike (under 30 km/h), or it mostly hovers.</td><td>About as fast as a car on the highway (100 km/h).</td><td>Faster than a race car (200 km/h or more).</td></tr>
+    <tr><td class="crit">Distance<span>Could it cover a big area of rainforest?</span></td><td>A few km and back, about 20 minutes in the air.</td><td>Tens of km, about an hour in the air.</td><td>Hundreds of km, many hours in the air.</td></tr>
     <tr><td class="crit">Can we build it?<span>With our printer, time and help</span></td><td>Too hard, too big or too costly for us.</td><td>We can print it, but need help with motors and electronics.</td><td>We can print it and put it together ourselves.</td></tr>
   </table>
   <p class="note" style="margin-top:5px;">Use 2 and 4 for in between. The highest total is 20.</p>
 
-  <div class="tips" style="margin-top:8px;"><h3>Display models count too</h3><ul>
-    <li>Some of these are <b>models that don't fly</b>. Score the <b>design</b>: if we added a motor and battery, would this shape be good at carrying, speed and distance?</li>
+  <div class="tips" style="margin-top:8px;"><h3>Score the real, full-size drone</h3><ul>
+    <li>Score <b>speed</b> and <b>distance</b> as if it were the <b>real, working, full-size drone</b>, not the printed model or a small prototype. For models that don't fly, imagine the design built full size and working.</li>
     <li>Then score <b>Can we build it?</b> honestly, including the parts we would have to add.</li>
   </ul>
   <div class="legend"><span class="badge fly">FLIES</span> really flies &nbsp; <span class="badge model">DISPLAY MODEL</span> doesn't fly as printed &nbsp; <span class="badge addon">ADD-ON</span> rides on another drone</div></div>
@@ -217,7 +218,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="entry"><div class="entry-head"><span class="num">2</span><span class="t">WingJet (phone-controlled plane)</span><span class="badge fly">FLIES</span></div>
   <div class="entry-body">
@@ -240,7 +241,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 2 of 8</span></div>
 </section>
@@ -269,7 +270,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="entry"><div class="entry-head"><span class="num">4</span><span class="t">Delta-wing drone model <span style="font-weight:400;font-size:9pt;">(listed as &ldquo;Iranian kamikaze drone&rdquo;)</span></span><span class="badge model">DISPLAY MODEL</span></div>
   <div class="entry-body">
@@ -292,7 +293,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 3 of 8</span></div>
 </section>
@@ -321,7 +322,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="entry"><div class="entry-head"><span class="num">6</span><span class="t">NRO4 Nano Rocket FPV drone</span><span class="badge fly">FLIES</span></div>
   <div class="entry-body">
@@ -344,7 +345,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 4 of 8</span></div>
 </section>
@@ -373,7 +374,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="entry"><div class="entry-head"><span class="num">8</span><span class="t">Immersive FPV Accessories (drop pod)</span><span class="badge addon">ADD-ON</span></div>
   <div class="entry-body">
@@ -396,7 +397,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 5 of 8</span></div>
 </section>
@@ -425,7 +426,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="entry"><div class="entry-head"><span class="num">10</span><span class="t">Stinger Drone model kit</span><span class="badge model">DISPLAY MODEL</span></div>
   <div class="entry-body">
@@ -448,7 +449,7 @@
     </div>
     <div class="job"><b>Best job for this design:</b><span>&#9744; Scout drone <i>(light, fast, finds hot spots)</i></span><span>&#9744; Water drone <i>(big, carries water)</i></span><span>&#9744; Neither</span></div>
     <div class="q"><span class="pen">&#9998;</span> What would we modify for our project? <span class="hint">(to carry water, map the grass, fly farther ...)</span></div>
-    <div class="lines l3"></div>
+    <div class="lines l3"><i></i><i></i><i></i></div>
   </div></div>
   <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 6 of 8</span></div>
 </section>
@@ -464,9 +465,9 @@
     <tr><td class="idea">1. FP-5 Flamingo (1:35 scale)</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">2. WingJet (phone-controlled plane)</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">3. World's Fastest Sub-250 g FPV Quad</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">4. Delta-wing drone model</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">5. Javelin X140 FPV Carrier Aircraft</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">6. NRO4 Nano Rocket FPV drone</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">7. Swift Falcon glider</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">8. Immersive FPV Accessories (drop pod)</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">9. DJI Neo model</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr><tr><td class="idea">10. Stinger Drone model kit</td><td class="box"></td><td class="box"></td><td class="box"></td><td class="box"></td><td class="tot"></td><td class="box jb">S &nbsp; W</td></tr>
   </table>
   <div class="q" style="margin-top:10px;"><span class="pen">&#9998;</span> My best <b>scout drone</b> is number ____ because ... <span class="hint">(look at its speed and distance)</span></div>
-  <div class="lines l2"></div>
+  <div class="lines l2"><i></i><i></i></div>
   <div class="q"><span class="pen">&#9998;</span> My best <b>water drone</b> is number ____ because ... <span class="hint">(look at its carrying capacity and distance)</span></div>
-  <div class="lines l2"></div>
+  <div class="lines l2"><i></i><i></i></div>
   <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 7 of 8</span></div>
 </section>
 
@@ -483,11 +484,11 @@
   <div class="entry-body">
     <div class="inline">&#128269; Scout drone: <span class="ln"></span> &nbsp; &#128167; Water drone: <span class="ln"></span></div>
     <div class="q"><span class="pen">&#9998;</span> We picked them because ... <span class="hint">(scout: speed, distance; water drone: carrying, distance; can we build them?)</span></div>
-    <div class="lines l2"></div>
+    <div class="lines l2"><i></i><i></i></div>
     <div class="q"><span class="pen">&#9998;</span> How will they work together? Where will we launch them from, and can they fly far enough? <span class="hint">(Bob's question)</span></div>
-    <div class="lines l2"></div>
+    <div class="lines l2"><i></i><i></i></div>
     <div class="q"><span class="pen">&#9998;</span> Parts we need to buy or borrow, and who will find them:</div>
-    <div class="lines l2"></div>
+    <div class="lines l2"><i></i><i></i></div>
   </div></div>
   <div class="foot"><span>Team 69255 &middot; Look it's a Giraffe! &middot; FIRST LEGO League, CANOPY season</span><span>Page 8 of 8</span></div>
 </section>
