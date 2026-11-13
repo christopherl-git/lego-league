@@ -260,12 +260,12 @@
     <tr><th>#</th><th>Mission</th><th>How it scores (rule book)</th><th style="text-align:center;">Max</th></tr>
     <tr><td class="n">1</td><td><b>Mission 9: Research Platform</b></td><td style="font-size:9pt;">Platform raised 10 &middot; camera trap deployed 10 &middot; seed no longer touching the tree 10</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">30</td></tr>
     <tr><td class="n">2</td><td><b>Mission 1: Drone Survey</b></td><td style="font-size:9pt;">Drone no longer touching the mat 20 &middot; <i>bonus:</i> LiDAR map completely flipped, scan marker partly in the survey area +10</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">30</td></tr>
-    <tr><td class="n">3</td><td><b>Mission 2: Exploding Seeds</b></td><td style="font-size:9pt;">10 for each seed no longer touching the stalk</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">10 each</td></tr>
+    <tr><td class="n">3</td><td><b>Mission 2: Exploding Seeds</b></td><td style="font-size:9pt;">10 for each seed no longer touching the stalk (3 seeds)</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">30</td></tr>
     <tr><td class="n">4</td><td><b>Mission 15: Biocentric Architecture</b> <span class="note">(city dock: garden skylight and nesting canopy)</span></td><td style="font-size:9pt;">Nesting canopy raised 10 &middot; garden skylight completely in 10 &middot; <i>city dock bonus</i> (skylight) +10</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">30</td></tr>
-    <tr><td class="n">5</td><td><b>Mission 6: Leafcutter Frenzy</b></td><td style="font-size:9pt;">Ant touching the nest: 10 for each leaf fragment inside the nest</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">10 each</td></tr>
-    <tr><td class="n">6</td><td><b>Mission 11: Window to the Past</b></td><td style="font-size:9pt;">Root cover down, touching the mat 20</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">20</td></tr>
+    <tr><td class="n">5</td><td><b>Mission 6: Leafcutter Frenzy</b></td><td style="font-size:9pt;">Ant touching the nest: 10 for each leaf fragment inside the nest (4 fragments)</td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">40</td></tr>
+    <tr><td class="n">6</td><td><b>Mission 11: Window to the Past</b></td><td style="font-size:9pt;">Root cover down, touching the mat 20 <span class="note">(its seed scores nothing here, only if moved to Mission 14)</span></td><td style="text-align:center; font-weight:800; color:var(--leaf); white-space:nowrap;">20</td></tr>
   </table>
-  <p class="note" style="margin-top:3px;"><b>Done</b> = the max for that mission. For Seeds and Leafcutter, count the seeds and leaf fragments on the models and write the max here: Seeds ______ &nbsp; Leafcutter ______</p>
+  <p class="note" style="margin-top:3px;"><b>Done</b> = the max for that mission. All six done = <b>180</b> mission points, plus 20 inspection and 50 tokens = <b>250</b> total.</p>
   <div class="key" style="margin-top:5px;"><div><b style="font-size:10pt;color:var(--brown);">Equipment inspection: 20</b><br>Robot and all attachments fit in one launch area, under 12 in. tall.</div><div style="flex:1.6;"><b style="font-size:10pt;color:var(--brown);">Precision tokens: start with 6</b><br>Lose 1 each time we touch the robot outside home. Tokens left &rarr; points: 6 or 5 = 50, 4 = 35, 3 = 25, 2 = 15, 1 = 10, 0 = 0</div></div>
 
   <h2 style="margin-top:8px;">Jobs for each run</h2>
@@ -313,26 +313,26 @@
     <tr><td class="ord">2</td><td class="mis"><span class="mn">Mission 1</span><span class="mt">Drone Survey</span><span class="ms">Drone off mat 20 &middot; bonus: LiDAR map flipped +10</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
       <td class="pts">of 30</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
-    <tr><td class="ord">3</td><td class="mis"><span class="mn">Mission 2</span><span class="mt">Exploding Seeds</span><span class="ms">10 for each seed off the stalk</span></td>
+    <tr><td class="ord">3</td><td class="mis"><span class="mn">Mission 2</span><span class="mt">Exploding Seeds</span><span class="ms">10 per seed off the stalk (3 seeds)</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
-      <td class="pts">of ___</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+      <td class="pts">of 30</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
     <tr><td class="ord">4</td><td class="mis"><span class="mn">Mission 15</span><span class="mt">Biocentric Architecture</span><span class="ms">Canopy up 10 &middot; skylight in 10 &middot; city bonus +10</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
       <td class="pts">of 30</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
-    <tr><td class="ord">5</td><td class="mis"><span class="mn">Mission 6</span><span class="mt">Leafcutter Frenzy</span><span class="ms">Ant at nest: 10 per leaf fragment</span></td>
+    <tr><td class="ord">5</td><td class="mis"><span class="mn">Mission 6</span><span class="mt">Leafcutter Frenzy</span><span class="ms">Ant at nest: 10 per leaf fragment (4)</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
-      <td class="pts">of ___</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
-    <tr><td class="ord">6</td><td class="mis"><span class="mn">Mission 11</span><span class="mt">Window to the Past</span><span class="ms">Root cover down 20</span></td>
+      <td class="pts">of 40</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
+    <tr><td class="ord">6</td><td class="mis"><span class="mn">Mission 11</span><span class="mt">Window to the Past</span><span class="ms">Root cover down 20 (its seed: 0 pts here)</span></td>
       <td class="res"><span class="cb sm"></span>&#10003; Done<br><span class="cb sm"></span>&frac12; Partial<br><span class="cb sm"></span>&#10007; Failed</td>
       <td class="pts">of 20</td><td class="tm">m : ss left</td><td class="notes"></td></tr>
   </table>
 
   <div class="totals">
-    <div class="tbox"><div class="tl">Mission points</div><div class="tv">add 1-6</div></div>
+    <div class="tbox"><div class="tl">Mission points</div><div class="tv">of 180</div></div>
     <div class="tbox"><div class="tl">+ Inspection</div><div class="tv">0 or 20</div></div>
     <div class="tbox"><div class="tl">Tokens left</div><div class="tv">of 6</div></div>
     <div class="tbox"><div class="tl">+ Token points</div><div class="tv">max 50</div></div>
-    <div class="tbox big"><div class="tl">= Total points</div><div class="tv">pts</div></div>
+    <div class="tbox big"><div class="tl">= Total points</div><div class="tv">of 250</div></div>
   </div>
   <div class="totals" style="margin-top:6px;">
     <div class="tbox"><div class="tl">Total time used</div><div class="tv">m : ss</div></div>
